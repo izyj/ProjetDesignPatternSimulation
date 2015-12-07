@@ -1,2 +1,2 @@
 # ProjetDesignPatternSimulation
-Ce logiciel simule trois jeux différent, il met en valeur les patterns
+Ce logiciel simule trois jeux différent, il met en valeur les patterns de développement.
