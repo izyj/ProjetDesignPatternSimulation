@@ -1,11 +1,11 @@
 package modele;
 
-abstract class Personnage {
+abstract class ShapePersonnage {
 
 	int vie;
 	int force;
-	
-	
+
+
 	public int getVie() {
 		return vie;
 	}
