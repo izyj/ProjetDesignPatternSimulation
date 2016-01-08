@@ -32,6 +32,22 @@ public class MainView {
 	public JFrame frmPatternogame;
 
 	/**
+	 * Main de test pour la vue.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainView window = new MainView();
+					window.frmPatternogame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
 	 * Initialisation de la vue
 	 */
 	public MainView() {
