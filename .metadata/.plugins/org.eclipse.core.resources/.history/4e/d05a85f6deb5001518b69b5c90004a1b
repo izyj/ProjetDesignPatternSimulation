@@ -53,7 +53,7 @@ public class MainView {
 	private void initialize() {
 		frmPatternogame = new JFrame();
 		frmPatternogame.setTitle("Pattern'O'Game");
-		frmPatternogame.setBounds(100, 100, 1008, 633);
+		frmPatternogame.setBounds(100, 100, 800, 600);
 		frmPatternogame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		/**
@@ -90,26 +90,44 @@ public class MainView {
 		 * Pannel de la bannière
 		 */
 		JPanel panel_banniere = new JPanel();
-		panel_banniere.setBackground(Color.DARK_GRAY);
+		panel_banniere.setBackground(SystemColor.menu);
 		frmPatternogame.getContentPane().add(panel_banniere, BorderLayout.NORTH);
 		
 		JLabel lblPatternogame = new JLabel("Pattern'O'Game");
-		lblPatternogame.setForeground(SystemColor.window);
-		lblPatternogame.setFont(new Font("Vijaya", Font.BOLD, 40));
+		lblPatternogame.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		panel_banniere.add(lblPatternogame);
 		
 		/**
 		 * Pannel du menu
 		 */
 		JPanel panel_menu = new JPanel();
-		panel_menu.setBackground(Color.DARK_GRAY);
+		panel_menu.setBackground(Color.ORANGE);
 		frmPatternogame.getContentPane().add(panel_menu, BorderLayout.CENTER);
+		GridBagLayout gbl_panel_menu = new GridBagLayout();
+		gbl_panel_menu.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel_menu.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel_menu.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_menu.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel_menu.setLayout(gbl_panel_menu);
 		
 		/**
 		 * Simulation Labyrinthe
 		 */
+		
+		/**
+		 * Simulation Deplacement
+		 */
+		
+		/**
+		 * Simulation Tower Defence
+		 */
+		JButton btnTowerDefence = new JButton("Tower Defence");
+		btnTowerDefence.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		JButton btnLabyrinthe = new JButton("");
-		btnLabyrinthe.setBackground(Color.DARK_GRAY);
 		btnLabyrinthe.setIcon(new ImageIcon(MainView.class.getResource("/images/laby.png")));
 		btnLabyrinthe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -117,16 +135,11 @@ public class MainView {
 			}
 		});
 		GridBagConstraints gbc_btnLabyrinthe = new GridBagConstraints();
-		gbc_btnLabyrinthe.insets = new Insets(0, 0, 0, 5);
+		gbc_btnLabyrinthe.insets = new Insets(0, 0, 5, 5);
 		gbc_btnLabyrinthe.gridx = 5;
-		gbc_btnLabyrinthe.gridy = 7;
+		gbc_btnLabyrinthe.gridy = 8;
 		panel_menu.add(btnLabyrinthe, gbc_btnLabyrinthe);
-		
-		/**
-		 * Simulation Deplacement
-		 */
 		JButton btnDeplacement = new JButton("");
-		btnDeplacement.setBackground(Color.DARK_GRAY);
 		btnDeplacement.setIcon(new ImageIcon(MainView.class.getResource("/images/deplacement.png")));
 		btnDeplacement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -134,25 +147,13 @@ public class MainView {
 			}
 		});
 		GridBagConstraints gbc_btnDeplacement = new GridBagConstraints();
-		gbc_btnDeplacement.insets = new Insets(0, 0, 0, 5);
-		gbc_btnDeplacement.gridx = 10;
-		gbc_btnDeplacement.gridy = 7;
+		gbc_btnDeplacement.insets = new Insets(0, 0, 5, 5);
+		gbc_btnDeplacement.gridx = 6;
+		gbc_btnDeplacement.gridy = 8;
 		panel_menu.add(btnDeplacement, gbc_btnDeplacement);
-		
-		/**
-		 * Simulation Tower Defence
-		 */
-		JButton btnTowerDefence = new JButton("");
-		btnTowerDefence.setBackground(Color.DARK_GRAY);
-		btnTowerDefence.setIcon(new ImageIcon(MainView.class.getResource("/images/tower.png")));
-		btnTowerDefence.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
 		GridBagConstraints gbc_btnTowerDefence = new GridBagConstraints();
 		gbc_btnTowerDefence.gridx = 15;
-		gbc_btnTowerDefence.gridy = 7;
+		gbc_btnTowerDefence.gridy = 9;
 		panel_menu.add(btnTowerDefence, gbc_btnTowerDefence);
 	}
 

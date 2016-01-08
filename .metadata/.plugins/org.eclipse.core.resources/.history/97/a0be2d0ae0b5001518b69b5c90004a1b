@@ -53,7 +53,7 @@ public class MainView {
 	private void initialize() {
 		frmPatternogame = new JFrame();
 		frmPatternogame.setTitle("Pattern'O'Game");
-		frmPatternogame.setBounds(100, 100, 1008, 633);
+		frmPatternogame.setBounds(100, 100, 1008, 619);
 		frmPatternogame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		/**
@@ -90,26 +90,25 @@ public class MainView {
 		 * Pannel de la bannière
 		 */
 		JPanel panel_banniere = new JPanel();
-		panel_banniere.setBackground(Color.DARK_GRAY);
+		panel_banniere.setBackground(SystemColor.control);
 		frmPatternogame.getContentPane().add(panel_banniere, BorderLayout.NORTH);
 		
 		JLabel lblPatternogame = new JLabel("Pattern'O'Game");
-		lblPatternogame.setForeground(SystemColor.window);
-		lblPatternogame.setFont(new Font("Vijaya", Font.BOLD, 40));
+		lblPatternogame.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		panel_banniere.add(lblPatternogame);
 		
 		/**
 		 * Pannel du menu
 		 */
 		JPanel panel_menu = new JPanel();
-		panel_menu.setBackground(Color.DARK_GRAY);
+		panel_menu.setBackground(SystemColor.control);
 		frmPatternogame.getContentPane().add(panel_menu, BorderLayout.CENTER);
 		
 		/**
 		 * Simulation Labyrinthe
 		 */
 		JButton btnLabyrinthe = new JButton("");
-		btnLabyrinthe.setBackground(Color.DARK_GRAY);
+		btnLabyrinthe.setBackground(SystemColor.control);
 		btnLabyrinthe.setIcon(new ImageIcon(MainView.class.getResource("/images/laby.png")));
 		btnLabyrinthe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -126,7 +125,7 @@ public class MainView {
 		 * Simulation Deplacement
 		 */
 		JButton btnDeplacement = new JButton("");
-		btnDeplacement.setBackground(Color.DARK_GRAY);
+		btnDeplacement.setBackground(SystemColor.control);
 		btnDeplacement.setIcon(new ImageIcon(MainView.class.getResource("/images/deplacement.png")));
 		btnDeplacement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -143,7 +142,7 @@ public class MainView {
 		 * Simulation Tower Defence
 		 */
 		JButton btnTowerDefence = new JButton("");
-		btnTowerDefence.setBackground(Color.DARK_GRAY);
+		btnTowerDefence.setBackground(SystemColor.control);
 		btnTowerDefence.setIcon(new ImageIcon(MainView.class.getResource("/images/tower.png")));
 		btnTowerDefence.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

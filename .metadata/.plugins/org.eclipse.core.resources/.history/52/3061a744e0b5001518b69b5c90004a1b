@@ -53,7 +53,7 @@ public class MainView {
 	private void initialize() {
 		frmPatternogame = new JFrame();
 		frmPatternogame.setTitle("Pattern'O'Game");
-		frmPatternogame.setBounds(100, 100, 1008, 633);
+		frmPatternogame.setBounds(100, 100, 1008, 619);
 		frmPatternogame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		/**
@@ -95,7 +95,7 @@ public class MainView {
 		
 		JLabel lblPatternogame = new JLabel("Pattern'O'Game");
 		lblPatternogame.setForeground(SystemColor.window);
-		lblPatternogame.setFont(new Font("Vijaya", Font.BOLD, 40));
+		lblPatternogame.setFont(new Font("Tahoma", Font.BOLD, 26));
 		panel_banniere.add(lblPatternogame);
 		
 		/**

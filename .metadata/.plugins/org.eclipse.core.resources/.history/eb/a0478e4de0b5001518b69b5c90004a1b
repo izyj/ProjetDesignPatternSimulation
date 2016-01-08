@@ -53,7 +53,7 @@ public class MainView {
 	private void initialize() {
 		frmPatternogame = new JFrame();
 		frmPatternogame.setTitle("Pattern'O'Game");
-		frmPatternogame.setBounds(100, 100, 1008, 633);
+		frmPatternogame.setBounds(100, 100, 1008, 619);
 		frmPatternogame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		/**
