@@ -9,10 +9,6 @@ import javax.swing.border.EmptyBorder;
 
 public class TowerDefenceView extends JFrame {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1456810584022568402L;
 	private JPanel contentPane;
 
 	/**
