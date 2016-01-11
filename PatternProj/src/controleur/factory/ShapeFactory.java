@@ -23,10 +23,8 @@ public class ShapeFactory {
 
 		if(shapeType.equalsIgnoreCase(Keys.Shape_Guerrier)){
 	        return new Guerrier();
-
 	     } else if(shapeType.equalsIgnoreCase(Keys.Shape_Voiture)){
 	        return new Voiture();
-
 	     }
 
 	     return null;
