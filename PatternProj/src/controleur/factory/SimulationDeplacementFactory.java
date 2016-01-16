@@ -5,9 +5,9 @@ import modele.Voiture;
 import modele.Iinterface.IPersonnage;
 import modele.Keys.EnumTypePersonnage;
 
-public class SimulationFactory {
+public class SimulationDeplacementFactory {
 
-	public SimulationFactory() {
+	public SimulationDeplacementFactory() {
 
 
 
@@ -23,8 +23,6 @@ public class SimulationFactory {
 
 		if(personnage.equals(EnumTypePersonnage.Guerrier)){
 	        return new Guerrier();
-	     } else if(personnage.equals(EnumTypePersonnage.Voiture)){
-	        return new Voiture();
 	     }else if(personnage.equals(EnumTypePersonnage.Monstre)){
 		        return new Voiture();
 		     }
@@ -32,7 +30,7 @@ public class SimulationFactory {
 	     return null;
 	}
 
-	
+
 
 
 }
