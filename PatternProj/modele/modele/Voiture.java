@@ -22,13 +22,13 @@ public class Voiture extends Personne implements IPersonnage{
 	}
 
 	@Override
-	public int getForce() {
+	public int getAttaque() {
 
 		return this.attaque;
 	}
 
 	@Override
-	public void setForce(int force) {
+	public void setAttaque(int force) {
 		this.attaque = force;
 
 	}
