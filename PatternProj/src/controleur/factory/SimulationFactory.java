@@ -5,28 +5,34 @@ import modele.Voiture;
 import modele.Iinterface.IPersonnage;
 import modele.Keys.EnumTypePersonnage;
 
-public class PersonnageFactory {
+public class SimulationFactory {
 
-	public PersonnageFactory() {
+	public SimulationFactory() {
 
 
 
 
 	}
 	/**
-	 * Methode permettant de récuperer un objet de type Shape(Apparence)
-	 * @param shapeType
-	 * @return Shape
+	 * Methode permettant de récuperer un objet de type Personnage(Apparence)
+	 * @param EnumTypePersonnage
+	 * @return IPersonnage
 	 */
-	public IPersonnage getShape(EnumTypePersonnage personnage){
+	public IPersonnage getPersonnage(EnumTypePersonnage personnage){
 
 
 		if(personnage.equals(EnumTypePersonnage.Guerrier)){
 	        return new Guerrier();
 	     } else if(personnage.equals(EnumTypePersonnage.Voiture)){
 	        return new Voiture();
-	     }
+	     }else if(personnage.equals(EnumTypePersonnage.Monstre)){
+		        return new Voiture();
+		     }
 
 	     return null;
 	}
+
+	
+
+
 }

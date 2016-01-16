@@ -1,11 +1,12 @@
 package modele.Keys;
 
-public class Keys {
+public enum EnumTypePersonnage {
 /**
- * Classe de reference de mot clef
+ * Enumération reference de mot clef
  */
-	static public String Shape_Guerrier = "Guerrier";
-	static public String Shape_Voiture = "Voiture";
+	Guerrier,
+	Voiture,
+	Monstre;
 
 
 }

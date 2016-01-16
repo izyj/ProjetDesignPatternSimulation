@@ -1,6 +1,8 @@
 package modele;
 
-public class Voiture implements Shape{
+import modele.Iinterface.IPersonnage;
+
+public class Voiture extends Personne implements IPersonnage{
 
 	public Voiture() {
 
@@ -8,26 +10,56 @@ public class Voiture implements Shape{
 
 	@Override
 	public int getVie() {
-		// TODO Auto-generated method stub
-		return 0;
+
+		return this.vie;
 	}
 
 	@Override
 	public void setVie(int vie) {
-		// TODO Auto-generated method stub
+
+		this.vie = vie;
 
 	}
 
 	@Override
 	public int getForce() {
-		// TODO Auto-generated method stub
-		return 0;
+
+		return this.attaque;
 	}
 
 	@Override
 	public void setForce(int force) {
+		this.attaque = force;
+
+	}
+
+	@Override
+	public String getEtat() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setEtat(String etat) {
 		// TODO Auto-generated method stub
 
 	}
 
+	@Override
+	public Zone getPosition() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void AnalyseSituation() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void Execution() {
+		// TODO Auto-generated method stub
+
+	}
 }
