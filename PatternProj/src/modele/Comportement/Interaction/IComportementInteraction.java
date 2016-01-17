@@ -1,6 +1,6 @@
 package modele.Comportement.Interaction;
 
-public abstract class ComportementInteractionAbstract {
+public interface  IComportementInteraction {
 	
 	
 	public abstract String CollectObject();

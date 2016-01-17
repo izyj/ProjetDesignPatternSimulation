@@ -1,8 +1,7 @@
 package modele.Comportement.Combat;
 
-public class ComportementAvecPistolet extends ComportementCombatAbstract {
+public class ComportementAvecPistolet implements IComportementCombat {
 
-	@Override
 	public String Attaquer() {
 		
 		return "Je combat avec un Pistolet !";

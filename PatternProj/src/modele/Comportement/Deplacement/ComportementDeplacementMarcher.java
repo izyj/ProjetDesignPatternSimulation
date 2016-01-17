@@ -1,6 +1,6 @@
 package modele.Comportement.Deplacement;
 
-public class ComportementDeplacementMarcher  extends ComportementDeplacementAbstract{
+public class ComportementDeplacementMarcher  implements IComportementDeplacement{
 
 	@Override
 	public String deplacer() {

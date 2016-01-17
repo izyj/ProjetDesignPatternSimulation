@@ -1,6 +1,6 @@
 package modele.Comportement.Combat;
 
-public class ComportementAvecCouteau  extends ComportementCombatAbstract{
+public class ComportementAvecCouteau  implements IComportementCombat {
 
 	@Override
 	public String Attaquer() {

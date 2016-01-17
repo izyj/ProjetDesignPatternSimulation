@@ -2,12 +2,13 @@ package modele.Zone;
 
 import java.util.List;
 
+import modele.Personne;
 import modele.ObjectItem.ObjectItemAbstract;
-import modele.Personage.PersonageAbstract;
+
 
 public class Carre extends Zone
 {
-	public Carre(int x, int y, int z, List<Zone> liens, List<PersonageAbstract> personages,
+	public Carre(int x, int y, int z, List<Zone> liens, List<Personne> personages,
 			List<ObjectItemAbstract> objects) {
 		super(x, y, z, liens, personages, objects);
 		// TODO Auto-generated constructor stub

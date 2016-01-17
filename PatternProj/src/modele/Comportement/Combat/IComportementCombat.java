@@ -1,6 +1,6 @@
 package modele.Comportement.Combat;
 
-public abstract class ComportementCombatAbstract {
+public interface IComportementCombat {
 	
 	public abstract String Attaquer();
 

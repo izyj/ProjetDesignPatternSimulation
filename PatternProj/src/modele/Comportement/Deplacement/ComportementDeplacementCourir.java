@@ -1,6 +1,6 @@
 package modele.Comportement.Deplacement;
 
-public class ComportementDeplacementCourir extends ComportementDeplacementAbstract {
+public class ComportementDeplacementCourir implements IComportementDeplacement {
 
 	@Override
 	public String deplacer() {

@@ -2,14 +2,14 @@ package modele.Zone;
 
 import java.util.List;
 
+import modele.Personne;
 import modele.ObjectItem.ObjectItemAbstract;
-import modele.Personage.PersonageAbstract;
 
 public abstract class Zone
 {
     public int X, Y, Z;
     public List<Zone> liens;
-    public List<PersonageAbstract> personages;
+    public List<Personne> personages;
     public List<ObjectItemAbstract> objects;
 
     public abstract void ajouterlien(Zone zoneCible);
@@ -19,7 +19,7 @@ public abstract class Zone
    
 
    
-	public Zone(int x, int y, int z, List<Zone> liens, List<PersonageAbstract> personages,
+	public Zone(int x, int y, int z, List<Zone> liens, List<Personne> personages,
 			List<ObjectItemAbstract> objects) {
 		super();
 		X = x;
