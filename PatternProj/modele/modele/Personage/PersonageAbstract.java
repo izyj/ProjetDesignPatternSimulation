@@ -6,7 +6,7 @@ import modele.Comportement.Combat.ComportementCombatAbstract;
 import modele.Comportement.Deplacement.ComportementDeplacementAbstract;
 import modele.Comportement.Interaction.ComportementInteractionAbstract;
 import modele.ObjectItem.ObjectItemAbstract;
-import modele.Zone.Zone;
+import modele.map.Zone;
 
 public class PersonageAbstract {
 	

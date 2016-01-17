@@ -1,6 +1,7 @@
 package modele;
 
 import modele.Iinterface.IPersonnage;
+import modele.map.Zone;
 
 public class Monstre extends Personne implements IPersonnage {
 

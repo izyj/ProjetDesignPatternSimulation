@@ -1,6 +1,6 @@
 package modele.Iinterface;
 
-import modele.Zone;
+import modele.map.Zone;
 
 public interface IPersonnage {
 

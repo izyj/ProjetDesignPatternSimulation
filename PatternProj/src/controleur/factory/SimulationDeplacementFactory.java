@@ -1,7 +1,7 @@
 package controleur.factory;
 
 import modele.Guerrier;
-import modele.Voiture;
+import modele.Monstre;
 import modele.Iinterface.IPersonnage;
 import modele.Keys.EnumTypePersonnage;
 
@@ -23,9 +23,9 @@ public class SimulationDeplacementFactory {
 
 		if(personnage.equals(EnumTypePersonnage.Guerrier)){
 	        return new Guerrier();
-	     }else if(personnage.equals(EnumTypePersonnage.Monstre)){
-		        return new Voiture();
-		     }
+	    }else if(personnage.equals(EnumTypePersonnage.Monstre)){
+		        return new Monstre();
+		 }
 
 	     return null;
 	}

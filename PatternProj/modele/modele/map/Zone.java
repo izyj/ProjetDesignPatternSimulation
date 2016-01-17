@@ -1,4 +1,4 @@
-package modele.Zone;
+package modele.map;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 
 package modele.ObjectItem;
 
-import modele.Zone.Zone;
+import modele.map.Zone;
 
 public abstract class ObjectItemAbstract {
 	
