@@ -13,6 +13,8 @@ public class Fusils implements Arme{
 	int portee;
 	String type;
 	int bonus;
+	int dureeVie;
+	int degat;
 	
 	public Fusils(){
 		super();
@@ -24,7 +26,8 @@ public class Fusils implements Arme{
 	}
 
 	public int getDegatsDeBase() {
-		return 3;
+		degat = 3 + (int)(Math.random() * ((6 - 1) + 1));
+		return degat;
 	}
 
 	/**
@@ -52,6 +55,15 @@ public class Fusils implements Arme{
 	public int degatsBonusAttaqueMaxPortee(){
 		bonus = 2;
 		return bonus;
+	}
+	
+	/**
+	 * Durée de vie de l'arme
+	 * @return dureeVie
+	 */
+	public int getDureeDeVie(){
+		dureeVie = 7;
+		return dureeVie;
 	}
 	
 }

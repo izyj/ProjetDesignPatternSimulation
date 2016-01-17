@@ -13,8 +13,6 @@ public class Epee implements Arme{
 	int portee;
 	String type;
 	int bonus;
-	int dureeVie;
-	int degat;
 	
 	public Epee(){
 		super();
@@ -26,8 +24,7 @@ public class Epee implements Arme{
 	}
 
 	public int getDegatsDeBase() {
-		degat = 6 + (int)(Math.random() * ((10 - 1) + 1));
-		return degat;
+		return 6;
 	}
 
 	/**
@@ -46,14 +43,5 @@ public class Epee implements Arme{
 	public int getPortee(){
 		portee = 1;
 		return portee;
-	}
-	
-	/**
-	 * Durée de vie de l'arme
-	 * @return dureeVie
-	 */
-	public int getDureeDeVie(){
-		dureeVie = 5;
-		return dureeVie;
 	}
 }

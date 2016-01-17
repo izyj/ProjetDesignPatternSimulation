@@ -7,27 +7,24 @@ import modele.Arme;
  * @author Gaetan
  *
  */
-public class Dague implements Arme{
+public class Epee implements Arme{
 
 	String nom;
 	int portee;
 	String type;
 	int bonus;
-	int dureeVie;
-	int degat;
 	
-	public Dague(){
+	public Epee(){
 		super();
 	}
 	
 	public String getNom() {
-		nom = "Faucheuse d'âme";
+		nom = "Epée Coupe Tout";
 		return nom;
 	}
 
 	public int getDegatsDeBase() {
-		degat = 3 + (int)(Math.random() * ((6 - 1) + 1));
-		return degat;
+		return 6;
 	}
 
 	/**
@@ -40,21 +37,12 @@ public class Dague implements Arme{
 	}
 	
 	/**
-	 * Fourni la portée de la dague
+	 * Fourni la portée de l'épée
 	 * @return portee
 	 */
 	public int getPortee(){
 		portee = 1;
 		return portee;
-	}
-	
-	/**
-	 * Gagne 1Pdv par coups de dague
-	 * @return bonus
-	 */
-	public int getBonusVolDeVie(){
-		bonus = 1;
-		return bonus;
 	}
 	
 	/**

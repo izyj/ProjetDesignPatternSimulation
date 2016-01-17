@@ -13,8 +13,6 @@ public class Dague implements Arme{
 	int portee;
 	String type;
 	int bonus;
-	int dureeVie;
-	int degat;
 	
 	public Dague(){
 		super();
@@ -26,8 +24,7 @@ public class Dague implements Arme{
 	}
 
 	public int getDegatsDeBase() {
-		degat = 3 + (int)(Math.random() * ((6 - 1) + 1));
-		return degat;
+		return 4;
 	}
 
 	/**
@@ -55,14 +52,5 @@ public class Dague implements Arme{
 	public int getBonusVolDeVie(){
 		bonus = 1;
 		return bonus;
-	}
-	
-	/**
-	 * Durée de vie de l'arme
-	 * @return dureeVie
-	 */
-	public int getDureeDeVie(){
-		dureeVie = 5;
-		return dureeVie;
 	}
 }

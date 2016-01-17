@@ -7,27 +7,24 @@ import modele.Arme;
  * @author Gaetan
  *
  */
-public class Dague implements Arme{
+public class Arc implements Arme{
 
 	String nom;
 	int portee;
 	String type;
 	int bonus;
-	int dureeVie;
-	int degat;
 	
-	public Dague(){
+	public Arc(){
 		super();
 	}
 	
 	public String getNom() {
-		nom = "Faucheuse d'âme";
+		nom = "Arc En Ciel";
 		return nom;
 	}
 
 	public int getDegatsDeBase() {
-		degat = 3 + (int)(Math.random() * ((6 - 1) + 1));
-		return degat;
+		return 2;
 	}
 
 	/**
@@ -35,34 +32,26 @@ public class Dague implements Arme{
 	 * @return type
 	 */
 	public String getType() {
-		type = "Arme au CaC";
+		type = "Arme à distance";
 		return type;
 	}
 	
 	/**
-	 * Fourni la portée de la dague
+	 * Fourni la portée de l'arc
 	 * @return portee
 	 */
 	public int getPortee(){
-		portee = 1;
+		portee = 3;
 		return portee;
 	}
 	
 	/**
-	 * Gagne 1Pdv par coups de dague
+	 * Dégats bonus si attaque au max de sa portée de tir
 	 * @return bonus
 	 */
-	public int getBonusVolDeVie(){
-		bonus = 1;
+	public int degatsBonusAttaqueMaxPortee(){
+		bonus = 2;
 		return bonus;
 	}
-	
-	/**
-	 * Durée de vie de l'arme
-	 * @return dureeVie
-	 */
-	public int getDureeDeVie(){
-		dureeVie = 5;
-		return dureeVie;
-	}
+
 }

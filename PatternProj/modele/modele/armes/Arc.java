@@ -13,6 +13,8 @@ public class Arc implements Arme{
 	int portee;
 	String type;
 	int bonus;
+	int dureeVie;
+	int degat;
 	
 	public Arc(){
 		super();
@@ -24,7 +26,8 @@ public class Arc implements Arme{
 	}
 
 	public int getDegatsDeBase() {
-		return 2;
+		degat = 1 + (int)(Math.random() * ((3 - 1) + 1));
+		return degat;
 	}
 
 	/**
@@ -52,6 +55,15 @@ public class Arc implements Arme{
 	public int degatsBonusAttaqueMaxPortee(){
 		bonus = 2;
 		return bonus;
+	}
+	
+	/**
+	 * Durée de vie de l'arme
+	 * @return dureeVie
+	 */
+	public int getDureeDeVie(){
+		dureeVie = 7;
+		return dureeVie;
 	}
 
 }
