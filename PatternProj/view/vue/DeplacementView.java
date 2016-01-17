@@ -7,10 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class DeplacementView extends JFrame {
+import modele.Iinterface.IObservable;
+import modele.Iinterface.IObservateur;
+
+public class DeplacementView extends JFrame implements IObservateur {
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 9070277143989091903L;
 	private JPanel contentPane;
@@ -41,6 +44,12 @@ public class DeplacementView extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+	}
+
+	@Override
+	public void actualiser(IObservable o) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
