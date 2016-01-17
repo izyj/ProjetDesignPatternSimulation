@@ -7,7 +7,7 @@ import modele.ObjectItem.ObjectItemAbstract;
 
 public abstract class Zone
 {
-    public int X, Y, Z;
+    public int X, Y;
     public List<Zone> liens;
     public List<Personne> personages;
     public List<ObjectItemAbstract> objects;
@@ -19,19 +19,18 @@ public abstract class Zone
    
 
    
-	public Zone(int x, int y, int z, List<Zone> liens, List<Personne> personages,
-			List<ObjectItemAbstract> objects) {
+	public Zone(int x, int y) {
 		super();
 		X = x;
 		Y = y;
-		Z = z;
+		
 		this.liens = liens;
 		this.personages = personages;
 		this.objects = objects;
 	}
 	public String Afficher(){
 		
-        return " X : " + X + ", Y : " + Y + ", Z : " + Z;
+        return " X : " + X + ", Y : " + Y ;
     }
 }
 
