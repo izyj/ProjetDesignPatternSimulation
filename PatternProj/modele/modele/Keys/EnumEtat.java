@@ -5,6 +5,7 @@ public enum EnumEtat {
 	Deplacement,
 	Arreter,
 	Dormir,
-	Manger;
+	Manger,
+	Mort;
 
 }
