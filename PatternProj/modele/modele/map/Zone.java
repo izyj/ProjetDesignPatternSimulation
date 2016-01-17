@@ -3,13 +3,13 @@ package modele.map;
 import java.util.List;
 
 import modele.ObjectItem.ObjectItemAbstract;
-import modele.Personage.PersonageAbstract;
+import modele.Personage.Personnage;
 
 public abstract class Zone
 {
     public int X, Y, Z;
     public List<Zone> liens;
-    public List<PersonageAbstract> personages;
+    public List<Personnage> personages;
     public List<ObjectItemAbstract> objects;
 
     public abstract void ajouterlien(Zone zoneCible);
@@ -19,7 +19,7 @@ public abstract class Zone
    
 
    
-	public Zone(int x, int y, int z, List<Zone> liens, List<PersonageAbstract> personages,
+	public Zone(int x, int y, int z, List<Zone> liens, List<Personnage> personages,
 			List<ObjectItemAbstract> objects) {
 		super();
 		X = x;

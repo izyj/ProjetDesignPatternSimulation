@@ -8,24 +8,25 @@ import modele.Comportement.Interaction.ComportementInteractionAbstract;
 import modele.ObjectItem.ObjectItemAbstract;
 import modele.map.Zone;
 
-public class PersonageAbstract {
-	
+public abstract class Personnage {
+
 	// Information sur le personnage
 	private Zone DefaultPosition;
     private String Name;
     protected List<ObjectItemAbstract> Objects;
-    
+    protected int vie;
+    protected int attaque;
     // Comportement du personnage
     private ComportementCombatAbstract ComportementCombat ;
     private ComportementDeplacementAbstract ComportementDeplacement ;
     private ComportementInteractionAbstract  ComportementInteraction ;
-    
+
     // Etat majo du personnage
-    
-    
-    
-    
-    // Getter & Setter 
+
+
+
+
+    // Getter & Setter
 	public Zone getDefaultPosition() {
 		return DefaultPosition;
 	}
@@ -62,6 +63,6 @@ public class PersonageAbstract {
 	public void setComportementInteraction(ComportementInteractionAbstract comportementInteraction) {
 		ComportementInteraction = comportementInteraction;
 	}
-    
-      
+
+
 }

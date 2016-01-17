@@ -1,10 +1,11 @@
 package modele;
 
 import modele.Iinterface.IPersonnage;
+import modele.Personage.Personnage;
 import modele.map.Zone;
 
 
-public class Guerrier extends Personne implements IPersonnage {
+public class Guerrier extends Personnage implements IPersonnage {
 
 	public Guerrier() {
 

@@ -1,9 +1,8 @@
 package modele.map;
 
-import java.util.ArrayList;
+public abstract class Plateau {
 
-public class Plateau {
-	
-	public ArrayList<Carre> 
+
+	public abstract void createPlateau();
 
 }
