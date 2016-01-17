@@ -1,0 +1,57 @@
+package modele.armes;
+
+import modele.Arme;
+
+/**
+ * 
+ * @author Gaetan
+ *
+ */
+public class Arc implements Arme{
+
+	String nom;
+	int portee;
+	String type;
+	int bonus;
+	
+	public Arc(){
+		super();
+	}
+	
+	public String getNom() {
+		nom = "Arc En Ciel";
+		return nom;
+	}
+
+	public int getDegatsDeBase() {
+		return 2;
+	}
+
+	/**
+	 * Fourni le type de l'arme
+	 * @return type
+	 */
+	public String getType() {
+		type = "Arme à distance";
+		return type;
+	}
+	
+	/**
+	 * Fourni la portée de l'arc
+	 * @return portee
+	 */
+	public int getPortee(){
+		portee = 3;
+		return portee;
+	}
+	
+	/**
+	 * Dégats bonus si attaque au max de sa portée de tir
+	 * @return bonus
+	 */
+	public int degatsBonusAttaqueMaxPortee(){
+		bonus = 2;
+		return bonus;
+	}
+
+}
