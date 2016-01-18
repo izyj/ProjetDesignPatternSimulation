@@ -1,10 +1,7 @@
 package controleur.factory;
 
-import modele.Guerrier;
-import modele.Monstre;
-import modele.Keys.EnumPlateauJeu;
+import modele.Personnage;
 import modele.Keys.EnumTypePersonnage;
-import modele.Personage.Personnage;
 import modele.map.Plateau;
 import modele.map.PlateauLabyrinthe;
 

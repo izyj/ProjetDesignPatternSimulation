@@ -2,8 +2,9 @@ package modele.map;
 
 import java.util.List;
 
+import modele.Personnage;
 import modele.ObjectItem.ObjectItemAbstract;
-import modele.Personage.Personnage;
+
 
 public abstract class Zone
 {
@@ -14,11 +15,11 @@ public abstract class Zone
 
     public abstract void ajouterlien(Zone zoneCible);
     public abstract Boolean lienExiste(Zone zoneCible);
-   
-    
-   
 
-   
+
+
+
+
 	public Zone(int x, int y, int z, List<Zone> liens, List<Personnage> personages,
 			List<ObjectItemAbstract> objects) {
 		super();
@@ -30,7 +31,7 @@ public abstract class Zone
 		this.objects = objects;
 	}
 	public String Afficher(){
-		
+
         return " X : " + X + ", Y : " + Y + ", Z : " + Z;
     }
 }

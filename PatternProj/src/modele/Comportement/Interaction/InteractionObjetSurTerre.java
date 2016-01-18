@@ -1,6 +1,6 @@
 package modele.Comportement.Interaction;
 
-public class InteractionObjetSurTerre extends ComportementInteractionAbstract {
+public class InteractionObjetSurTerre implements IComportementInteraction {
 
 	@Override
 	public String CollectObject() {
