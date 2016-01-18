@@ -5,8 +5,6 @@ import java.util.List;
 import modele.Personnage;
 import modele.ObjectItem.ObjectItemAbstract;
 
-import modele.Zone.Zone;
-
 public abstract class Map{
 
 	public List<Zone> Zones;

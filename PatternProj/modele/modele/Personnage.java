@@ -6,7 +6,7 @@ import modele.Comportement.Combat.IComportementCombat;
 import modele.Comportement.Deplacement.IComportementDeplacement;
 import modele.Comportement.Interaction.IComportementInteraction;
 import modele.ObjectItem.ObjectItemAbstract;
-import modele.Zone.Zone;
+import modele.map.Zone;
 
 public abstract class Personnage {
 
