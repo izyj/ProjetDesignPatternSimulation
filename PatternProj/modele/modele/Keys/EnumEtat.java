@@ -6,6 +6,7 @@ public enum EnumEtat {
 	Arreter,
 	Dormir,
 	Manger,
+	Conflit,
 	Mort;
 
 }
