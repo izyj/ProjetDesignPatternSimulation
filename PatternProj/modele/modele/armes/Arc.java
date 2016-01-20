@@ -3,23 +3,23 @@ package modele.armes;
 import modele.Arme;
 
 /**
- * 
+ *
  * @author Gaetan
  *
  */
 public class Arc implements Arme{
 
-	String nom;
-	int portee;
-	String type;
-	int bonus;
-	int dureeVie;
-	int degat;
-	
+	private String nom;
+	private int portee;
+	private String type;
+	private int bonus;
+	private int dureeVie;
+	private int degat;
+
 	public Arc(){
 		super();
 	}
-	
+
 	public String getNom() {
 		nom = "Arc En Ciel";
 		return nom;
@@ -38,7 +38,7 @@ public class Arc implements Arme{
 		type = "Arme à distance";
 		return type;
 	}
-	
+
 	/**
 	 * Fourni la portée de l'arc
 	 * @return portee
@@ -47,7 +47,7 @@ public class Arc implements Arme{
 		portee = 3;
 		return portee;
 	}
-	
+
 	/**
 	 * Dégats bonus si attaque au max de sa portée de tir
 	 * @return bonus
@@ -56,7 +56,7 @@ public class Arc implements Arme{
 		bonus = 2;
 		return bonus;
 	}
-	
+
 	/**
 	 * Durée de vie de l'arme
 	 * @return dureeVie
