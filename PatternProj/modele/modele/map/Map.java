@@ -24,6 +24,8 @@ public interface  Map{
 
     public abstract void AfficherEnvironment(Personnage personage);
 
+    public abstract Grille recupererGrille();
+
 
 
 }

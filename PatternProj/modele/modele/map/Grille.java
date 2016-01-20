@@ -7,8 +7,6 @@ import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 
 import modele.Personnage;
 import modele.ObjectItem.ObjectItemAbstract;
@@ -16,26 +14,25 @@ import modele.ObjectItem.ObjectItemAbstract;
 public class Grille extends JPanel implements Map {
 
 
-	public List<Zone> Zones;
+	public List<Zone[]> grille;
 
 	 public Grille()
      {
-			GridLayout grid = new GridLayout(10,30);
+			GridLayout grid = new GridLayout(10,10);
 			this.setLayout(grid);
 			//Border border = LineBorder.createGrayLineBorder();
-			Zones = new ArrayList<Zone>();
-			for(int i = 1; i <= 10; i++){
+			grille = new ArrayList<Zone[]>();
+			for(int colonne = 1; colonne <= 10; colonne++){// colonne
 
-				for(int b = 1; b <= 10; b++){
-					Case uneCase = new Case(i,b, Zones, null, null);
+				for(int ligne = 1; ligne <= 10; ligne++){//ligne
+
+
+					Case uneCase = new Case(ligne,colonne);
 					uneCase.setBorder(BorderFactory.createLineBorder(Color.RED,1));
 					uneCase.setText("test");
 					this.add(uneCase);
-
-
 				}
 			}
-         Zones = new ArrayList<Zone>();
 
      }
 	 /**
@@ -44,16 +41,16 @@ public class Grille extends JPanel implements Map {
 	@Override
 	public void AddZone(int x, int y) {
 
-		Zones.get(x).getLiens().add(new Case(x, y, Zones, null, null));
+		//grille.get(x).getLiens().add(new Case(x, y, Zones, null, null));
 	}
 
 	/**
-	 * Cette methode retourne une case dans la grille
+	 * Cette methode retourne une case de la grille
 	 */
 	@Override
 	public Zone GetZone(int x, int y) {
 
-		return Zones.get(x).getLiens().get(y);
+		return null;//Zones.get(x).getLiens().get(y);
 
 	}
 
@@ -86,6 +83,11 @@ public class Grille extends JPanel implements Map {
 	@Override
 	public void AfficherEnvironment(Personnage personage) {
 
+	}
+	@Override
+	public Grille recupererGrille() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

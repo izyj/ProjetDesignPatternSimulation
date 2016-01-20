@@ -7,10 +7,20 @@ import modele.ObjectItem.ObjectItemAbstract;
 
 public class Case extends Zone{
 
-
+	/**
+	 *
+	 * @param x  Ligne de la case
+	 * @param y	 Colonne de la case
+	 * @param liens
+	 * @param personages
+	 * @param objects
+	 */
 	public Case(int x, int y, List<Zone> liens, List<Personnage> personages, List<ObjectItemAbstract> objects) {
 		super(x, y, liens, personages, objects);
 
+	}
+	public Case(int x, int y) {
+		super(x,y);
 	}
 
 	@Override

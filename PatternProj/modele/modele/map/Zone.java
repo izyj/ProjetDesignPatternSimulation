@@ -32,6 +32,12 @@ public abstract class Zone extends JLabel
 		this.personages = personages;
 		this.objects = objects;
 	}
+
+	public Zone(int x, int y) {
+		super();
+		X = x;
+		Y = y;
+	}
 	public String Afficher(){
 
         return " X : " + X + ", Y : " + Y ;

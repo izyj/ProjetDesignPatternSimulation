@@ -1,6 +1,6 @@
 package controleur.map;
 
-import modele.map.IPlateau;
+import modele.Iinterface.IPlateau;
 
 public class PlateauLabyrinthe extends IPlateau {
 

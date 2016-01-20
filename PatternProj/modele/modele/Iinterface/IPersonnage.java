@@ -18,8 +18,9 @@ public interface IPersonnage {
 	 * @return Zone
 	 */
 	public Zone getPosition();
-	public void AnalyseSituation();
-	public void Execution();
+	public void analyseSituation();
+	public void execution();
+	public void miseAJour();
 
 
 

@@ -5,8 +5,8 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+import modele.Iinterface.IPlateau;
 import modele.map.Grille;
-import modele.map.IPlateau;
 
 public class PlateauSimuDeplacement extends IPlateau {
 

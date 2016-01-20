@@ -4,8 +4,8 @@ import controleur.map.PlateauSimuDeplacement;
 import modele.Guerrier;
 import modele.Monstre;
 import modele.Personnage;
+import modele.Iinterface.IPlateau;
 import modele.Keys.EnumTypePersonnage;
-import modele.map.IPlateau;
 
 public class DeplacementSimulationFactory extends SimulationFactory{
 

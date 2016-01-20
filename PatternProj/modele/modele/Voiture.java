@@ -52,14 +52,21 @@ public class Voiture extends Personnage implements IPersonnage{
 		return null;
 	}
 
+
 	@Override
-	public void AnalyseSituation() {
+	public void analyseSituation() {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void Execution() {
+	public void execution() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void miseAJour() {
 		// TODO Auto-generated method stub
 
 	}

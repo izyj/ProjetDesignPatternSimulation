@@ -1,8 +1,8 @@
 package controleur.factory;
 
 import modele.Personnage;
+import modele.Iinterface.IPlateau;
 import modele.Keys.EnumTypePersonnage;
-import modele.map.IPlateau;
 
 public abstract class SimulationFactory {
 
