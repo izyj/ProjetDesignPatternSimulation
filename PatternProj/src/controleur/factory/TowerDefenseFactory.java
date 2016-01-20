@@ -1,9 +1,9 @@
 package controleur.factory;
 
+import controleur.map.PlateauTowerDefense;
 import modele.Personnage;
 import modele.Keys.EnumTypePersonnage;
-import modele.map.Plateau;
-import modele.map.PlateauTowerDefense;
+import modele.map.IPlateau;
 
 public class TowerDefenseFactory extends SimulationFactory{
 
@@ -14,7 +14,7 @@ public class TowerDefenseFactory extends SimulationFactory{
 	}
 
 	@Override
-	public Plateau getPlateau() {
+	public IPlateau getPlateau() {
 
 		return new PlateauTowerDefense();
 	}

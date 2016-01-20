@@ -2,7 +2,7 @@ package controleur.factory;
 
 import modele.Personnage;
 import modele.Keys.EnumTypePersonnage;
-import modele.map.Plateau;
+import modele.map.IPlateau;
 
 public abstract class SimulationFactory {
 
@@ -19,7 +19,7 @@ public abstract class SimulationFactory {
 	 * @param simulation
 	 * @return Plateau
 	 */
-	public abstract Plateau getPlateau();
+	public abstract IPlateau getPlateau();
 
 
 

@@ -1,11 +1,11 @@
 package controleur.factory;
 
+import controleur.map.PlateauSimuDeplacement;
 import modele.Guerrier;
 import modele.Monstre;
 import modele.Personnage;
 import modele.Keys.EnumTypePersonnage;
-import modele.map.Plateau;
-import modele.map.PlateauSimuDeplacement;
+import modele.map.IPlateau;
 
 public class DeplacementSimulationFactory extends SimulationFactory{
 
@@ -27,7 +27,7 @@ public class DeplacementSimulationFactory extends SimulationFactory{
 	}
 
 	@Override
-	public Plateau getPlateau() {
+	public IPlateau getPlateau() {
 
 		return new PlateauSimuDeplacement();
 	}

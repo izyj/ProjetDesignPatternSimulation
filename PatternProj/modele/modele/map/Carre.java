@@ -5,16 +5,22 @@ import java.util.List;
 import modele.ObjectItem.ObjectItemAbstract;
 import modele.Personnage;
 
+/**
+ * Le carre represente les cases entourant une autre
+ * @author Jonathan
+ *
+ */
 public class Carre extends Zone
 {
-	public Carre(int x, int y, int z, List<Zone> liens, List<Personnage> personages,
+
+
+	public Carre(int x, int y, List<Zone> liens, List<Personnage> personages,
 			List<ObjectItemAbstract> objects) {
-		super(x, y, z, liens, personages, objects);
-		// TODO Auto-generated constructor stub
+		super(x, y, liens, personages, objects);
+
 	}
 
 
-	@Override
 	public void ajouterlien(Zone targetZone) {
 
             if (!lienExiste(targetZone))

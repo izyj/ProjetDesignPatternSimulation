@@ -1,9 +1,9 @@
 package controleur.factory;
 
+import controleur.map.PlateauLabyrinthe;
 import modele.Personnage;
 import modele.Keys.EnumTypePersonnage;
-import modele.map.Plateau;
-import modele.map.PlateauLabyrinthe;
+import modele.map.IPlateau;
 
 public class SimuLabyrintheFactory extends SimulationFactory{
 
@@ -15,7 +15,7 @@ public class SimuLabyrintheFactory extends SimulationFactory{
 	}
 
 	@Override
-	public Plateau getPlateau() {
+	public IPlateau getPlateau() {
 
 	     return new PlateauLabyrinthe();
 	}

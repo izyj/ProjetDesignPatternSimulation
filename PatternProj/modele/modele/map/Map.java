@@ -5,12 +5,12 @@ import java.util.List;
 import modele.Personnage;
 import modele.ObjectItem.ObjectItemAbstract;
 
-public abstract class Map{
+public interface  Map{
 
-	public List<Zone> Zones;
 
-    public abstract void AddZone(int x, int y, int z);
-    public abstract Zone GetZone(int x, int y, int z);
+
+    public abstract void AddZone(int x, int y);
+    public abstract Zone GetZone(int x, int y);
 
 
 

@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controleur.map.PlateauSimuDeplacement;
 import modele.Iinterface.IObservable;
 import modele.Iinterface.IObservateur;
 
@@ -25,8 +26,9 @@ public class DeplacementView extends JFrame implements IObservateur {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DeplacementView frame = new DeplacementView();
-					frame.setVisible(true);
+
+					PlateauSimuDeplacement t = new PlateauSimuDeplacement();
+					//frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -27,6 +27,8 @@ import javax.swing.ImageIcon;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import controleur.map.PlateauSimuDeplacement;
+
 public class MainView {
 
 	public JFrame frmPatternogame;
@@ -46,58 +48,58 @@ public class MainView {
 		frmPatternogame.setTitle("Pattern'O'Game");
 		frmPatternogame.setBounds(100, 100, 1008, 633);
 		frmPatternogame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		/**
 		 * Barre de menu
 		 */
 		JMenuBar menuBar = new JMenuBar();
 		frmPatternogame.setJMenuBar(menuBar);
-		
+
 		/**
 		 * Item File de la barre de menu
 		 */
 		JMenu menuMenu = new JMenu("Menu");
 		menuBar.add(menuMenu);
-		
+
 			/**
 			 * Bouton pour nouveau jeu
 			 */
 			JMenuItem mntmNouveauJeu = new JMenuItem("Nouveau jeu");
 			mntmNouveauJeu.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					 
+
 				}
 			});
 			menuMenu.add(mntmNouveauJeu);
-			
+
 			/**
 			 * Bouton pour sauvegarder la partie
 			 */
 			JMenuItem mntmSauvgarder = new JMenuItem("Sauvegarder");
 			mntmSauvgarder.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					 
+
 				}
 			});
 			menuMenu.add(mntmSauvgarder);
-			
+
 			/**
 			 * Bouton pour fermer l'application
 			 */
 			JMenuItem mntmFermer = new JMenuItem("Fermer");
 			mntmFermer.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					 
+
 				}
 			});
 			menuMenu.add(mntmFermer);
-		
+
 		/**
 		 * Item de la barre de configuration
 		 */
 		JMenu menuConfiguration = new JMenu("Configuration XML");
 		menuBar.add(menuConfiguration);
-		
+
 			/**
 			 * Bouton laby
 			 */
@@ -109,10 +111,10 @@ public class MainView {
 				            repertoireCourant = new File(".").getCanonicalFile();
 				            System.out.println("Répertoire courant : " + repertoireCourant);
 				        } catch(IOException e) {}
-				        
+
 				        String[] extension = {"xml"};
 				        FileFilter filtre = new  FileNameExtensionFilter("Xml", extension);
-				        
+
 				        JFileChooser dialogue = new JFileChooser(repertoireCourant);
 				        dialogue.setFileFilter(filtre);
 				        dialogue.showOpenDialog(null);
@@ -120,7 +122,7 @@ public class MainView {
 				}
 			});
 			menuConfiguration.add(mntmFichierXMLLaby);
-			
+
 			/**
 			 * Bouton déplacement
 			 */
@@ -132,10 +134,10 @@ public class MainView {
 				            repertoireCourant = new File(".").getCanonicalFile();
 				            System.out.println("Répertoire courant : " + repertoireCourant);
 				        } catch(IOException e) {}
-				        
+
 				        String[] extension = {"xml"};
 				        FileFilter filtre = new  FileNameExtensionFilter("Xml", extension);
-				        
+
 				        JFileChooser dialogue = new JFileChooser(repertoireCourant);
 				        dialogue.setFileFilter(filtre);
 				        dialogue.showOpenDialog(null);
@@ -143,7 +145,7 @@ public class MainView {
 				}
 			});
 			menuConfiguration.add(mntmFichierXMLDeplacement);
-			
+
 			/**
 			 * Bouton Tower Defence
 			 */
@@ -155,10 +157,10 @@ public class MainView {
 				            repertoireCourant = new File(".").getCanonicalFile();
 				            System.out.println("Répertoire courant : " + repertoireCourant);
 				        } catch(IOException e) {}
-				        
+
 				        String[] extension = {"xml"};
 				        FileFilter filtre = new  FileNameExtensionFilter("Xml", extension);
-				        
+
 				        JFileChooser dialogue = new JFileChooser(repertoireCourant);
 				        dialogue.setFileFilter(filtre);
 				        dialogue.showOpenDialog(null);
@@ -166,30 +168,31 @@ public class MainView {
 				}
 			});
 			menuConfiguration.add(mntmFichierXMLTowerDefence);
-		
+
 		/**
 		 * Pannel de la bannière
 		 */
 		JPanel panel_banniere = new JPanel();
 		panel_banniere.setBackground(Color.DARK_GRAY);
 		frmPatternogame.getContentPane().add(panel_banniere, BorderLayout.NORTH);
-		
+
 		JLabel lblPatternogame = new JLabel("Pattern'O'Game");
 		lblPatternogame.setForeground(SystemColor.window);
 		lblPatternogame.setFont(new Font("Vijaya", Font.BOLD, 40));
 		panel_banniere.add(lblPatternogame);
-		
+
 		/**
 		 * Pannel du menu
 		 */
 		JPanel panel_menu = new JPanel();
 		panel_menu.setBackground(Color.DARK_GRAY);
 		frmPatternogame.getContentPane().add(panel_menu, BorderLayout.CENTER);
-		
+
 		/**
 		 * Simulation Labyrinthe
 		 */
 		JButton btnLabyrinthe = new JButton("");
+		btnLabyrinthe.addActionListener(null);
 		btnLabyrinthe.setBackground(Color.DARK_GRAY);
 		btnLabyrinthe.setIcon(new ImageIcon(MainView.class.getResource("/images/laby.png")));
 		btnLabyrinthe.addActionListener(new ActionListener() {
@@ -201,7 +204,7 @@ public class MainView {
 			}
 		});
 		panel_menu.add(btnLabyrinthe);
-		
+
 		/**
 		 * Simulation Deplacement
 		 */
@@ -210,12 +213,13 @@ public class MainView {
 		btnDeplacement.setIcon(new ImageIcon(MainView.class.getResource("/images/deplacement.png")));
 		btnDeplacement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				PlateauSimuDeplacement dep = new PlateauSimuDeplacement();
+				dep.createPlateau();
 			}
 		});
 		GridBagConstraints gbc_btnDeplacement = new GridBagConstraints();
 		panel_menu.add(btnDeplacement, gbc_btnDeplacement);
-		
+
 		/**
 		 * Simulation Tower Defence
 		 */
@@ -224,7 +228,8 @@ public class MainView {
 		btnTowerDefence.setIcon(new ImageIcon(MainView.class.getResource("/images/tower.png")));
 		btnTowerDefence.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
+
 			}
 		});
 		panel_menu.add(btnTowerDefence);
