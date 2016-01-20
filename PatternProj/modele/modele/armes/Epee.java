@@ -3,7 +3,7 @@ package modele.armes;
 import modele.Arme;
 
 /**
- * 
+ *
  * @author Gaetan
  *
  */
@@ -15,11 +15,12 @@ public class Epee implements Arme{
 	int bonus;
 	int dureeVie;
 	int degat;
-	
+
 	public Epee(){
 		super();
+
 	}
-	
+
 	public String getNom() {
 		nom = "Epée Coupe Tout";
 		return nom;
@@ -38,7 +39,7 @@ public class Epee implements Arme{
 		type = "Arme au CaC";
 		return type;
 	}
-	
+
 	/**
 	 * Fourni la portée de l'épée
 	 * @return portee
@@ -47,7 +48,7 @@ public class Epee implements Arme{
 		portee = 1;
 		return portee;
 	}
-	
+
 	/**
 	 * Durée de vie de l'arme
 	 * @return dureeVie
