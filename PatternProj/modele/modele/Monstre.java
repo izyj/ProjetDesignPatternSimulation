@@ -1,12 +1,16 @@
 package modele;
 
+import java.util.Random;
+
 import modele.Iinterface.IPersonnage;
 import modele.map.Zone;
 
 public class Monstre extends Personnage implements IPersonnage {
 
 	public Monstre() {
-
+		vie = 10;
+		ko = false;
+		force =5;
 	}
 	@Override
 	public int getVie() {
@@ -66,6 +70,23 @@ public class Monstre extends Personnage implements IPersonnage {
 	public void miseAJour() {
 		// TODO Auto-generated method stub
 
+	}
+	@Override
+	public void seReposer(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void KO() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public int attaque() {
+		
+		Random rnd = new Random();
+		int d= rnd.nextInt(force)+1 ;
+		return d;
 	}
 
 }

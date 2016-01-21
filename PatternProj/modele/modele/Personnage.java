@@ -10,13 +10,16 @@ import modele.map.Zone;
 
 public abstract class Personnage {
 
-	int vie;
-	int attaque;
+
 
 	// Information sur le personnage
 	private Zone DefaultPosition;
 	private String Name;
 	protected List<ObjectItemAbstract> Objects;
+	protected int vie;
+	protected int force ;
+	protected int attaque;
+	protected boolean ko;
 
 	// Comportement du personnage
 	private IComportementCombat ComportementCombat ;
@@ -28,6 +31,37 @@ public abstract class Personnage {
 
 
 
+	
+	// constructeur	
+	public Personnage(Zone defaultPosition, String name,int force,int vie, boolean ko, IComportementCombat comportementCombat,
+			IComportementDeplacement comportementDeplacement, IComportementInteraction comportementInteraction) {
+		super();
+		DefaultPosition = defaultPosition;
+		Name = name;
+		this.vie = vie;
+		this.ko = ko;
+		this.force=force;
+		ComportementCombat = comportementCombat;
+		ComportementDeplacement = comportementDeplacement;
+		ComportementInteraction = comportementInteraction;
+	}
+	
+	
+
+
+    public Personnage() {
+	super();
+    }
+
+
+   //Méthode Se reposer 
+	public abstract  void seReposer(int i);
+
+   //Méthode KO Perdre la vie
+	public abstract void KO();
+	
+   //Méthode permettra des dégats
+	public abstract int attaque();
 
 
 	//Méthode de déplacement de personnage
@@ -90,6 +124,48 @@ public abstract class Personnage {
 	}
 	public void setComportementInteraction(IComportementInteraction comportementInteraction) {
 		ComportementInteraction = comportementInteraction;
+	}
+
+
+
+
+	public int getVie() {
+		return vie;
+	}
+
+
+
+
+	public void setVie(int vie) {
+		this.vie = vie;
+	}
+
+
+
+
+	public int getAttaque() {
+		return attaque;
+	}
+
+
+
+
+	public void setAttaque(int attaque) {
+		this.attaque = attaque;
+	}
+
+
+
+
+	public boolean isKo() {
+		return ko;
+	}
+
+
+
+
+	public void setKo(boolean ko) {
+		this.ko = ko;
 	}
 
 
