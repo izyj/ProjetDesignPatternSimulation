@@ -14,10 +14,10 @@ public interface  Map{
 
 
 
-    public abstract void ChargerObjet(List<ObjectItemAbstract> objets);
+    public abstract void ChargerObjet(List<ObjectItemAbstract> objets,List<Zone> zones);
     public abstract void ChargerPersonage(List<Personnage> personages);
 
-    public abstract void SupprimerObjet(ObjectItemAbstract obj);
+    public abstract void SupprimerObjet(ObjectItemAbstract obj,List<Zone> zones);
     public abstract void SupprimePersonage(Personnage perso);
 
     public abstract void AjouterPersonageInZone(Personnage perso, Zone position);

@@ -6,6 +6,10 @@ import modele.Monstre;
 import modele.Personnage;
 import modele.Iinterface.IPlateau;
 import modele.Keys.EnumTypePersonnage;
+import modele.ObjectItem.ObjEnum;
+import modele.ObjectItem.ObjectItemAbstract;
+import modele.ObjectItem.piege;
+import modele.map.Zone;
 
 public class DeplacementSimulationFactory extends SimulationFactory{
 
@@ -32,6 +36,31 @@ public class DeplacementSimulationFactory extends SimulationFactory{
 		return new PlateauSimuDeplacement();
 	}
 
+	/**
+	 * Methode permettant de récuperer un objets de type piege
+	 * @param ObjEnum
+	 * @return ObjectItemAbstract
+	 */
+	public ObjectItemAbstract CreateObject(ObjEnum typeOfObject, String name, Zone position)  {
+		
+		ObjectItemAbstract ObjectItemAbstract = null;
+		
+		if(typeOfObject.equals(ObjEnum.piege)){
+	        return new piege(name, position);
+	    }else if(typeOfObject.equals(ObjEnum.eau)){
+		    return null;
+		 }
 
+		  switch (typeOfObject)
+      {
+          case piege:
+              return new piege(name, position);
+          case eau:
+              return null;
+     
+            
+      }
+		return ObjectItemAbstract ;
+  }
 
 }

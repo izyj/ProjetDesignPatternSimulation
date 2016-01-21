@@ -55,20 +55,28 @@ public class Grille extends JPanel implements Map {
 	}
 
 	@Override
-	public void ChargerObjet(List<ObjectItemAbstract> objets) {
-
-
+	public void ChargerObjet(List<ObjectItemAbstract> objets, List<Zone> zones ) {
+		
+		for  (Zone item  : zones)
+			for (ObjectItemAbstract obj :  objets)
+				
+				if (obj.getPosition().equals(item)) {
+					item.objects.add(obj);
+			    }
+            
 	}
 
 	@Override
-	public void ChargerPersonage(List<Personnage> personages) {
-
+	public void SupprimerObjet(ObjectItemAbstract obj,List<Zone> zones) {
+		
+		for  (Zone item  : zones)
+			
+			if (zones.contains(obj)) {
+				item.objects.remove(obj);
+		    }
 	}
 
-	@Override
-	public void SupprimerObjet(ObjectItemAbstract obj) {
-
-	}
+	
 
 	@Override
 	public void SupprimePersonage(Personnage perso) {
@@ -88,6 +96,11 @@ public class Grille extends JPanel implements Map {
 	public Grille recupererGrille() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public void ChargerPersonage(List<Personnage> personages) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
