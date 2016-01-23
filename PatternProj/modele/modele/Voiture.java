@@ -70,4 +70,22 @@ public class Voiture extends Personnage implements IPersonnage{
 		// TODO Auto-generated method stub
 
 	}
+
+	@Override
+	public void seReposer(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void KO() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int attaque() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
