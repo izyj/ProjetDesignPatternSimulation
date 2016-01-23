@@ -74,6 +74,9 @@ public class Grille extends JPanel implements Map {
 	}
 
 
+	/**
+	 * Methode qui permet  qui place les personnages au chargement de la grille
+	 */
 	public void ChargerPersonage(List<Personnage> personages) {
 
 		for (Personnage personnage : personages) {
