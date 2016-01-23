@@ -1,0 +1,17 @@
+package modele.Iinterface;
+
+public interface GestionImages {
+	
+	public String personnage = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\personnage.png";
+	public String mur = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\mur.png";
+	public String fin = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\fin.png";
+	public String personnage = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\personnage.png";
+	public String personnage = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\personnage.png";
+	public String personnage = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\personnage.png";
+	public String personnage = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\personnage.png";
+	public String personnage = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\personnage.png";
+	public String personnage = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\personnage.png";
+
+	
+}
+
