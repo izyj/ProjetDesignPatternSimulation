@@ -1,5 +1,7 @@
 package modele.Iinterface;
 
+import java.util.List;
+
 import modele.Personnage;
 
 public interface IMoteurDeJeu {
@@ -14,9 +16,14 @@ public interface IMoteurDeJeu {
 	 * Methode permettant de déplacer un personnage
 	 * @param perso
 	 */
-	public void DeplacementPersonnage(Personnage perso);
+	public void DeplacementPersonnage();
 
 
-	
+	/**
+	 * Methode qui va charger les personnages
+	 */
+	public void ChargerPersonnage();
+
+
 
 }
