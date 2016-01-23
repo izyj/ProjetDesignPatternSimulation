@@ -22,7 +22,7 @@ public class SimuDeplacementFactory extends SimulationFactory{
 	    }else if(personnage.equals(EnumTypePersonnage.Monstre)){
 		    return new Monstre();
 		 }
-
+		
 	     return PersonnageCree;
 	}
 

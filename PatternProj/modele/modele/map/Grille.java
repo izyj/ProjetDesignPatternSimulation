@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import modele.Guerrier;
@@ -32,7 +33,7 @@ public class Grille extends JPanel implements Map {
 				for(int ligne = 0; ligne <= 9; ligne++){
 
 					// on crée la liste qui va contenir la ligne
-					AddZone(ligne, colonne);
+					AddZone(ligne, colonne, "P");
 				}
 				grille.add(ligneTab);
 			}
@@ -42,11 +43,31 @@ public class Grille extends JPanel implements Map {
 	  * Cette methode ajoute une case dans la grille
 	  */
 	@Override
-	public void AddZone(int ligne, int colonne) {
+	public void AddZone(int ligne, int colonne, String typeCase) {
 
 		Case uneCase = new Case(ligne,colonne);
-		uneCase.setBorder(BorderFactory.createLineBorder(Color.RED,1));
-		uneCase.setText("test");
+		uneCase.setBackground(Color.BLACK);
+		uneCase.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
+		
+		switch (typeCase) {
+	        case "P":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.personnage));
+	                   break;
+	        case "*":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.mur));
+	        	       break;
+	        case "N":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.food));
+                       break;
+	        case "A":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.arme));
+                       break;
+	        case "F":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.fin));
+            		   break;
+	        case "T":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.guardTower));
+ 		               break;
+	        case "M":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.monstre));
+                       break;
+	        default:   uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.mur));
+                       break;
+	    }
+		
 		this.add(uneCase);
 		grille.get(colonne).add(uneCase);
 	}
@@ -55,7 +76,7 @@ public class Grille extends JPanel implements Map {
 	 * Cette methode retourne une case de la grille
 	 */
 	@Override
-	public Zone GetZone(int x, int y) {
+	public Zone GetZone(int x, int y, String typeCase) {
 
 		return null;//Zones.get(x).getLiens().get(y);
 

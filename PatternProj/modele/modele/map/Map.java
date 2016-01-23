@@ -7,12 +7,8 @@ import modele.ObjectItem.ObjectItemAbstract;
 
 public interface  Map{
 
-
-
-    public abstract void AddZone(int x, int y);
-    public abstract Zone GetZone(int x, int y);
-
-
+    public abstract void AddZone(int x, int y, String typeCase);
+    public abstract Zone GetZone(int x, int y, String typeCase);
 
     public abstract void ChargerObjet(List<ObjectItemAbstract> objets,List<Zone> zones);
     public abstract void ChargerPersonage(List<Personnage> personages);

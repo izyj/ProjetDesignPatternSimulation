@@ -24,9 +24,9 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 	private static int LARGEURPLATEFORME = 30;
 	private Grille  grille;
 	private SimuDeplacementFactory factory;
+	
 	public PlateauSimuDeplacement() {
-
-
+		
 	}
 
 	@Override
@@ -34,22 +34,14 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 		grille = new Grille();
 		factory = new SimuDeplacementFactory();
 		this.getContentPane().add(grille);
-
-
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setBackground(new Color(173,161,118));
 		this.setSize(700, 700);
 		setVisible(true);
-
-
-
-
 	}
 
 	@Override
 	public void actualiser(IObservable o) {
-
-
-
 
 	}
 
@@ -58,7 +50,4 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 		// TODO Auto-generated method stub
 
 	}
-
-
-
 }
