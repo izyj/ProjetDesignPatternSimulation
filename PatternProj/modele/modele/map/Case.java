@@ -1,5 +1,6 @@
 package modele.map;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import modele.Personnage;
@@ -21,6 +22,9 @@ public class Case extends Zone{
 	}
 	public Case(int x, int y) {
 		super(x,y);
+		personages = new ArrayList<Personnage>();
+		liens = new ArrayList<Zone>();
+		objects = new ArrayList<ObjectItemAbstract>();
 	}
 
 	@Override
