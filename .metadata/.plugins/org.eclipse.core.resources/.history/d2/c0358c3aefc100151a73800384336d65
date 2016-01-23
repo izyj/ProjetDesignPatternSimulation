@@ -1,7 +1,6 @@
 package vue.utils;
 
 import java.awt.Image;
-import java.awt.image.ImageObserver;
 import java.io.File;
 
 public class gestionImages {

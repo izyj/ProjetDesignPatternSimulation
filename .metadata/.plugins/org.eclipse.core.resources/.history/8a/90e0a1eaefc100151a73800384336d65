@@ -1,7 +1,6 @@
 package modele.map;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -37,7 +36,7 @@ public class Grille extends JPanel implements Map {
 				for(int ligne = 0; ligne <= 9; ligne++){
 
 					// on crée la liste qui va contenir la ligne
-					AddZone(ligne, colonne, "P");
+					AddZone(ligne, colonne, "*");
 
 				}
 				grille.add(ligneTab);
@@ -48,28 +47,24 @@ public class Grille extends JPanel implements Map {
 	  * Cette methode ajoute une case dans la grille
 	  */
 	public void AddZone(int ligne, int colonne, String typeCase) {
-		
-		Dimension dim = new Dimension();
-		dim.setSize(20, 20);
-		
+
 		Case uneCase = new Case(ligne,colonne);
-		uneCase.setMinimumSize(dim);
 		uneCase.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
 		
 		switch (typeCase) {
-	        case "P":  uneCase.setIcon(new ImageIcon(gestionImages.getPersonnage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	        case "P":  uneCase.setIcon(new ImageIcon(gestionImages.getPersonnage().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
 	                   break;
-	        case "*":  uneCase.setIcon(new ImageIcon(gestionImages.getMur().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	        case "*":  uneCase.setIcon(new ImageIcon(gestionImages.getMur().getScaledInstance(20, 20, Image.SCALE_REPLICATE)));
 	        	       break;
-	        case "N":  uneCase.setIcon(new ImageIcon(gestionImages.getNourriture().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	        case "N":  uneCase.setIcon(new ImageIcon(gestionImages.getNourriture().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
                        break;
-	        case "A":  uneCase.setIcon(new ImageIcon(gestionImages.getArme().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	        case "A":  uneCase.setIcon(new ImageIcon(gestionImages.getArme().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
                        break;
-	        case "F":  uneCase.setIcon(new ImageIcon(gestionImages.getFin().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	        case "F":  uneCase.setIcon(new ImageIcon(gestionImages.getFin().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
             		   break;
-	        case "T":  uneCase.setIcon(new ImageIcon(gestionImages.getTour().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	        case "T":  uneCase.setIcon(new ImageIcon(gestionImages.getTour().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
  		               break;
-	        case "M":  uneCase.setIcon(new ImageIcon(gestionImages.getMonstre().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	        case "M":  uneCase.setIcon(new ImageIcon(gestionImages.getMonstre().getScaledInstance(20, 20, Image.SCALE_DEFAULT)));
                        break;
 	        default:   uneCase.Afficher();
                        break;

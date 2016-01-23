@@ -1,7 +1,6 @@
 package vue.utils;
 
 import java.awt.Image;
-import java.awt.image.ImageObserver;
 import java.io.File;
 
 public class gestionImages {
@@ -42,6 +41,7 @@ public class gestionImages {
 		final String fichierPath = f.getAbsolutePath() + File.separator + fichier;
 		java.awt.Toolkit toolkit = java.awt.Toolkit.getDefaultToolkit();
 		Image image = toolkit.getImage(fichierPath);
+		image.getHeight(200)
 		return image;
 	}
 	
