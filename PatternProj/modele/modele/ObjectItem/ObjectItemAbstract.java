@@ -5,8 +5,8 @@ import modele.map.Zone;
 
 public abstract class ObjectItemAbstract {
 	
-	private String Name;
-	private  Zone Position; // changement de type de Position lors du creation de context du Zone 
+	protected String Name;
+	protected  Zone Position; // changement de type de Position lors du creation de context du Zone 
 
 	public ObjectItemAbstract(String name, Zone position) {
 		super();
