@@ -1,5 +1,6 @@
 package modele.map;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JLabel;
@@ -7,7 +8,11 @@ import javax.swing.JLabel;
 import modele.Personnage;
 import modele.ObjectItem.ObjectItemAbstract;
 
-
+/**
+ * Une Zone peut etre case comme etre plusieurs case
+ * @author Jonathan
+ *
+ */
 public abstract class Zone extends JLabel
 {
 	protected int X, Y;
@@ -31,6 +36,7 @@ public abstract class Zone extends JLabel
 		this.liens = liens;
 		this.personages = personages;
 		this.objects = objects;
+
 	}
 
 	public Zone(int x, int y) {
