@@ -8,30 +8,33 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import modele.Guerrier;
+import modele.Monstre;
 import modele.Personnage;
 import modele.ObjectItem.ObjectItemAbstract;
 
 public class Grille extends JPanel implements Map {
 
 
-	public List<Zone[]> grille;
+	private List<List<Zone>> grille;
+
 
 	 public Grille()
      {
 			GridLayout grid = new GridLayout(10,10);
 			this.setLayout(grid);
 			//Border border = LineBorder.createGrayLineBorder();
-			grille = new ArrayList<Zone[]>();
-			for(int colonne = 1; colonne <= 10; colonne++){// colonne
+			grille = new ArrayList<List<Zone>>();
 
-				for(int ligne = 1; ligne <= 10; ligne++){//ligne
+			for(int colonne = 0; colonne <= 9; colonne++){
+				List<Zone> ligneTab = new ArrayList<Zone>();
+				grille.add(ligneTab);
+				for(int ligne = 0; ligne <= 9; ligne++){
 
-
-					Case uneCase = new Case(ligne,colonne);
-					uneCase.setBorder(BorderFactory.createLineBorder(Color.RED,1));
-					uneCase.setText("test");
-					this.add(uneCase);
+					// on crée la liste qui va contenir la ligne
+					AddZone(ligne, colonne);
 				}
+				grille.add(ligneTab);
 			}
 
      }
@@ -39,9 +42,13 @@ public class Grille extends JPanel implements Map {
 	  * Cette methode ajoute une case dans la grille
 	  */
 	@Override
-	public void AddZone(int x, int y) {
+	public void AddZone(int ligne, int colonne) {
 
-		//grille.get(x).getLiens().add(new Case(x, y, Zones, null, null));
+		Case uneCase = new Case(ligne,colonne);
+		uneCase.setBorder(BorderFactory.createLineBorder(Color.RED,1));
+		uneCase.setText("test");
+		this.add(uneCase);
+		grille.get(colonne).add(uneCase);
 	}
 
 	/**
@@ -55,21 +62,47 @@ public class Grille extends JPanel implements Map {
 	}
 
 	@Override
-	public void ChargerObjet(List<ObjectItemAbstract> objets) {
-
-
+	public void ChargerObjet(List<ObjectItemAbstract> objets, List<Zone> zones ) {
+		
+		for  (Zone item  : zones)
+			for (ObjectItemAbstract obj :  objets)
+				
+				if (obj.getPosition().equals(item)) {
+					item.objects.add(obj);
+			    }
+            
 	}
 
+	
 	@Override
 	public void ChargerPersonage(List<Personnage> personages) {
 
+		for (Personnage personnage : personages) {
+
+			if (personnage instanceof Guerrier ) {
+				System.out.println("Guerrier");
+				grille.get(0).get(0).getPersonages().add(personnage);
+				grille.get(0).get(0).setText("Personnage");
+
+			}else if (personnage instanceof Monstre ) {
+				grille.get(0).get(0).getPersonages().add(personnage);
+			}
+
+		}
+
+
 	}
 
 	@Override
-	public void SupprimerObjet(ObjectItemAbstract obj) {
+	public void SupprimerObjet(ObjectItemAbstract obj,List<Zone> zones) {
 
+		for  (Zone item  : zones)
+
+			if (zones.contains(obj)) {
+				item.objects.remove(obj);
+		    }
 	}
-
+	
 	@Override
 	public void SupprimePersonage(Personnage perso) {
 
