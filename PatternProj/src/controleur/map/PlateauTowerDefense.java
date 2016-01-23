@@ -10,4 +10,10 @@ public class PlateauTowerDefense  extends IPlateau{
 
 	}
 
+	@Override
+	public void deplacerPersonnage() {
+		// TODO Auto-generated method stub
+
+	}
+
 }

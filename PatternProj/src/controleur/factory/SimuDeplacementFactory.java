@@ -7,7 +7,7 @@ import modele.Personnage;
 import modele.Iinterface.IPlateau;
 import modele.Keys.EnumTypePersonnage;
 
-public class DeplacementSimulationFactory extends SimulationFactory{
+public class SimuDeplacementFactory extends SimulationFactory{
 
 	/**
 	 * Methode permettant de récuperer un objet de type Personnage(Apparence)
