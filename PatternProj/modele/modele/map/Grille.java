@@ -9,6 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import vue.utils.gestionImages;
 import modele.Guerrier;
 import modele.Monstre;
 import modele.Personnage;
@@ -25,6 +26,7 @@ public class Grille extends JPanel implements Map {
 			GridLayout grid = new GridLayout(10,10);
 			this.setLayout(grid);
 			this.setBackground(new Color(255, 228, 196));
+	
 			grille = new ArrayList<List<Zone>>();
 
 			for(int colonne = 0; colonne <= 9; colonne++){
@@ -33,7 +35,8 @@ public class Grille extends JPanel implements Map {
 				for(int ligne = 0; ligne <= 9; ligne++){
 
 					// on crée la liste qui va contenir la ligne
-					AddZone(ligne, colonne, "P");
+					AddZone(ligne, colonne, "*");
+
 				}
 				grille.add(ligneTab);
 			}
@@ -48,21 +51,21 @@ public class Grille extends JPanel implements Map {
 		uneCase.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
 		
 		switch (typeCase) {
-	        case "P":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.personnage));
+	        case "P":  uneCase.setIcon(new ImageIcon(gestionImages.getPersonnage()));
 	                   break;
-	        case "*":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.mur));
+	        case "*":  uneCase.setIcon(new ImageIcon(gestionImages.getMur()));
 	        	       break;
-	        case "N":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.food));
+	        case "N":  uneCase.setIcon(new ImageIcon(gestionImages.getNourriture()));
                        break;
-	        case "A":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.arme));
+	        case "A":  uneCase.setIcon(new ImageIcon(gestionImages.getArme()));
                        break;
-	        case "F":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.fin));
+	        case "F":  uneCase.setIcon(new ImageIcon(gestionImages.getFin()));
             		   break;
-	        case "T":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.guardTower));
+	        case "T":  uneCase.setIcon(new ImageIcon(gestionImages.getTour()));
  		               break;
-	        case "M":  uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.monstre));
+	        case "M":  uneCase.setIcon(new ImageIcon(gestionImages.getMonstre()));
                        break;
-	        default:   uneCase.setIcon(new ImageIcon(modele.Iinterface.IGestionImages.mur));
+	        default:   uneCase.Afficher();
                        break;
 	    }
 		
