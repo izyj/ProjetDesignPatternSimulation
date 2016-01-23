@@ -1,6 +1,5 @@
 package modele.map;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JLabel;
@@ -9,7 +8,7 @@ import modele.Personnage;
 import modele.ObjectItem.ObjectItemAbstract;
 
 /**
- * Une Zone peut etre case comme etre plusieurs case
+ * Une Zone peut etre une case comme etre plusieurs case
  * @author Jonathan
  *
  */

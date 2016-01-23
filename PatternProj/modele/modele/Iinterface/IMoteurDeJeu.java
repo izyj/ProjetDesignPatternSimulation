@@ -1,9 +1,5 @@
 package modele.Iinterface;
 
-import java.util.List;
-
-import modele.Personnage;
-
 public interface IMoteurDeJeu {
 
 	/**
@@ -24,6 +20,7 @@ public interface IMoteurDeJeu {
 	 */
 	public void ChargerPersonnage();
 
+	
 
 
 }

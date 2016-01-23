@@ -22,6 +22,8 @@ public interface  Map{
 
     public abstract List<List<Zone>> recupererGrille();
 
+    public abstract void lieZone();
+
 
 
 }

@@ -74,8 +74,9 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	 * Methode gerant le deplacement du personnage
 	 */
 	private void deplacementHeros(Personnage hero){
-
-		//hero.
+		
+		
+		
 
 	}
 

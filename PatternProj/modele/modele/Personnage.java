@@ -20,6 +20,8 @@ public abstract class Personnage {
 	protected int force ;
 	protected int attaque;
 	protected boolean ko;
+	protected int positionX;
+	protected int positionY;
 
 	// Comportement du personnage
 	private IComportementCombat ComportementCombat ;
@@ -31,8 +33,8 @@ public abstract class Personnage {
 
 
 
-	
-	// constructeur	
+
+	// constructeur
 	public Personnage(Zone defaultPosition, String name,int force,int vie, boolean ko, IComportementCombat comportementCombat,
 			IComportementDeplacement comportementDeplacement, IComportementInteraction comportementInteraction) {
 		super();
@@ -45,8 +47,8 @@ public abstract class Personnage {
 		ComportementDeplacement = comportementDeplacement;
 		ComportementInteraction = comportementInteraction;
 	}
-	
-	
+
+
 
 
     public Personnage() {
@@ -54,12 +56,12 @@ public abstract class Personnage {
     }
 
 
-   //Méthode Se reposer 
+   //Méthode Se reposer
 	public abstract  void seReposer(int i);
 
    //Méthode KO Perdre la vie
 	public abstract void KO();
-	
+
    //Méthode permettra des dégats
 	public abstract int attaque();
 
@@ -166,6 +168,48 @@ public abstract class Personnage {
 
 	public void setKo(boolean ko) {
 		this.ko = ko;
+	}
+
+
+
+
+	public int getPositionX() {
+		return positionX;
+	}
+
+
+
+
+	public void setPositionColonne(int positionX) {
+		this.positionX = positionX;
+	}
+
+
+
+
+	public int getPositionY() {
+		return positionY;
+	}
+
+
+
+
+	public void setPositionLigne(int positionY) {
+		this.positionY = positionY;
+	}
+
+
+
+
+	public int getForce() {
+		return force;
+	}
+
+
+
+
+	public void setForce(int force) {
+		this.force = force;
 	}
 
 

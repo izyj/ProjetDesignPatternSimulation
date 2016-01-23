@@ -28,7 +28,7 @@ public class Grille extends JPanel implements Map {
 			GridLayout grid = new GridLayout(20,20);
 			this.setLayout(grid);
 			this.setBackground(new Color(255, 228, 196));
-	
+
 			grille = new ArrayList<List<Zone>>();
 
 			for(int colonne = 0; colonne <= 9; colonne++){
@@ -37,25 +37,26 @@ public class Grille extends JPanel implements Map {
 				for(int ligne = 0; ligne <= 9; ligne++){
 
 					// on crée la liste qui va contenir la ligne
-					AddZone(ligne, colonne, "P");
+					AddZone(ligne, colonne, "M");
 
 				}
 				grille.add(ligneTab);
 			}
+			lieZone();
      }
-	 
+
 	 /**
 	  * Cette methode ajoute une case dans la grille
 	  */
 	public void AddZone(int ligne, int colonne, String typeCase) {
-		
+
 		Dimension dim = new Dimension();
 		dim.setSize(20, 20);
-		
+
 		Case uneCase = new Case(ligne,colonne);
 		uneCase.setMinimumSize(dim);
 		uneCase.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
-		
+
 		switch (typeCase) {
 	        case "P":  uneCase.setIcon(new ImageIcon(gestionImages.getPersonnage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
 	                   break;
@@ -74,7 +75,7 @@ public class Grille extends JPanel implements Map {
 	        default:   uneCase.Afficher();
                        break;
 	    }
-		
+
 		this.add(uneCase);
 		grille.get(colonne).add(uneCase);
 	}
@@ -151,6 +152,41 @@ public class Grille extends JPanel implements Map {
 
 		return this.grille;
 	}
+
+	/**
+	 * Méthode qui lie les zones ( chemins possible)
+	 */
+	@Override
+	public void lieZone() {
+		Zone temp = null;
+		for(int i = 0 ; i<=grille.size()-1; i++){
+			//System.out.println(i);
+			// colonne
+			int b =0;
+			boolean secondcase = false;
+			for (Zone list : grille.get(i)) {
+				/**
+				 * Pour lié les cases je verifie tous dabors que la derniere case n'a pas eté sauvegarder ensuite je vérifie que la premiere est passer
+				 * et ensuite je les la case x a la x-1
+				 */
+				if(temp != null){
+					grille.get(i).get(b).getLiens().add(temp);
+					temp = null;
+				}
+				if(secondcase){
+					grille.get(i).get(b--).getLiens().add(list);
+					b++;
+				 }
+				 if(b == grille.get(i).size()-1){
+					temp = list;
+				 }
+				}
+
+			}
+	}
+
+
+
 
 
 
