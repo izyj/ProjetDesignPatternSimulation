@@ -24,7 +24,7 @@ public class Grille extends JPanel implements Map {
      {
 			GridLayout grid = new GridLayout(10,10);
 			this.setLayout(grid);
-			this.setBackground(new Color(255, 228, 196));
+			//Border border = LineBorder.createGrayLineBorder();
 			grille = new ArrayList<List<Zone>>();
 
 			for(int colonne = 0; colonne <= 9; colonne++){
@@ -37,14 +37,17 @@ public class Grille extends JPanel implements Map {
 				}
 				grille.add(ligneTab);
 			}
+
      }
 	 
 	 /**
 	  * Cette methode ajoute une case dans la grille
 	  */
+	@Override
 	public void AddZone(int ligne, int colonne, String typeCase) {
 
 		Case uneCase = new Case(ligne,colonne);
+		uneCase.setBackground(Color.BLACK);
 		uneCase.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
 		
 		switch (typeCase) {

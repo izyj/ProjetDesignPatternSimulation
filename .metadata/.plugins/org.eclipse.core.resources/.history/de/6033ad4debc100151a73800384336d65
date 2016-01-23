@@ -24,7 +24,7 @@ public class Grille extends JPanel implements Map {
      {
 			GridLayout grid = new GridLayout(10,10);
 			this.setLayout(grid);
-			this.setBackground(new Color(255, 228, 196));
+			this.setBackground(new Color(173,161,118));
 			grille = new ArrayList<List<Zone>>();
 
 			for(int colonne = 0; colonne <= 9; colonne++){
