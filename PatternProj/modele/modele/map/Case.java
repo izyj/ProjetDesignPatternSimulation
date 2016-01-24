@@ -1,10 +1,16 @@
 package modele.map;
 
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.ImageIcon;
+
 import modele.Personnage;
+import modele.Keys.EnumElementPlateau;
+import modele.Keys.EnumTypePersonnage;
 import modele.ObjectItem.ObjectItemAbstract;
+import vue.utils.gestionImages;
 
 public class Case extends Zone{
 
@@ -42,6 +48,28 @@ public class Case extends Zone{
 	public Boolean lienExiste(Zone zoneCible) {
 
 		return  liens.contains(zoneCible);
+	}
+
+	public void changerImageCase(EnumElementPlateau type){
+		String element = type.toString();
+		switch (element) {
+        case "personnage":  this.setIcon(new ImageIcon(gestionImages.getPersonnage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+                   break;
+        case "mur":  this.setIcon(new ImageIcon(gestionImages.getMur().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+        	       break;
+        case "nourriture":  this.setIcon(new ImageIcon(gestionImages.getNourriture().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+                   break;
+        case "arme":  this.setIcon(new ImageIcon(gestionImages.getArme().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+                   break;
+        case "fin":  this.setIcon(new ImageIcon(gestionImages.getFin().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+        		   break;
+        case "tour":  this.setIcon(new ImageIcon(gestionImages.getTour().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+		               break;
+        case "monstre":  this.setIcon(new ImageIcon(gestionImages.getMonstre().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+                   break;
+        default:   this.Afficher();
+                   break;
+    }
 	}
 
 }

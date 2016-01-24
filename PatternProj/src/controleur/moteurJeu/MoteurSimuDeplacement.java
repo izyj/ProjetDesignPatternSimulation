@@ -12,6 +12,7 @@ import modele.Iinterface.IObservateur;
 import modele.Iinterface.IPlateau;
 import modele.Keys.EnumTypePersonnage;
 import modele.map.Grille;
+import modele.map.Zone;
 
 public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObservable {
 
@@ -74,9 +75,14 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	 * Methode gerant le deplacement du personnage
 	 */
 	private void deplacementHeros(Personnage hero){
-		
-		
-		
+
+
+		hero.getPositionX();
+		List<List<Zone>> plateau;
+
+		plateau = grille.recupererGrille();
+
+
 
 	}
 
@@ -110,7 +116,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 		Personnage perso = factory.getPersonnage(EnumTypePersonnage.Guerrier);
 		listePersonnages = new ArrayList<>();
 		listePersonnages.add(perso);
-		grille.ChargerPersonage(listePersonnages);
+		grille.chargerPersonnage(listePersonnages);
 
 	}
 

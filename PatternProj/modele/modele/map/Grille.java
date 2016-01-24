@@ -15,6 +15,8 @@ import vue.utils.gestionImages;
 import modele.Guerrier;
 import modele.Monstre;
 import modele.Personnage;
+import modele.Keys.EnumElementPlateau;
+import modele.Keys.EnumTypePersonnage;
 import modele.ObjectItem.ObjectItemAbstract;
 
 public class Grille extends JPanel implements Map {
@@ -55,27 +57,8 @@ public class Grille extends JPanel implements Map {
 
 		Case uneCase = new Case(ligne,colonne);
 		uneCase.setMinimumSize(dim);
-		uneCase.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
-
-		switch (typeCase) {
-	        case "P":  uneCase.setIcon(new ImageIcon(gestionImages.getPersonnage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-	                   break;
-	        case "*":  uneCase.setIcon(new ImageIcon(gestionImages.getMur().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-	        	       break;
-	        case "N":  uneCase.setIcon(new ImageIcon(gestionImages.getNourriture().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-                       break;
-	        case "A":  uneCase.setIcon(new ImageIcon(gestionImages.getArme().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-                       break;
-	        case "F":  uneCase.setIcon(new ImageIcon(gestionImages.getFin().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-            		   break;
-	        case "T":  uneCase.setIcon(new ImageIcon(gestionImages.getTour().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
- 		               break;
-	        case "M":  uneCase.setIcon(new ImageIcon(gestionImages.getMonstre().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-                       break;
-	        default:   uneCase.Afficher();
-                       break;
-	    }
-
+		//uneCase.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
+		uneCase.changerImageCase(EnumElementPlateau.mur);
 		this.add(uneCase);
 		grille.get(colonne).add(uneCase);
 	}
@@ -106,13 +89,15 @@ public class Grille extends JPanel implements Map {
 	/**
 	 * Methode qui permet  qui place les personnages au chargement de la grille
 	 */
-	public void ChargerPersonage(List<Personnage> personages) {
+	public void chargerPersonnage(List<Personnage> personages) {
 
 		for (Personnage personnage : personages) {
 
 			if (personnage instanceof Guerrier ) {
 				System.out.println("Guerrier");
 				grille.get(0).get(0).getPersonages().add(personnage);
+				Case uneCase = (Case) grille.get(0).get(0);
+				uneCase.changerImageCase(EnumElementPlateau.personnage);
 				grille.get(0).get(0).setText("Personnage");
 
 			}else if (personnage instanceof Monstre ) {
@@ -124,7 +109,7 @@ public class Grille extends JPanel implements Map {
 
 
 	@Override
-	public void SupprimerObjet(ObjectItemAbstract obj,List<Zone> zones) {
+	public void supprimerObjet(ObjectItemAbstract obj,List<Zone> zones) {
 
 		for  (Zone item  : zones)
 
@@ -134,17 +119,17 @@ public class Grille extends JPanel implements Map {
 	}
 
 	@Override
-	public void SupprimePersonage(Personnage perso) {
+	public void supprimePersonnage(Personnage perso) {
 
 	}
 
 	@Override
-	public void AjouterPersonageInZone(Personnage perso, Zone position) {
+	public void ajouterPersonnageInZone(Personnage perso, Zone position) {
 
 	}
 
 	@Override
-	public void AfficherEnvironment(Personnage personage) {
+	public void afficherEnvironment(Personnage personage) {
 
 	}
 	@Override
@@ -152,6 +137,8 @@ public class Grille extends JPanel implements Map {
 
 		return this.grille;
 	}
+
+
 
 	/**
 	 * Méthode qui lie les zones ( chemins possible)

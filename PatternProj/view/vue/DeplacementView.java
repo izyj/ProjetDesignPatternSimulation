@@ -51,7 +51,7 @@ public class DeplacementView extends JFrame implements IObservateur {
 
 	@Override
 	public void actualiser(IObservable o) {
-		// TODO Auto-generated method stub
+
 
 	}
 
