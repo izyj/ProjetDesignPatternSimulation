@@ -52,7 +52,7 @@ public class DeplacementView extends JFrame implements IObservateur {
 	@Override
 	public void actualiser(IObservable o) {
 
-
+		this.repaint();
 	}
 
 }

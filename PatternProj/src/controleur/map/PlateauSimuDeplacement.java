@@ -7,7 +7,10 @@ import java.util.List;
 
 import javax.swing.JFrame;
 
+import controleur.contexte.ContexteSimulation;
+import controleur.etat.ContexteEtat;
 import controleur.factory.SimuDeplacementFactory;
+import controleur.moteurJeu.MoteurSimuDeplacement;
 import modele.Guerrier;
 import modele.Personnage;
 import modele.Iinterface.IObservable;
@@ -26,8 +29,12 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 	private static int LARGEURPLATEFORME = 30;
 	private Grille  grille;
 	private SimuDeplacementFactory factory;
+	private ContexteSimulation contexte;
+
 
 	public PlateauSimuDeplacement() {
+		StringBuilder s = new StringBuilder();
+
 
 	}
 
@@ -35,9 +42,14 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 	public void createPlateau() {
 		grille = new Grille();
 		factory = new SimuDeplacementFactory();
+		contexte = new ContexteSimulation();
 		List<Personnage> personnages = new ArrayList<>();
-		personnages.add( new Guerrier());
+		contexte.setGrille(grille);
+		contexte.setListPersonnage(personnages);
 		grille.chargerPersonnage(personnages);
+		MoteurSimuDeplacement moteurJeu = new MoteurSimuDeplacement(contexte);
+		moteurJeu.start();
+		personnages.add(new Guerrier());
 		this.getContentPane().add(grille);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setBackground(new Color(173,161,118));

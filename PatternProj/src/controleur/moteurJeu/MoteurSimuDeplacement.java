@@ -3,6 +3,7 @@ package controleur.moteurJeu;
 import java.util.ArrayList;
 import java.util.List;
 
+import controleur.contexte.ContexteSimulation;
 import controleur.factory.SimuDeplacementFactory;
 import modele.Guerrier;
 import modele.Personnage;
@@ -10,7 +11,9 @@ import modele.Iinterface.IMoteurDeJeu;
 import modele.Iinterface.IObservable;
 import modele.Iinterface.IObservateur;
 import modele.Iinterface.IPlateau;
+import modele.Keys.EnumElementPlateau;
 import modele.Keys.EnumTypePersonnage;
+import modele.map.Case;
 import modele.map.Grille;
 import modele.map.Zone;
 
@@ -21,8 +24,9 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	List<Personnage> listePersonnages;
 	SimuDeplacementFactory factory;
 
-	public MoteurSimuDeplacement(Grille plateau) {
-		this.grille = plateau;
+	public MoteurSimuDeplacement(ContexteSimulation contexte) {
+		this.grille = contexte.getGrille();
+		listePersonnages = contexte.getListPersonnage();
 		this.factory = new SimuDeplacementFactory();
 	}
 
@@ -31,7 +35,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	public void run() {
 		long start = System.currentTimeMillis();
 	    // boucle tant que la durée de vie du thread est < à 5 secondes
-	    while( System.currentTimeMillis() < ( start + (1000 * 50))) {
+	    while( System.currentTimeMillis() < ( start + (1000 * 10))) {
 
 	    	DeplacementPersonnage();
 
@@ -77,11 +81,20 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	private void deplacementHeros(Personnage hero){
 
 
-		hero.getPositionX();
+		System.out.println(hero.getPositionX());
+		// Je recupère la position du personnage et je l'incrémente afin qui se déplace dans les cases.
+		int NewPositionX = hero.getPositionX() +1;
+		int NewPositionY = hero.getPositionY() +1;
+
 		List<List<Zone>> plateau;
 
 		plateau = grille.recupererGrille();
-
+		Case Unecase = (Case) plateau.get(hero.getPositionX()).get(hero.getPositionY());
+		Unecase.changerImageCase(EnumElementPlateau.mur);
+		Unecase = (Case) plateau.get(NewPositionX).get(NewPositionY);
+		hero.setPositionColonne(NewPositionX);
+		hero.setPositionLigne(NewPositionY);
+		Unecase.changerImageCase(EnumElementPlateau.personnage);
 
 
 	}
