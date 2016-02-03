@@ -6,6 +6,7 @@ import java.util.List;
 import controleur.contexte.ContexteSimulation;
 import controleur.factory.SimuDeplacementFactory;
 import modele.Guerrier;
+import modele.Monstre;
 import modele.Personnage;
 import modele.Iinterface.IMoteurDeJeu;
 import modele.Iinterface.IObservable;
@@ -34,8 +35,8 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	@Override
 	public void run() {
 		long start = System.currentTimeMillis();
-	    // boucle tant que la durée de vie du thread est < à 5 secondes
-	    while( System.currentTimeMillis() < ( start + (1000 * 10))) {
+	    // boucle  durée de vie du thread 
+	    while( System.currentTimeMillis() < ( start + (10000 * 10))) {
 
 	    	DeplacementPersonnage();
 
@@ -83,9 +84,12 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 
 		System.out.println(hero.getPositionX());
 		// Je recupère la position du personnage et je l'incrémente afin qui se déplace dans les cases.
+		int NewPositionY = hero.getPositionY();
 		int NewPositionX = hero.getPositionX() +1;
-		int NewPositionY = hero.getPositionY() +1;
-
+		if(NewPositionX == 9){
+			 NewPositionY++;
+			 NewPositionX=0;
+		}
 		List<List<Zone>> plateau;
 
 		plateau = grille.recupererGrille();
@@ -95,12 +99,32 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 		hero.setPositionColonne(NewPositionX);
 		hero.setPositionLigne(NewPositionY);
 		Unecase.changerImageCase(EnumElementPlateau.personnage);
-
+		// on vérifie que des ennemies ne sont pas present
+		verifierEnemiesPresent(hero,plateau);
 
 	}
 
-	private void verifierEnemiesPresent(){
-
+	/**
+	 * Cette methode verifie si des enemies sont present dans les cases suivantes
+	 * 
+	 */
+	private void verifierEnemiesPresent(Personnage hero,List<List<Zone>> plateau){
+		//on vérifie d'abors que l'on ne regarde pas une case depassant le tableau
+		if(hero.getPositionX() <= plateau.get(hero.getPositionX()).size()){
+			Zone temp =  plateau.get(hero.getPositionX()).get(hero.getPositionY()+4);
+			if(!temp.getPersonages().isEmpty()){
+				int min =0;
+				int max = 10;
+				// On génere un nombre aléatoire le guerrier ne regardera pas tous le temps a distance
+				int nombreAleatoire = min + (int)(Math.random() * ((max - min) + 1));	
+				if(temp.getPersonages().get(0) instanceof  Monstre && nombreAleatoire >=  5){
+					
+					
+					
+				}
+					
+			}
+		}
 
 	}
 

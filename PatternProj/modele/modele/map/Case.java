@@ -13,7 +13,9 @@ import modele.ObjectItem.ObjectItemAbstract;
 import vue.utils.gestionImages;
 
 public class Case extends Zone{
-
+	
+	Case next = null;
+	Case previous = null;
 	/**
 	 *
 	 * @param x  Ligne de la case
@@ -71,5 +73,19 @@ public class Case extends Zone{
                    break;
     }
 	}
+	public Case getNext() {
+		return next;
+	}
+	public void setNext(Case next) {
+		this.next = next;
+	}
+	public Case getPrevious() {
+		return previous;
+	}
+	public void setPrevious(Case previous) {
+		this.previous = previous;
+	}
+	
+	
 
 }

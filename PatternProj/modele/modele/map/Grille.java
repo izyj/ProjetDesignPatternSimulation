@@ -27,22 +27,26 @@ public class Grille extends JPanel implements Map {
 
 	 public Grille()
      {
-			GridLayout grid = new GridLayout(20,20);
+			GridLayout grid = new GridLayout(10,10);
 			this.setLayout(grid);
 			this.setBackground(new Color(255, 228, 196));
 
 			grille = new ArrayList<List<Zone>>();
-
+			Case temp = null;
 			for(int colonne = 0; colonne <= 9; colonne++){
 				List<Zone> ligneTab = new ArrayList<Zone>();
+				
+				
 				grille.add(ligneTab);
 				for(int ligne = 0; ligne <= 9; ligne++){
-
+					if(ligne > 0){
+						//temp = (Case) ligne
+					}
 					// on crée la liste qui va contenir la ligne
 					AddZone(ligne, colonne, "M");
 
 				}
-				grille.add(ligneTab);
+				//grille.add(ligneTab);
 			}
 			lieZone();
      }
@@ -54,12 +58,13 @@ public class Grille extends JPanel implements Map {
 
 		Dimension dim = new Dimension();
 		dim.setSize(20, 20);
-
+		
 		Case uneCase = new Case(ligne,colonne);
 		uneCase.setMinimumSize(dim);
 		//uneCase.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
 		uneCase.changerImageCase(EnumElementPlateau.mur);
 		this.add(uneCase);
+		// on ajoute la case dans le plateau
 		grille.get(colonne).add(uneCase);
 	}
 
