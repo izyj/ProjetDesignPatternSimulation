@@ -129,6 +129,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 				if(temp.getPersonages().get(0) instanceof  Monstre && nombreAleatoire >=  5){
 					if( hero instanceof Guerrier)
 						tempShape = (Monstre) hero;
+					
 					hero.actionAttaquer(tempShape);
 					listePersonnages.add(temp.getPersonages().get(0));
 					notifierObservateurs();
