@@ -27,8 +27,6 @@ import javax.swing.ImageIcon;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import controleur.map.PlateauSimuDeplacement;
-
 public class MainView {
 
 	public JFrame frmPatternogame;

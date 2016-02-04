@@ -1,9 +1,9 @@
 package controleur.factory;
 
-import controleur.map.PlateauTowerDefense;
 import modele.Personnage;
 import modele.Iinterface.IPlateau;
 import modele.Keys.EnumTypePersonnage;
+import vue.PlateauTowerDefense;
 
 public class TowerDefenseFactory extends SimulationFactory{
 

@@ -1,14 +1,12 @@
-package controleur.map;
+package vue;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
 
 import controleur.contexte.ContexteSimulation;
-import controleur.etat.ContexteEtat;
 import controleur.factory.SimuDeplacementFactory;
 import controleur.moteurJeu.MoteurSimuDeplacement;
 import modele.Guerrier;
@@ -16,8 +14,10 @@ import modele.Personnage;
 import modele.Iinterface.IObservable;
 import modele.Iinterface.IObservateur;
 import modele.Iinterface.IPlateau;
-import modele.Keys.EnumTypePersonnage;
+import modele.Keys.EnumElementPlateau;
+import modele.map.Case;
 import modele.map.Grille;
+import modele.map.Zone;
 
 public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 
@@ -48,6 +48,7 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 		contexte.setListPersonnage(personnages);
 		grille.chargerPersonnage(personnages);
 		MoteurSimuDeplacement moteurJeu = new MoteurSimuDeplacement(contexte);
+		moteurJeu.ajouterObservateur(this);
 		moteurJeu.start();
 		personnages.add(new Guerrier());
 		this.getContentPane().add(grille);
@@ -59,7 +60,21 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 
 	@Override
 	public void actualiser(IObservable o) {
+		MoteurSimuDeplacement moteur = (MoteurSimuDeplacement)o;
+		List<List<Zone>> plateau = moteur.getGrille().recupererGrille();
+		for (Personnage personnage : moteur.getListePersonnages()) {
 
+			if (personnage instanceof Guerrier) {
+				Guerrier hero = (Guerrier)personnage;
+				Case Unecase = (Case) plateau.get(hero.getPositionX()).get(hero.getPositionY());
+				Unecase.changerImageCase(EnumElementPlateau.mur);
+				Unecase = (Case) plateau.get(moteur.getNewPositionX()).get(moteur.getNewPositionY());
+				hero.setPositionColonne(moteur.getNewPositionX());
+				hero.setPositionLigne(moteur.getNewPositionY());
+				Unecase.changerImageCase(EnumElementPlateau.personnage);
+			}
+
+		}
 	}
 
 	@Override

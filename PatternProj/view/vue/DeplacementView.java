@@ -3,14 +3,20 @@ package vue;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import controleur.map.PlateauSimuDeplacement;
+import controleur.moteurJeu.MoteurSimuDeplacement;
+import modele.Guerrier;
+import modele.Personnage;
 import modele.Iinterface.IObservable;
 import modele.Iinterface.IObservateur;
+import modele.Keys.EnumElementPlateau;
+import modele.map.Case;
+import modele.map.Zone;
 
 public class DeplacementView extends JFrame implements IObservateur {
 
@@ -51,7 +57,9 @@ public class DeplacementView extends JFrame implements IObservateur {
 
 	@Override
 	public void actualiser(IObservable o) {
-
+		
+		
+		
 		this.repaint();
 	}
 

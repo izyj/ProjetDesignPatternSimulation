@@ -1,12 +1,12 @@
-package controleur.map;
+package vue;
 
 import modele.Iinterface.IPlateau;
 
-public class PlateauLabyrinthe extends IPlateau {
+public class PlateauTowerDefense  extends IPlateau{
 
 	@Override
 	public void createPlateau() {
-
+		// TODO Auto-generated method stub
 
 	}
 

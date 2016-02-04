@@ -1,6 +1,5 @@
 package controleur.factory;
 
-import controleur.map.PlateauSimuDeplacement;
 import modele.Guerrier;
 import modele.Monstre;
 import modele.Personnage;
@@ -10,6 +9,7 @@ import modele.ObjectItem.ObjEnum;
 import modele.ObjectItem.ObjectItemAbstract;
 import modele.ObjectItem.piege;
 import modele.map.Zone;
+import vue.PlateauSimuDeplacement;
 
 public class DeplacementSimulationFactory extends SimulationFactory{
 

@@ -1,11 +1,11 @@
 package controleur.factory;
 
-import controleur.map.PlateauSimuDeplacement;
 import modele.Guerrier;
 import modele.Monstre;
 import modele.Personnage;
 import modele.Iinterface.IPlateau;
 import modele.Keys.EnumTypePersonnage;
+import vue.PlateauSimuDeplacement;
 
 public class SimuDeplacementFactory extends SimulationFactory{
 

@@ -1,9 +1,9 @@
 package controleur.factory;
 
-import controleur.map.PlateauLabyrinthe;
 import modele.Personnage;
 import modele.Iinterface.IPlateau;
 import modele.Keys.EnumTypePersonnage;
+import vue.PlateauLabyrinthe;
 
 public class SimuLabyrintheFactory extends SimulationFactory{
 
