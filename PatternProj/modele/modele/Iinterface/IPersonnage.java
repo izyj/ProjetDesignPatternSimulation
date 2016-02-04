@@ -8,8 +8,8 @@ public interface IPersonnage {
 	public void setVie(int vie);
 
 
-	public int getAttaque();
-	public void setAttaque(int force);
+	public int getForce();
+	public void setForce(int force);
 	public String getEtat();
 	public void setEtat(String etat);
 

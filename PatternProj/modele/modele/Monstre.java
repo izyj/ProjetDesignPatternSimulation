@@ -26,13 +26,13 @@ public class Monstre extends Personnage implements IPersonnage {
 	}
 
 	@Override
-	public int getAttaque() {
+	public int getForce() {
 
 		return this.attaque;
 	}
 
 	@Override
-	public void setAttaque(int force) {
+	public void setForce(int force) {
 		this.attaque = force;
 
 	}

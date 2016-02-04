@@ -2,6 +2,7 @@ package controleur.moteurJeu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observer;
 
 import controleur.contexte.ContexteSimulation;
 import controleur.factory.SimuDeplacementFactory;
@@ -24,11 +25,13 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	Grille grille;
 	List<Personnage> listePersonnages;
 	SimuDeplacementFactory factory;
+	List<IObservateur> listObservateur;
 
 	public MoteurSimuDeplacement(ContexteSimulation contexte) {
 		this.grille = contexte.getGrille();
 		listePersonnages = contexte.getListPersonnage();
 		this.factory = new SimuDeplacementFactory();
+		listObservateur = new ArrayList<>();
 	}
 
 
@@ -38,7 +41,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	    // boucle  durée de vie du thread 
 	    while( System.currentTimeMillis() < ( start + (10000 * 10))) {
 
-	    	DeplacementPersonnage();
+	    	deplacementPersonnage();
 
 	      try {
 	        // pause
@@ -60,19 +63,24 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 
 	@Override
 	public void ajouterObservateur(IObservateur observateur) {
-		// TODO Auto-generated method stub
+		
+		listObservateur.add(observateur);
 
 	}
 
 	@Override
 	public void supprimerObservateur(IObservateur observateur) {
-		// TODO Auto-generated method stub
+		
+		listObservateur.remove(observateur);
 
 	}
 
 	@Override
 	public void notifierObservateurs() {
-		// TODO Auto-generated method stub
+		
+		 for (IObservateur  observer : listObservateur) {
+			observer.actualiser(this);
+		}
 
 	}
 
@@ -109,6 +117,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	 * 
 	 */
 	private void verifierEnemiesPresent(Personnage hero,List<List<Zone>> plateau){
+		Monstre tempShape = null;
 		//on vérifie d'abors que l'on ne regarde pas une case depassant le tableau
 		if(hero.getPositionX() <= plateau.get(hero.getPositionX()).size()){
 			Zone temp =  plateau.get(hero.getPositionX()).get(hero.getPositionY()+4);
@@ -118,9 +127,11 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 				// On génere un nombre aléatoire le guerrier ne regardera pas tous le temps a distance
 				int nombreAleatoire = min + (int)(Math.random() * ((max - min) + 1));	
 				if(temp.getPersonages().get(0) instanceof  Monstre && nombreAleatoire >=  5){
-					
-					
-					
+					if( hero instanceof Guerrier)
+						tempShape = (Monstre) hero;
+					hero.actionAttaquer(tempShape);
+					listePersonnages.add(temp.getPersonages().get(0));
+					notifierObservateurs();
 				}
 					
 			}
@@ -132,7 +143,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	 * Methode qui permet au personnage de se déplacer (seul le héros se déplace)
 	 */
 	@Override
-	public void DeplacementPersonnage() {
+	public void deplacementPersonnage() {
 
 		for (Personnage personnage : listePersonnages) {
 
@@ -144,17 +155,35 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 
 
 	}
+	
+	private void actionAttaque(Guerrier hero, Monstre monstre){
+		
+		hero.actionAttaquer(monstre);
+		
+	}
 
 	/**
 	 * Methode qui va permettre de charger les personnages dans la grille
 	 */
 	@Override
-	public void ChargerPersonnage() {
+	public void chargerPersonnage() {
 		Personnage perso = factory.getPersonnage(EnumTypePersonnage.Guerrier);
 		listePersonnages = new ArrayList<>();
 		listePersonnages.add(perso);
 		grille.chargerPersonnage(listePersonnages);
 
 	}
+
+
+	public List<Personnage> getListePersonnages() {
+		return listePersonnages;
+	}
+
+
+	public void setListePersonnages(List<Personnage> listePersonnages) {
+		this.listePersonnages = listePersonnages;
+	}
+	
+	
 
 }

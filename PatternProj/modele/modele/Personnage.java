@@ -211,6 +211,12 @@ public abstract class Personnage {
 	public void setForce(int force) {
 		this.force = force;
 	}
+	
+	
+	public void actionAttaquer(Personnage ennemie){
+		
+		ennemie.setVie(ennemie.getVie()-this.attaque);
+	}
 
 
 

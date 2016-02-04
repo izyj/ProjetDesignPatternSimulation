@@ -12,13 +12,13 @@ public interface IMoteurDeJeu {
 	 * Methode permettant de déplacer un personnage
 	 * @param perso
 	 */
-	public void DeplacementPersonnage();
+	public void deplacementPersonnage();
 
 
 	/**
 	 * Methode qui va charger les personnages
 	 */
-	public void ChargerPersonnage();
+	public void chargerPersonnage();
 
 	
 
