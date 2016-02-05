@@ -11,7 +11,9 @@ public interface IEtatPersonnage {
 	
 	public void actionMort();
 	
-	public void actionPersoAttaque();
+	public void actionPersoAttaqueCorpsACorps();
+	
+	public void actionPersoAttaqueADistance();
 	
 	public void actionPersoImmobile();
 	

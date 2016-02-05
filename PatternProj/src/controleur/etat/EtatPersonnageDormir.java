@@ -20,11 +20,7 @@ public class EtatPersonnageDormir implements IEtatPersonnage {
 		
 	}
 
-	@Override
-	public void actionPersoAttaque() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 	@Override
 	public void actionPersoImmobile() {
@@ -40,6 +36,18 @@ public class EtatPersonnageDormir implements IEtatPersonnage {
 
 	@Override
 	public void actionSeReveiller() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPersoAttaqueCorpsACorps() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPersoAttaqueADistance() {
 		// TODO Auto-generated method stub
 		
 	}

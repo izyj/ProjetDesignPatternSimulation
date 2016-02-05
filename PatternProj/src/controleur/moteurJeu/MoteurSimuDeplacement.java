@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import controleur.contexte.ContexteSimulation;
+import controleur.etat.EtatPersonnageDeplacement;
 import controleur.factory.SimuDeplacementFactory;
 import modele.Guerrier;
 import modele.Monstre;
@@ -100,7 +101,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 			 newPositionY++;
 			 newPositionX=0;
 		}
-		
+		hero.setEtatPersonnage(new EtatPersonnageDeplacement());
 		List<List<Zone>> plateau;
 		notifierObservateurs();
 		
