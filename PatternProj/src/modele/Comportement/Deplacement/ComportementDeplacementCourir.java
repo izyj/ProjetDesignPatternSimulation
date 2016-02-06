@@ -1,11 +1,14 @@
 package modele.Comportement.Deplacement;
 
+import modele.map.Case;
+
 public class ComportementDeplacementCourir implements IComportementDeplacement {
 
 	@Override
-	public String deplacer() {
-		
-		return 	 "je me déplace à pied, je cour!";
+	public Case deplacer(eDirection direction) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	
 }

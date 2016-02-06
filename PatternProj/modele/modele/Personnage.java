@@ -5,6 +5,7 @@ import java.util.List;
 import controleur.etat.IEtatPersonnage;
 import modele.Comportement.Combat.IComportementCombat;
 import modele.Comportement.Deplacement.IComportementDeplacement;
+import modele.Comportement.Deplacement.eDirection;
 import modele.Comportement.Interaction.IComportementInteraction;
 import modele.ObjectItem.ObjectItemAbstract;
 import modele.map.Zone;
@@ -69,9 +70,9 @@ public abstract class Personnage {
 
 
 	//Méthode de déplacement de personnage
-	public void seDeplacer(){
+	public void seDeplacer(eDirection direction){
 
-		ComportementDeplacement.deplacer();
+		ComportementDeplacement.deplacer(direction);
 	}
 
 	//Méthode de Combattre de personnage
