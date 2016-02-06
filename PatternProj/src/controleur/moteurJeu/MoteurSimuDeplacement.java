@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import controleur.contexte.ContexteSimulation;
+import controleur.etat.AutomateEtat;
 import controleur.etat.EtatPersonnageDeplacement;
+import controleur.etat.IActionPersonnage;
 import controleur.factory.SimuDeplacementFactory;
 import modele.Guerrier;
 import modele.Monstre;
@@ -19,7 +21,7 @@ import modele.map.Case;
 import modele.map.Grille;
 import modele.map.Zone;
 
-public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObservable {
+public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObservable,IActionPersonnage {
 
 
 	private Grille grille;
@@ -41,6 +43,15 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	@Override
 	public void run() {
 		long start = System.currentTimeMillis();
+		AutomateEtat contexteEtat = new AutomateEtat(this);
+		contexteEtat.changerEtat(new EtatPersonnageDeplacement());
+		for (Personnage personnage : listePersonnages) {
+
+			if (personnage instanceof Guerrier) {
+				personnage.setContexteEtat(contexteEtat);
+			}
+
+		}
 	    // boucle  durée de vie du thread 
 	    while( System.currentTimeMillis() < ( start + (10000 * 10))) {
 
@@ -92,22 +103,16 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	 */
 	private void deplacementHeros(Personnage hero){
 
-
-		System.out.println(hero.getPositionX());
-		// Je recupère la position du personnage et je l'incrémente afin qui se déplace dans les cases.
-		 newPositionY = hero.getPositionY();
-		 newPositionX = hero.getPositionX() +1;
-		if(newPositionX == 9){
-			 newPositionY++;
-			 newPositionX=0;
-		}
-		hero.setEtatPersonnage(new EtatPersonnageDeplacement());
-		List<List<Zone>> plateau;
-		notifierObservateurs();
 		
-		// on vérifie que des ennemies ne sont pas present
-		//verifierEnemiesPresent(hero,grille.recupererGrille());
-
+		
+			hero.getContexteEtat().action();
+			//hero.getContexteEtat();
+			//List<List<Zone>> plateau;
+			notifierObservateurs();
+			
+			// on vérifie que des ennemies ne sont pas present
+			//verifierEnemiesPresent(hero,grille.recupererGrille());
+		
 	}
 
 	/**
@@ -239,7 +244,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 
 
 	public void setNewPositionY(int newPositionY) {
-		newPositionY = newPositionY;
+		this.newPositionY = newPositionY;
 	}
 
 
@@ -249,7 +254,49 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 
 
 	public void setNewPositionX(int newPositionX) {
-		newPositionX = newPositionX;
+		this.newPositionX = newPositionX;
+	}
+
+
+	@Override
+	public void actionDormir() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actionSeReveiller() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actionManger() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actionPersoAttaqueCorpsACorps() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actionPersoAttaqueADistance() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actionPersoSeDeplace() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

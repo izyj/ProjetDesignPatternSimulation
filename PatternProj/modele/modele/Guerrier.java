@@ -2,6 +2,8 @@ package modele;
 
 import java.util.Random;
 
+import controleur.etat.AutomateEtat;
+import controleur.etat.EtatPersonnageDeplacement;
 import modele.Iinterface.IPersonnage;
 import modele.map.Zone;
 

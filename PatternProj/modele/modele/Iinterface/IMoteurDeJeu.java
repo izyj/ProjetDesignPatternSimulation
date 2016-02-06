@@ -1,5 +1,7 @@
 package modele.Iinterface;
 
+import controleur.etat.AutomateEtat;
+
 public interface IMoteurDeJeu {
 
 	/**
