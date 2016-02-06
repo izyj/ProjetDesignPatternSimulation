@@ -1,10 +1,13 @@
 package controleur.etat;
 
+import controleur.moteurJeu.MoteurSimuDeplacement;
+import modele.Guerrier;
+import modele.Personnage;
+
 public class EtatPersonnageManger implements IEtatPersonnage {
 
 	@Override
 	public void actionDormir(AutomateEtat context) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -16,7 +19,13 @@ public class EtatPersonnageManger implements IEtatPersonnage {
 
 	@Override
 	public void actionManger(AutomateEtat context) {
-		// TODO Auto-generated method stub
+		MoteurSimuDeplacement moteur = (MoteurSimuDeplacement) context.getMoteur();
+		for(Personnage perso : moteur.getListePersonnages()){
+			if(perso instanceof Guerrier){
+				Guerrier guerrier = (Guerrier) perso;
+				
+			}
+		}
 		
 	}
 
