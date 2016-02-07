@@ -54,28 +54,8 @@ public class Grille extends JPanel implements Map {
 		dim.setSize(20, 20);
 		
 		Case uneCase = new Case(ligne,colonne);
-		uneCase.setMinimumSize(dim);
-		
-		switch (typeCase) {
-	        case "P":  uneCase.changerImageCase(EnumElementPlateau.personnage);
-	                   break;
-	        case "*":  uneCase.changerImageCase(EnumElementPlateau.mur);
-	        	       break;
-	        case "N":  uneCase.changerImageCase(EnumElementPlateau.nourriture);
-	                   break;
-	        case "A":  uneCase.changerImageCase(EnumElementPlateau.arme);
-	                   break;
-	        case "F":  uneCase.changerImageCase(EnumElementPlateau.fin);
-	        		   break;
-	        case "T":  uneCase.changerImageCase(EnumElementPlateau.tour);
-			               break;
-	        case "M":  uneCase.changerImageCase(EnumElementPlateau.monstre);
-	                   break;
-//	        default:   uneCase.Afficher();
-//	                   break;
-		}
-		
-//		uneCase.changerImageCase(EnumElementPlateau.mur);
+		uneCase.setMinimumSize(dim);				
+		uneCase.changerImageCase(EnumElementPlateau.mur);
 		
 		this.add(uneCase);
 		// on ajoute la case dans le plateau
