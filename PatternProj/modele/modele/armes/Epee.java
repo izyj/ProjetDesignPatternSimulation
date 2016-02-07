@@ -18,7 +18,6 @@ public class Epee implements Arme{
 
 	public Epee(){
 		super();
-
 	}
 
 	public String getNom() {

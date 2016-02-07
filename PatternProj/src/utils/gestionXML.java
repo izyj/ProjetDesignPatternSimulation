@@ -4,7 +4,13 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.List;
 
+import modele.Arme;
 import modele.Personnage;
+import modele.Keys.EnumElementPlateau;
+import modele.armes.Arc;
+import modele.armes.Dague;
+import modele.armes.Epee;
+import modele.armes.Fusils;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -40,6 +46,7 @@ public class gestionXML {
 
 		getCarte();
 		getPersonnage();
+		getArme();
 		// return null;
 	}
 
@@ -93,5 +100,33 @@ public class gestionXML {
 		}
 		return personnage;
 	}
+	
+	/**
+	 * Retourne l'arme de base du personnage du fichier XML
+	 * @return
+	 */
+	static Arme getArme() {
 
+		// On crée une List contenant tous les noeuds "carte" de l'Element racine.
+		List<Element> listParties = racine.getChildren("armes");
+
+		// On crée un Iterator sur notre liste
+		Iterator<Element> i = listParties.iterator();
+
+		while (i.hasNext()) {
+			Element courant = (Element) i.next();
+
+			switch (courant.getChildText("nom")) {
+		        case "Epee":  	Epee uneEpee = new Epee();
+		        				return uneEpee;
+				case "Dague":  	Dague uneDague = new Dague();
+								return uneDague;
+		        case "Fusils":  Fusils unFusil = new Fusils();
+		        			    return unFusil;
+		        case "Arc": 	Arc unArc = new Arc();
+		        				return unArc;
+			}
+		}
+		return null;
+	}
 }
