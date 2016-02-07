@@ -28,17 +28,14 @@ public class gestionXML {
 
 		try {
 			// On crée un nouveau document JDOM avec en argument le fichier XML
-			// Le parsing est terminé ;)
 			document = sxb.build(test);
 		} catch (Exception e) {
 		}
 
-		// On initialise un nouvel élément racine avec l'élément racine du
-		// document.
+		// On initialise un nouvel élément racine avec l'élément racine du document.
 		racine = document.getRootElement();
 
-		// Méthode définie dans la partie 3.2. de cet article
-		afficheCarte();
+		getCarte();
 
 		// return null;
 	}
@@ -46,7 +43,7 @@ public class gestionXML {
 	/**
 	 * Récupère la carte dans le fichier XML.
 	 */
-	static void afficheCarte() {
+	static void getCarte() {
 
 		// On crée une List contenant tous les noeuds "carte" de l'Element
 		// racine
@@ -61,7 +58,7 @@ public class gestionXML {
 			// sélectionner un nœud fils, modifier du texte, etc...
 			Element courant = (Element) i.next();
 			// On affiche le nom de l’élément courant
-			System.out.println(courant.getChild("carte").getText());
+			System.out.println(courant.getText());
 		}
 	}
 
