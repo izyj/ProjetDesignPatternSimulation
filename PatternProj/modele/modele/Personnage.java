@@ -12,8 +12,6 @@ import modele.map.Zone;
 
 public abstract class Personnage {
 
-
-
 	// Information sur le personnage
 	private Zone DefaultPosition;
 	private String Name;
@@ -31,12 +29,13 @@ public abstract class Personnage {
 	private IComportementDeplacement ComportementDeplacement ;
 	private IComportementInteraction  ComportementInteraction ;
 
-	// Etat majo du personnage
+	// Etat major du personnage
 
-
-
-
-
+	
+    public Personnage() {
+    	super();
+    }
+    
 	// constructeur
 	public Personnage(Zone defaultPosition, String name,int force,int vie, boolean ko, IComportementCombat comportementCombat,
 			IComportementDeplacement comportementDeplacement, IComportementInteraction comportementInteraction) {
@@ -50,15 +49,7 @@ public abstract class Personnage {
 		ComportementDeplacement = comportementDeplacement;
 		ComportementInteraction = comportementInteraction;
 	}
-
-
-
-
-    public Personnage() {
-	super();
-    }
-
-
+	
    //Méthode Se reposer
 	public abstract  void seReposer(int i);
 
@@ -67,7 +58,6 @@ public abstract class Personnage {
 
    //Méthode permettra des dégats
 	public abstract int attaque();
-
 
 	//Méthode de déplacement de personnage
 	public void seDeplacer(eDirection direction){
@@ -92,150 +82,113 @@ public abstract class Personnage {
 		ComportementInteraction.CollectObject();
 	}
 
-
 	// Getter & Setter
 	public Zone getDefaultPosition() {
 		return DefaultPosition;
 	}
+	
 	public void setDefaultPosition(Zone defaultPosition) {
 		DefaultPosition = defaultPosition;
 	}
+	
 	public String getName() {
 		return Name;
 	}
+	
 	public void setName(String name) {
 		Name = name;
 	}
+	
 	public List<ObjectItemAbstract> getObjects() {
 		return Objects;
 	}
+	
 	public void setObjects(List<ObjectItemAbstract> objects) {
 		Objects = objects;
 	}
+	
 	public IComportementCombat getComportementCombat() {
 		return ComportementCombat;
 	}
+	
 	public void setComportementCombat(IComportementCombat comportementCombat) {
 		ComportementCombat = comportementCombat;
 	}
+	
 	public IComportementDeplacement getComportementDeplacement() {
 		return ComportementDeplacement;
 	}
+	
 	public void setComportementDeplacement(IComportementDeplacement comportementDeplacement) {
 		ComportementDeplacement = comportementDeplacement;
 	}
+	
 	public IComportementInteraction getComportementInteraction() {
 		return ComportementInteraction;
 	}
+
 	public void setComportementInteraction(IComportementInteraction comportementInteraction) {
 		ComportementInteraction = comportementInteraction;
 	}
-
-
-
 
 	public int getVie() {
 		return vie;
 	}
 
-
-
-
 	public void setVie(int vie) {
 		this.vie = vie;
 	}
-
-
-
 
 	public int getAttaque() {
 		return attaque;
 	}
 
-
-
-
 	public void setAttaque(int attaque) {
 		this.attaque = attaque;
 	}
-
-
-
 
 	public boolean isKo() {
 		return ko;
 	}
 
-
-
-
 	public void setKo(boolean ko) {
 		this.ko = ko;
 	}
-
-
-
 
 	public int getPositionX() {
 		return positionX;
 	}
 
-
-
-
 	public void setPositionColonne(int positionX) {
 		this.positionX = positionX;
 	}
 
-
-
-
 	public int getPositionY() {
 		return positionY;
 	}
-
-
-
-
+	
 	public void setPositionLigne(int positionY) {
 		this.positionY = positionY;
 	}
-
-
-
 
 	public int getForce() {
 		return force;
 	}
 
-
-
-
 	public void setForce(int force) {
 		this.force = force;
 	}
-	
-	
+		
 	public void actionAttaquer(Personnage ennemie){
 		
 		ennemie.setVie(ennemie.getVie()-this.attaque);
 	}
 
-
-
-
 	public IEtatPersonnage getEtatPersonnage() {
 		return etatPersonnage;
 	}
 
-
-
-
 	public void setEtatPersonnage(IEtatPersonnage etatPersonnage) {
 		this.etatPersonnage = etatPersonnage;
 	}
-
-	
-
-
 }
