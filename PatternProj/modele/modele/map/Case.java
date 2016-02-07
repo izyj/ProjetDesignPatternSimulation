@@ -16,6 +16,7 @@ public class Case extends Zone{
 	
 	Case next = null;
 	Case previous = null;
+	
 	/**
 	 *
 	 * @param x  Ligne de la case
@@ -28,6 +29,7 @@ public class Case extends Zone{
 		super(x, y, liens, personages, objects);
 
 	}
+	
 	public Case(int x, int y) {
 		super(x,y);
 		personages = new ArrayList<Personnage>();
@@ -42,8 +44,7 @@ public class Case extends Zone{
         {
 			this.liens.add(zoneCible);
         }
-
-
+		
 	}
 
 	@Override
@@ -55,37 +56,39 @@ public class Case extends Zone{
 	public void changerImageCase(EnumElementPlateau type){
 		String element = type.toString();
 		switch (element) {
-        case "personnage":  this.setIcon(new ImageIcon(gestionImages.getPersonnage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-                   break;
-        case "mur":  this.setIcon(new ImageIcon(gestionImages.getMur().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-        	       break;
-        case "nourriture":  this.setIcon(new ImageIcon(gestionImages.getNourriture().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-                   break;
-        case "arme":  this.setIcon(new ImageIcon(gestionImages.getArme().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-                   break;
-        case "fin":  this.setIcon(new ImageIcon(gestionImages.getFin().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-        		   break;
-        case "tour":  this.setIcon(new ImageIcon(gestionImages.getTour().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-		               break;
-        case "monstre":  this.setIcon(new ImageIcon(gestionImages.getMonstre().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
-                   break;
-        default:   this.Afficher();
-                   break;
-    }
+	        case "personnage":  this.setIcon(new ImageIcon(gestionImages.getPersonnage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	                   			break;
+	        case "mur": 		this.setIcon(new ImageIcon(gestionImages.getMur().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	        	       			break;
+	        case "nourriture":  this.setIcon(new ImageIcon(gestionImages.getNourriture().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	                   			break;
+	        case "arme": 		this.setIcon(new ImageIcon(gestionImages.getArme().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	                   			break;
+	        case "fin":  		this.setIcon(new ImageIcon(gestionImages.getFin().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	        		   			break;
+	        case "tour":  		this.setIcon(new ImageIcon(gestionImages.getTour().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+			               		break;
+	        case "monstre":  	this.setIcon(new ImageIcon(gestionImages.getMonstre().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+	                   			break;
+	        default:   			this.Afficher();
+	        		   			break;
+		}
 	}
+	
 	public Case getNext() {
 		return next;
 	}
+	
 	public void setNext(Case next) {
 		this.next = next;
 	}
+	
 	public Case getPrevious() {
 		return previous;
 	}
+	
 	public void setPrevious(Case previous) {
 		this.previous = previous;
 	}
-	
-	
 
 }

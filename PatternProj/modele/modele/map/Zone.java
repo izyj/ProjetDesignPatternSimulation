@@ -22,10 +22,6 @@ public abstract class Zone extends JLabel
     public abstract void ajouterlien(Zone zoneCible);
     public abstract Boolean lienExiste(Zone zoneCible);
 
-
-
-
-
 	public Zone(int x, int y, List<Zone> liens, List<Personnage> personages,
 			List<ObjectItemAbstract> objects) {
 		super();
@@ -43,10 +39,12 @@ public abstract class Zone extends JLabel
 		X = x;
 		Y = y;
 	}
+	
 	public String Afficher(){
 
         return " X : " + X + ", Y : " + Y ;
     }
+	
 	/**
 	 * Cette methode permet de recuperer la ligne de la case
 	 * @return int
@@ -54,38 +52,47 @@ public abstract class Zone extends JLabel
 	public int getLigne() {
 		return X;
 	}
+	
 	public void setLigne(int x) {
 		X = x;
 	}
+	
 	/**
 	 * Cette methode retourne la colonne de la case
 	 * @return int
 	 */
+	
 	public int getColonne() {
 		return Y;
 	}
+	
 	public void setColonne(int y) {
 		Y = y;
 	}
+	
 	public List<Zone> getLiens() {
 		return liens;
 	}
+	
 	public void setLiens(List<Zone> liens) {
 		this.liens = liens;
 	}
+	
 	public List<Personnage> getPersonages() {
 		return personages;
 	}
+	
 	public void setPersonages(List<Personnage> personages) {
 		this.personages = personages;
 	}
+	
 	public List<ObjectItemAbstract> getObjects() {
 		return objects;
 	}
+	
 	public void setObjects(List<ObjectItemAbstract> objects) {
 		this.objects = objects;
 	}
-
 
 }
 

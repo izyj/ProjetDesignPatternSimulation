@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <partie nb="1">
-	<carte>
-		**********
-		*P       *
-		****     *
-		*      A *
-		* M   ****
-		*        *
-		****   M *
-		*        *
-		* M   F  *
-		**********	
-	</carte>
+	<map>
+		<taille>
+			<x>10</x>
+			<y>10</y>
+		</taille>
+		<carte>
+			**********
+			*P       *
+			****     *
+			*      A *
+			* M   ****
+			*        *
+			****   M *
+			*        *
+			* M   F  *
+			**********	
+		</carte>
+	</map>	
 	<personnage id="Perso1">
 		<nom>Wololo</nom>
 		<vie>20</vie>

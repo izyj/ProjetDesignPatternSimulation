@@ -1,12 +1,12 @@
 package utils;
 
 import java.io.File;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
 import modele.Arme;
 import modele.Personnage;
-import modele.Keys.EnumElementPlateau;
 import modele.armes.Arc;
 import modele.armes.Dague;
 import modele.armes.Epee;
@@ -17,7 +17,7 @@ import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
 
 /**
- * 
+ * Classe de gestion des données du fichier XML de la partie.
  * @author Gaetan
  *
  */
@@ -44,9 +44,11 @@ public class gestionXML {
 		// On initialise un nouvel élément racine avec l'élément racine du document.
 		racine = document.getRootElement();
 
+		getDimensionCarte();
 		getCarte();
 		getPersonnage();
 		getArme();
+		
 		// return null;
 	}
 
@@ -58,19 +60,47 @@ public class gestionXML {
 	static String getCarte() {
 
 		String carte = "";
-
+		
 		// On crée une List contenant tous les noeuds "carte" de l'Element racine.
-		List<Element> listParties = racine.getChildren("carte");
+		List<Element> listParties = racine.getChildren("map");
 
 		// On crée un Iterator sur notre liste
 		Iterator<Element> i = listParties.iterator();
 
 		while (i.hasNext()) {
 			Element courant = (Element) i.next();
-			carte = courant.getText();
+			
+			carte = courant.getChildText("carte");
 			System.out.println(carte);
 		}
 		return carte;
+	}
+	
+	/**
+	 * Récupère la dimension de la carte dans le fichier XML.
+	 * 
+	 * @return carte
+	 */
+	static Hashtable<String, Integer> getDimensionCarte() {
+		
+		Hashtable<String, Integer> dimCarte = new Hashtable<String, Integer>();
+		
+		// On crée une List contenant tous les noeuds "carte" de l'Element racine.
+		List<Element> listParties = racine.getChildren("map");
+
+		// On crée un Iterator sur notre liste
+		Iterator<Element> i = listParties.iterator();
+
+		while (i.hasNext()) {
+			Element courant = (Element) i.next();
+			
+			dimCarte.put("x", Integer.parseInt(courant.getChild("taille").getChildText("x")));
+			dimCarte.put("y", Integer.parseInt(courant.getChild("taille").getChildText("y")));
+			System.out.println(courant.getChild("taille").getChildText("x"));
+			System.out.println(courant.getChild("taille").getChildText("y"));
+		}
+		
+		return dimCarte;
 	}
 	
 	/**
@@ -98,6 +128,7 @@ public class gestionXML {
 			personnage.setForce(Integer.parseInt(courant.getChildText("force")));
 			personnage.setAttaque(Integer.parseInt(courant.getChildText("attaque")));
 		}
+		
 		return personnage;
 	}
 	
@@ -127,6 +158,7 @@ public class gestionXML {
 		        				return unArc;
 			}
 		}
+		
 		return null;
 	}
 }
