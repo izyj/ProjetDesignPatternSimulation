@@ -3,20 +3,15 @@ package modele.map;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import vue.utils.gestionImages;
 import modele.Guerrier;
 import modele.Monstre;
 import modele.Personnage;
 import modele.Keys.EnumElementPlateau;
-import modele.Keys.EnumTypePersonnage;
 import modele.ObjectItem.ObjectItemAbstract;
 
 public class Grille extends JPanel implements Map {
@@ -44,7 +39,6 @@ public class Grille extends JPanel implements Map {
 					}
 					// on crée la liste qui va contenir la ligne
 					AddZone(ligne, colonne, "M");
-
 				}
 				//grille.add(ligneTab);
 			}
@@ -61,8 +55,28 @@ public class Grille extends JPanel implements Map {
 		
 		Case uneCase = new Case(ligne,colonne);
 		uneCase.setMinimumSize(dim);
-		//uneCase.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
-		uneCase.changerImageCase(EnumElementPlateau.mur);
+		
+		switch (typeCase) {
+	        case "P":  uneCase.changerImageCase(EnumElementPlateau.personnage);
+	                   break;
+	        case "*":  uneCase.changerImageCase(EnumElementPlateau.mur);
+	        	       break;
+	        case "N":  uneCase.changerImageCase(EnumElementPlateau.nourriture);
+	                   break;
+	        case "A":  uneCase.changerImageCase(EnumElementPlateau.arme);
+	                   break;
+	        case "F":  uneCase.changerImageCase(EnumElementPlateau.fin);
+	        		   break;
+	        case "T":  uneCase.changerImageCase(EnumElementPlateau.tour);
+			               break;
+	        case "M":  uneCase.changerImageCase(EnumElementPlateau.monstre);
+	                   break;
+//	        default:   uneCase.Afficher();
+//	                   break;
+		}
+		
+//		uneCase.changerImageCase(EnumElementPlateau.mur);
+		
 		this.add(uneCase);
 		// on ajoute la case dans le plateau
 		grille.get(colonne).add(uneCase);

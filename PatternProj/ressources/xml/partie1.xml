@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<partie nb="1">
+	<carte>
+		**********
+		*P       *
+		****     *
+		*      A *
+		* M   ****
+		*        *
+		****   M *
+		*        *
+		* M   F  *
+		**********	
+	</carte>
+	<personnage id="Perso1">
+		<nom>Wololo</nom>
+		<vie>20</vie>
+		<force>10</force>
+		<attaque>10</attaque>	
+	</personnage>
+	<armes id="Epee">
+		<nom>Epee</nom>
+	</armes>
+</partie>

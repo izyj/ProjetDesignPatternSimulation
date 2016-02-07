@@ -27,6 +27,8 @@ import javax.swing.ImageIcon;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import utils.gestionXML;
+
 public class MainView {
 
 	public JFrame frmPatternogame;
@@ -117,6 +119,7 @@ public class MainView {
 				        dialogue.setFileFilter(filtre);
 				        dialogue.showOpenDialog(null);
 				        System.out.println("Fichier choisi : " + dialogue.getSelectedFile());
+//				        gestionXML.lectureFichierXML(dialogue.getSelectedFile());
 				}
 			});
 			menuConfiguration.add(mntmFichierXMLLaby);
@@ -140,6 +143,7 @@ public class MainView {
 				        dialogue.setFileFilter(filtre);
 				        dialogue.showOpenDialog(null);
 				        System.out.println("Fichier choisi : " + dialogue.getSelectedFile());
+//				        gestionXML.lectureFichierXML(dialogue.getSelectedFile());
 				}
 			});
 			menuConfiguration.add(mntmFichierXMLDeplacement);
@@ -163,6 +167,7 @@ public class MainView {
 				        dialogue.setFileFilter(filtre);
 				        dialogue.showOpenDialog(null);
 				        System.out.println("Fichier choisi : " + dialogue.getSelectedFile());
+//				        gestionXML.lectureFichierXML(dialogue.getSelectedFile());
 				}
 			});
 			menuConfiguration.add(mntmFichierXMLTowerDefence);
