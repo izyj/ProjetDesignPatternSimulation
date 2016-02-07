@@ -59,11 +59,7 @@ public class gestionXML {
 		Iterator<Element> i = listParties.iterator();
 
 		while (i.hasNext()) {
-			// On recrée l'Element courant à chaque tour de boucle afin de
-			// pouvoir utiliser les méthodes propres aux Element comme :
-			// sélectionner un nœud fils, modifier du texte, etc...
 			Element courant = (Element) i.next();
-
 			carte = courant.getText();
 			System.out.println(carte);
 		}
@@ -89,9 +85,6 @@ public class gestionXML {
 		Iterator<Element> i = listParties.iterator();
 
 		while (i.hasNext()) {
-			// On recrée l'Element courant à chaque tour de boucle afin de
-			// pouvoir utiliser les méthodes propres aux Element comme :
-			// sélectionner un nœud fils, modifier du texte, etc...
 			Element courant = (Element) i.next();
 			personnage.setName(courant.getChildText("nom"));
 			personnage.setVie(Integer.parseInt(courant.getChildText("vie")));
