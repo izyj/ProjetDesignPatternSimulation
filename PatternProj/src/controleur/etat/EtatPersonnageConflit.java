@@ -1,6 +1,20 @@
 package controleur.etat;
 
+import modele.Personnage;
+
 public class EtatPersonnageConflit implements IEtatPersonnage {
+	
+	private Personnage attaquant, victime;
+	
+	public EtatPersonnageConflit() {
+		
+	}
+	
+	public EtatPersonnageConflit(Personnage attaquant, Personnage victime) {
+		
+		this.attaquant = attaquant;
+		this.victime = victime;
+	}
 
 	@Override
 	public void actionDormir(AutomateEtat context) {
@@ -34,7 +48,11 @@ public class EtatPersonnageConflit implements IEtatPersonnage {
 
 	@Override
 	public void actionPersoAttaqueADistance(AutomateEtat context) {
-		// TODO Auto-generated method stub
+		
+		attaquant.combattre(victime);
+		if(victime.isKo()){
+			
+		}
 		
 	}
 

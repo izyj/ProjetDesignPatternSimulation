@@ -35,6 +35,9 @@ public class AutomateEtat implements IActionPersonnage {
 		if (etatP instanceof EtatPersonnageArreter) {
 			
 		}
+		if (etatP instanceof EtatPersonnageConflit) {
+			etatP.actionPersoAttaqueCorpsACorps(this);
+		}
 		
 	}
 	

@@ -1,7 +1,9 @@
 package modele.Comportement.Combat;
 
+import modele.Personnage;
+
 public interface IComportementCombat {
 	
-	public abstract String Attaquer();
+	public abstract void Attaquer(Personnage perso);
 
 }

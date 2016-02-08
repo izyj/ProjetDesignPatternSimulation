@@ -20,7 +20,6 @@ public abstract class Personnage {
 	protected int vie;
 	protected int force ;
 	protected int attaque;
-	protected boolean ko;
 	protected int positionX;
 	protected int positionY;
 	protected AutomateEtat contexteEtat;
@@ -37,13 +36,12 @@ public abstract class Personnage {
 
 
 	// constructeur
-	public Personnage(Zone defaultPosition, String name,int force,int vie, boolean ko, IComportementCombat comportementCombat,
+	public Personnage(Zone defaultPosition, String name,int force,int vie, IComportementCombat comportementCombat,
 			IComportementDeplacement comportementDeplacement, IComportementInteraction comportementInteraction) {
 		super();
 		DefaultPosition = defaultPosition;
 		Name = name;
 		this.vie = vie;
-		this.ko = ko;
 		this.force=force;
 		ComportementCombat = comportementCombat;
 		ComportementDeplacement = comportementDeplacement;
@@ -74,10 +72,13 @@ public abstract class Personnage {
 		ComportementDeplacement.deplacer();
 	}
 
-	//Méthode de Combattre de personnage
-	public void combattre(){
+	/**
+	 * Methode permettant d'attaquer un autre personnage
+	 * @param perso
+	 */
+	public void combattre(Personnage perso){
 
-		ComportementCombat.Attaquer();
+		ComportementCombat.Attaquer(perso);
 	}
 
 	//Méthode de PoseObject
@@ -162,15 +163,14 @@ public abstract class Personnage {
 
 
 	public boolean isKo() {
+		boolean ko = false;
+		if(vie == 0){
+			ko = true;
+		}
 		return ko;
 	}
 
 
-
-
-	public void setKo(boolean ko) {
-		this.ko = ko;
-	}
 
 
 

@@ -12,7 +12,12 @@ public class EtatPersonnageDormir implements IEtatPersonnage {
 		for(Personnage perso : moteur.getListePersonnages()){
 			if(perso instanceof Guerrier){
 				Guerrier guerrier = (Guerrier) perso;
-				
+				try {
+					moteur.sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 		
