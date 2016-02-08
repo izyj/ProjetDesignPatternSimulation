@@ -1,5 +1,7 @@
 package controleur.etat;
 
+import controleur.moteurJeu.MoteurSimuDeplacement;
+
 public class EtatPersonnageMort implements IEtatPersonnage {
 
 	@Override
@@ -22,7 +24,14 @@ public class EtatPersonnageMort implements IEtatPersonnage {
 
 	@Override
 	public void actionMort(AutomateEtat context) {
-		// TODO Auto-generated method stub
+		/**MoteurSimuDeplacement moteur = (MoteurSimuDeplacement) context.getMoteur();
+		IndexProcessor runnable = null;
+		Thread thread = new Thread(moteur);
+		 if (thread != null) {
+	            runnable.terminate();
+	            thread.join();
+	            LOGGER.debug("Thread successfully stopped.");
+	        }*/
 		
 	}
 
