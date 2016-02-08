@@ -38,8 +38,14 @@ public class EtatPersonnageConflit implements IEtatPersonnage {
 		
 		while(!personnage1.isKo() && !personnage2.isKo()){
 			
-			personnage1.actionAttaquer(personnage2);
-			personnage2.actionAttaquer(personnage1);
+			personnage1.combattre(personnage2);
+			personnage2.combattre(personnage1);
+		}
+		if(personnage1.isKo()){
+			personnage1.getContexteEtat().etatP = new EtatPersonnageMort();
+		}else
+		if(personnage2.isKo()){
+			personnage2.getContexteEtat().etatP = new EtatPersonnageMort();
 		}
 		
 	}
@@ -47,13 +53,13 @@ public class EtatPersonnageConflit implements IEtatPersonnage {
 
 	@Override
 	public void actionPersoImmobile(AutomateEtat context) {
-		// TODO Auto-generated method stub
+		throw null;
 		
 	}
 
 	@Override
 	public void actionPersoEnDeplacement(AutomateEtat context) {
-		// TODO Auto-generated method stub
+		throw null;
 		
 	}
 
