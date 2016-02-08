@@ -5,17 +5,21 @@ import java.util.List;
 
 import controleur.contexte.ContexteSimulation;
 import controleur.etat.AutomateEtat;
+import controleur.etat.EtatPersonnageConflit;
 import controleur.etat.EtatPersonnageDeplacement;
 import controleur.etat.IActionPersonnage;
 import controleur.factory.SimuDeplacementFactory;
 import modele.Guerrier;
 import modele.Monstre;
 import modele.Personnage;
+import modele.Comportement.Combat.ComportementAvecCouteau;
+import modele.Comportement.Combat.IComportementCombat;
 import modele.Iinterface.IMoteurDeJeu;
 import modele.Iinterface.IObservable;
 import modele.Iinterface.IObservateur;
 import modele.Iinterface.IPlateau;
 import modele.Keys.EnumTypePersonnage;
+import modele.map.Case;
 import modele.map.Grille;
 import modele.map.Zone;
 
@@ -109,7 +113,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 			notifierObservateurs();
 			
 			// on vérifie que des ennemies ne sont pas present
-			//verifierEnemiesPresent(hero,grille.recupererGrille());
+			verifierEnemiesPresent(hero,grille.recupererGrille());
 		
 	}
 
@@ -119,25 +123,28 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	 */
 	private void verifierEnemiesPresent(Personnage hero,List<List<Zone>> plateau){
 		Monstre tempShape = null;
+		
 		//on vérifie d'abord que l'on ne regarde pas une case depassant le tableau
-		if(hero.getPositionX() <= plateau.get(hero.getPositionX()).size()){
-			//on vérifie qu'un monstre se trouve dans la prochaine case
-			Zone temp =  plateau.get(hero.getPositionX()).get(hero.getPositionY()+1);
-			if(!temp.getPersonages().isEmpty()){
+		
+		 for (Personnage personnage : this.getListePersonnages()) {
+		 if (personnage instanceof Monstre) {
+			Monstre monstre = (Monstre)personnage;
+			 Zone Unecase =  plateau.get(hero.getPositionX()).get(hero.getPositionY());
+			 Zone UnecaseM = plateau.get(monstre.getPositionX()).get(monstre.getPositionY());
+			
+			 if(Unecase.equals(UnecaseM) ){
+				System.out.println("tttttttttttttttttttttttttttttttt)");
 				
-				if(temp.getPersonages().get(0) instanceof  Monstre){
-					
-					tempShape = (Monstre) temp.getPersonages().get(0);
-					
-					hero.actionAttaquer(tempShape);
-					listePersonnages.add(temp.getPersonages().get(0));
-					notifierObservateurs();
+				hero.setComportementCombat(new ComportementAvecCouteau(hero));
+				hero.getContexteEtat().changerEtat(new EtatPersonnageConflit(hero, monstre));
+				hero.getContexteEtat().action();
+				
 				}
 				
 			}
 			else{
 				// pour les attaques a distance on vérifie qu'un monstre ne se trouve pas 4 cases devant
-				temp =  plateau.get(hero.getPositionX()).get(hero.getPositionY()+4);
+			/*	temp =  plateau.get(hero.getPositionX()).get(hero.getPositionY()+4);
 				if(!temp.getPersonages().isEmpty()){
 					int min =0;
 					int max = 10;
@@ -146,15 +153,15 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 					if(temp.getPersonages().get(0) instanceof  Monstre && nombreAleatoire >=  5){
 						
 						tempShape = (Monstre) temp.getPersonages().get(0);
+						hero.getContexteEtat().changerEtat(new EtatPersonnageConflit(hero, tempShape));
+						hero.getContexteEtat().action();
 						
-						hero.actionAttaquer(tempShape);
-						listePersonnages.add(temp.getPersonages().get(0));
-						notifierObservateurs();
 					}
+					
 				
 				
 					
-			}
+			}*/
 		}
 		}
 

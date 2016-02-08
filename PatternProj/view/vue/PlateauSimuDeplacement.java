@@ -10,6 +10,7 @@ import controleur.contexte.ContexteSimulation;
 import controleur.factory.SimuDeplacementFactory;
 import controleur.moteurJeu.MoteurSimuDeplacement;
 import modele.Guerrier;
+import modele.Monstre;
 import modele.Personnage;
 import modele.Iinterface.IObservable;
 import modele.Iinterface.IObservateur;
@@ -30,7 +31,8 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 	private Grille  grille;
 	private SimuDeplacementFactory factory;
 	private ContexteSimulation contexte;
-
+	private int nombreAleatoire1 = (int)(Math.random() * 9);
+	private int nombreAleatoire = (int)(Math.random() * 9);
 
 	public PlateauSimuDeplacement() {
 		StringBuilder s = new StringBuilder();
@@ -51,6 +53,7 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 		moteurJeu.ajouterObservateur(this);
 		moteurJeu.start();
 		personnages.add(new Guerrier());
+		personnages.add(new Monstre());
 		this.getContentPane().add(grille);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setBackground(new Color(173,161,118));
@@ -63,7 +66,16 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 		MoteurSimuDeplacement moteur = (MoteurSimuDeplacement)o;
 		List<List<Zone>> plateau = moteur.getGrille().recupererGrille();
 		for (Personnage personnage : moteur.getListePersonnages()) {
+			
+			if (personnage instanceof Monstre) {
 
+				Monstre monstre = (Monstre)personnage;
+				Case Unecase =  (Case) plateau.get(monstre.getPositionX()).get(monstre.getPositionY());
+				monstre.setPositionColonne(4);
+				monstre.setPositionLigne(1);
+				Unecase.changerImageCase(EnumElementPlateau.monstre);
+			}
+			
 			if (personnage instanceof Guerrier) {
 				Guerrier hero = (Guerrier)personnage;
 				Case Unecase = (Case) plateau.get(hero.getPositionX()).get(hero.getPositionY());
@@ -73,6 +85,7 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 				hero.setPositionLigne(moteur.getNewPositionY());
 				Unecase.changerImageCase(EnumElementPlateau.personnage);
 			}
+			
 
 		}
 	}

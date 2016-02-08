@@ -2,8 +2,10 @@ package modele;
 
 import java.util.Random;
 
+
 import controleur.etat.AutomateEtat;
 import controleur.etat.EtatPersonnageDeplacement;
+import modele.Comportement.Combat.ComportementAvecCouteau;
 import modele.Iinterface.IPersonnage;
 import modele.map.Zone;
 
@@ -11,6 +13,8 @@ import modele.map.Zone;
 public class Guerrier extends Personnage implements IPersonnage {
 
 	public Guerrier() {
+		
+	//	this.ComportementCombat = new ComportementAvecCouteau();
 		vie = 5;
 		//ko = false;
 		force =5;
@@ -25,11 +29,12 @@ public class Guerrier extends Personnage implements IPersonnage {
 	@Override
 	public void setVie(int vie) {
 
-		this.vie = vie;
 		if (vie<0){
+			this.vie = 0;
+			
+		}else
+			this.vie = vie;
 
-			vie=0;
-		}
 
 	}
 
@@ -112,4 +117,27 @@ public class Guerrier extends Personnage implements IPersonnage {
 		int d= rnd.nextInt(force)+1 ;
 		return d;
 	}
+
+	@Override
+	public void actionAttaquer(Personnage ennemie) {
+		
+		ennemie.setVie(ennemie.getVie()-ennemie.attaque());
+		
+		System.out.println("rttttbbb  "+this.getVie());
+		
+		this.toString();
+		
+	}
+
+	@Override
+	public String toString() {
+		
+		System.out.println(" gurrier est toujour en vie \nVie  = "+vie+"\nForce = "+force);
+			return " gurrier est toujour en vie \nVie  = "+vie+"\nForce = "+force;
+			
+			
+		
+	}
+
+	
 }

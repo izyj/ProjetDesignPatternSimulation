@@ -83,4 +83,16 @@ public class Voiture extends Personnage implements IPersonnage{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public void actionAttaquer(Personnage ennemie) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

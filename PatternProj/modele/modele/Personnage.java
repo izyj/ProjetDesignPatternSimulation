@@ -24,9 +24,9 @@ public abstract class Personnage {
 	protected AutomateEtat contexteEtat;
 
 	// Comportement du personnage
-	private IComportementCombat ComportementCombat ;
-	private IComportementDeplacement ComportementDeplacement ;
-	private IComportementInteraction  ComportementInteraction ;
+	protected IComportementCombat ComportementCombat ;
+	protected IComportementDeplacement ComportementDeplacement ;
+	protected IComportementInteraction  ComportementInteraction ;
 
 	// Etat major du personnage
 
@@ -153,7 +153,7 @@ public abstract class Personnage {
 	  * Retourne un boolean qui indique si le personnage est mort
 	*/
 	public boolean isKo() {
-		if(this.vie ==0)
+		if(this.vie <=0)
 			return true;
 		
 		return false;
@@ -183,11 +183,7 @@ public abstract class Personnage {
 		this.force = force;
 	}
 		
-	public void actionAttaquer(Personnage ennemie){
-		
-		ennemie.setVie(ennemie.getVie()-this.attaque);
-	}
-
+	public abstract void actionAttaquer(Personnage ennemie);
 
 	public AutomateEtat getContexteEtat() {
 		return contexteEtat;
@@ -200,6 +196,9 @@ public abstract class Personnage {
 
 
 
+	public abstract String toString();
+		
+		
 
 	
 

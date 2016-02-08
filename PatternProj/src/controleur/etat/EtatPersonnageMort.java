@@ -33,11 +33,13 @@ public class EtatPersonnageMort implements IEtatPersonnage {
 	            LOGGER.debug("Thread successfully stopped.");
 	        }*/
 		
+		System.out.println("mooooooooort");
+		
 	}
 
 	@Override
 	public void actionPersoAttaque(AutomateEtat context) {
-		// TODO Auto-generated method stub
+		//context.moteur.getClass().
 		
 	}
 

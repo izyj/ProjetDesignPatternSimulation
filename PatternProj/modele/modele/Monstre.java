@@ -2,12 +2,17 @@ package modele;
 
 import java.util.Random;
 
+import modele.Comportement.Combat.ComportementAvecCouteau;
 import modele.Iinterface.IPersonnage;
 import modele.map.Zone;
 
 public class Monstre extends Personnage implements IPersonnage {
+	
+	
 
 	public Monstre() {
+		
+		this.ComportementCombat = new ComportementAvecCouteau(this);
 		vie = 10;
 		//ko = false;
 		force =5;
@@ -21,7 +26,12 @@ public class Monstre extends Personnage implements IPersonnage {
 	@Override
 	public void setVie(int vie) {
 
-		this.vie = vie;
+		if (vie<0){
+			this.vie = 0;
+			
+		}else
+			this.vie = vie;
+
 
 	}
 
@@ -83,6 +93,17 @@ public class Monstre extends Personnage implements IPersonnage {
 		Random rnd = new Random();
 		int d= rnd.nextInt(force)+1 ;
 		return d;
+	}
+	@Override
+	public void actionAttaquer(Personnage ennemie) {
+		ennemie.setVie(ennemie.getVie()- this.attaque());
+		this.toString();
+		
+	}
+	@Override
+	public String toString() {
+		System.out.println(" Monstre est toujour en vie \nVie  = "+vie+"\nForce = "+force);
+		return " Monstre est toujour en vie \nVie  = "+vie+"\nForce = "+force;
 	}
 
 }

@@ -4,6 +4,6 @@ import modele.Personnage;
 
 public interface IComportementCombat {
 	
-	public abstract void Attaquer(Personnage perso);
+	public abstract void Attaquer(Personnage perso );
 
 }

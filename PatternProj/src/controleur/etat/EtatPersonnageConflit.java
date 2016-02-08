@@ -35,17 +35,42 @@ public class EtatPersonnageConflit implements IEtatPersonnage {
 
 	@Override
 	public void actionPersoAttaque(AutomateEtat context) {
-		
-		while(!personnage1.isKo() && !personnage2.isKo()){
+				
+		while(personnage1.isKo()!=true && personnage2.isKo()!=true){	
+				
+			    personnage1.combattre(personnage2);
 			
-			personnage1.combattre(personnage2);
-			personnage2.combattre(personnage1);
+				personnage2.combattre(personnage1);
+				//personnage2.actionAttaquer(personnage1);
+				//personnage1.actionAttaquer(personnage2);
+				
+				//personnage1.combattre();
+				
+				//personnage1.actionAttaquer(personnage2);
+				
+				//personnage2.actionAttaquer(personnage1);	
 		}
 		if(personnage1.isKo()){
 			personnage1.getContexteEtat().etatP = new EtatPersonnageMort();
+			System.out.println("gerrier mort)"+personnage1.isKo());
+			try {
+				Thread.sleep(30000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}else
+			
 		if(personnage2.isKo()){
 			personnage2.getContexteEtat().etatP = new EtatPersonnageMort();
+			System.out.println("monstre mort)"+personnage1.isKo());
+			try {
+				Thread.sleep(30000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 	}

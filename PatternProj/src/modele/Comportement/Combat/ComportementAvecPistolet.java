@@ -5,7 +5,7 @@ import modele.Personnage;
 public class ComportementAvecPistolet implements IComportementCombat {
 
 	@Override
-	public void Attaquer(Personnage perso) {
+	public void Attaquer() {
 		// TODO Auto-generated method stub
 		
 	}
