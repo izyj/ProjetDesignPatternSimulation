@@ -191,7 +191,7 @@ public abstract class Personnage {
 	public void setContexteEtat(AutomateEtat contexteEtat) {
 		this.contexteEtat = contexteEtat;
 
-	
+	}
 
 
 }
