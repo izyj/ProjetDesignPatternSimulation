@@ -54,8 +54,8 @@ public class Case extends Zone{
 	}
 
 	public void changerImageCase(EnumElementPlateau type){
-		String element = type.toString();
-		switch (element) {
+
+		switch (type.toString()) {
 	        case "personnage":  this.setIcon(new ImageIcon(gestionImages.getPersonnage().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
 	                   			break;
 	        case "mur": 		this.setIcon(new ImageIcon(gestionImages.getMur().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
