@@ -3,21 +3,21 @@ package controleur.etat;
 public interface IEtatPersonnage {
 	
 	
-	public void actionDormir();
+	public void actionDormir(AutomateEtat context);
 	
-	public void actionSeReveiller();
+	public void actionSeReveiller(AutomateEtat context);
 	
-	public void actionManger();
+	public void actionManger(AutomateEtat context);
 	
-	public void actionMort();
+	public void actionMort(AutomateEtat context);
 	
-	public void actionPersoAttaqueCorpsACorps();
+	public void actionPersoAttaqueCorpsACorps(AutomateEtat context);
 	
-	public void actionPersoAttaqueADistance();
+	public void actionPersoAttaqueADistance(AutomateEtat context);
 	
-	public void actionPersoImmobile();
+	public void actionPersoImmobile(AutomateEtat context);
 	
-	public void actionPersoEnDeplacement();
+	public void actionPersoEnDeplacement(AutomateEtat context);
 	
 
 }

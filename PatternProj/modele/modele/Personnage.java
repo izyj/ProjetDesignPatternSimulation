@@ -2,7 +2,7 @@ package modele;
 
 import java.util.List;
 
-import controleur.etat.IEtatPersonnage;
+import controleur.etat.AutomateEtat;
 import modele.Comportement.Combat.IComportementCombat;
 import modele.Comportement.Deplacement.IComportementDeplacement;
 import modele.Comportement.Deplacement.eDirection;
@@ -22,7 +22,7 @@ public abstract class Personnage {
 	protected boolean ko;
 	protected int positionX;
 	protected int positionY;
-	protected IEtatPersonnage etatPersonnage;
+	protected AutomateEtat contexteEtat;
 
 	// Comportement du personnage
 	private IComportementCombat ComportementCombat ;
@@ -184,11 +184,14 @@ public abstract class Personnage {
 		ennemie.setVie(ennemie.getVie()-this.attaque);
 	}
 
-	public IEtatPersonnage getEtatPersonnage() {
-		return etatPersonnage;
-	}
 
-	public void setEtatPersonnage(IEtatPersonnage etatPersonnage) {
-		this.etatPersonnage = etatPersonnage;
+	public AutomateEtat getContexteEtat() {
+		return contexteEtat;
 	}
+	public void setContexteEtat(AutomateEtat contexteEtat) {
+		this.contexteEtat = contexteEtat;
+
+	
+
+
 }

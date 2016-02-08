@@ -3,53 +3,54 @@ package controleur.etat;
 public class EtatPersonnageArreter implements IEtatPersonnage {
 
 	@Override
-	public void actionDormir() {
+	public void actionDormir(AutomateEtat context) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void actionManger() {
+	public void actionSeReveiller(AutomateEtat context) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void actionMort() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void actionPersoImmobile() {
+	public void actionManger(AutomateEtat context) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void actionPersoEnDeplacement() {
+	public void actionMort(AutomateEtat context) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void actionSeReveiller() {
+	public void actionPersoAttaqueCorpsACorps(AutomateEtat context) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void actionPersoAttaqueCorpsACorps() {
+	public void actionPersoAttaqueADistance(AutomateEtat context) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void actionPersoAttaqueADistance() {
+	public void actionPersoImmobile(AutomateEtat context) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void actionPersoEnDeplacement(AutomateEtat context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 
 }
