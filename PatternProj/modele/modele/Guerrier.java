@@ -107,16 +107,6 @@ public class Guerrier extends Personnage implements IPersonnage {
 
 
 	@Override
-	public void KO() {
-		//if (ko == true){ //Quand il perd de la vie il doit s'arrêter pendant 1 seconde.
-			seReposer(1);
-			
-			//}
-		
-	}
-
-
-	@Override
 	public int attaque() {
 		Random rnd = new Random();
 		int d= rnd.nextInt(force)+1 ;

@@ -159,12 +159,6 @@ public abstract class Personnage {
 		return false;
 	}
 
-	public void setKo(boolean ko) {
-		this.ko = ko;
-	}
-
-
-
 	public int getPositionX() {
 		return positionX;
 	}

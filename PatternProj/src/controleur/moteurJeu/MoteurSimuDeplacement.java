@@ -256,89 +256,48 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	}
 
 
-	@Override
-	public void actionDormir() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void actionSeReveiller() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void actionManger() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void actionPersoAttaqueCorpsACorps() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	@Override
-	public void actionPersoSeDeplace() {
-		// TODO Auto-generated method stub
-		
-		this.newPositionX = newPositionX;
-	}
-
-
-	@Override
-	public void actionDormir() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void actionSeReveiller() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void actionManger() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void actionPersoAttaqueCorpsACorps() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void actionPersoAttaqueADistance() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void actionPersoSeDeplace() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 
 	@Override
 	public void actualiser(IObservable o) {
 		
-		listePersonnages
+		//listePersonnages
+		
+	}
+
+
+	@Override
+	public void actionDormir() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actionSeReveiller() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actionManger() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actionPersoAttaqueCorpsACorps() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actionPersoSeDeplace() {
+		// TODO Auto-generated method stub
 		
 	}
 
