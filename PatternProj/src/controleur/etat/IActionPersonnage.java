@@ -11,7 +11,6 @@ public interface IActionPersonnage {
 	
 	public void actionPersoAttaqueCorpsACorps();
 	
-	public void actionPersoAttaqueADistance();
 	
 	public void actionPersoSeDeplace();
 	

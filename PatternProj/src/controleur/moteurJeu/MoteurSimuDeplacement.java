@@ -15,13 +15,11 @@ import modele.Iinterface.IMoteurDeJeu;
 import modele.Iinterface.IObservable;
 import modele.Iinterface.IObservateur;
 import modele.Iinterface.IPlateau;
-import modele.Keys.EnumElementPlateau;
 import modele.Keys.EnumTypePersonnage;
-import modele.map.Case;
 import modele.map.Grille;
 import modele.map.Zone;
 
-public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObservable,IActionPersonnage {
+public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObservable,IActionPersonnage,IObservateur {
 
 
 	private Grille grille;
@@ -286,6 +284,43 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	}
 
 
+
+	@Override
+	public void actionPersoSeDeplace() {
+		// TODO Auto-generated method stub
+		
+		this.newPositionX = newPositionX;
+	}
+
+
+	@Override
+	public void actionDormir() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actionSeReveiller() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actionManger() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actionPersoAttaqueCorpsACorps() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	@Override
 	public void actionPersoAttaqueADistance() {
 		// TODO Auto-generated method stub
@@ -296,6 +331,14 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	@Override
 	public void actionPersoSeDeplace() {
 		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void actualiser(IObservable o) {
+		
+		listePersonnages
 		
 	}
 

@@ -17,6 +17,14 @@ public class EtatPersonnageManger implements IEtatPersonnage {
 	@Override
 	public void actionManger(AutomateEtat context) {
 		// TODO Auto-generated method stub
+	public void actionManger(AutomateEtat context) {
+		MoteurSimuDeplacement moteur = (MoteurSimuDeplacement) context.getMoteur();
+		for(Personnage perso : moteur.getListePersonnages()){
+			if(perso instanceof Guerrier){
+				Guerrier guerrier = (Guerrier) perso;
+				
+			}
+		}
 		
 	}
 
@@ -27,16 +35,11 @@ public class EtatPersonnageManger implements IEtatPersonnage {
 	}
 
 	@Override
-	public void actionPersoAttaqueCorpsACorps(AutomateEtat context) {
+	public void actionPersoAttaque(AutomateEtat context) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void actionPersoAttaqueADistance(AutomateEtat context) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void actionPersoImmobile(AutomateEtat context) {

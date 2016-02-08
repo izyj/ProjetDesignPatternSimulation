@@ -19,7 +19,6 @@ public abstract class Personnage {
 	protected int vie;
 	protected int force ;
 	protected int attaque;
-	protected boolean ko;
 	protected int positionX;
 	protected int positionY;
 	protected AutomateEtat contexteEtat;
@@ -43,7 +42,6 @@ public abstract class Personnage {
 		DefaultPosition = defaultPosition;
 		Name = name;
 		this.vie = vie;
-		this.ko = ko;
 		this.force=force;
 		ComportementCombat = comportementCombat;
 		ComportementDeplacement = comportementDeplacement;
@@ -53,8 +51,8 @@ public abstract class Personnage {
    //Méthode Se reposer
 	public abstract  void seReposer(int i);
 
-   //Méthode KO Perdre la vie
-	public abstract void KO();
+   
+
 
    //Méthode permettra des dégats
 	public abstract int attaque();
@@ -65,11 +63,15 @@ public abstract class Personnage {
 		ComportementDeplacement.deplacer(direction);
 	}
 
-	//Méthode de Combattre de personnage
-	public void combattre(){
-
-		ComportementCombat.Attaquer();
-	}
+	/**
+	 * Methode permettant d'attaquer un autre personnage
+	 * @param perso
+	 */
+	 public void combattre(Personnage perso){
+	  		  
+		ComportementCombat.Attaquer(perso);
+		
+	 }		  	
 
 	//Méthode de PoseObject
 	public void PoseObject(){
@@ -146,14 +148,22 @@ public abstract class Personnage {
 	public void setAttaque(int attaque) {
 		this.attaque = attaque;
 	}
-
+	
+	/**
+	  * Retourne un boolean qui indique si le personnage est mort
+	*/
 	public boolean isKo() {
-		return ko;
+		if(this.vie ==0)
+			return true;
+		
+		return false;
 	}
 
 	public void setKo(boolean ko) {
 		this.ko = ko;
 	}
+
+
 
 	public int getPositionX() {
 		return positionX;
@@ -192,6 +202,12 @@ public abstract class Personnage {
 		this.contexteEtat = contexteEtat;
 
 	}
+
+
+
+
+
+	
 
 
 }

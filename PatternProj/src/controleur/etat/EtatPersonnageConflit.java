@@ -1,7 +1,14 @@
 package controleur.etat;
 
+import modele.Personnage;
+
 public class EtatPersonnageConflit implements IEtatPersonnage {
 
+	Personnage personnage1, personnage2;
+	public EtatPersonnageConflit(Personnage perso1,Personnage perso2) {
+		personnage1 = perso1;
+		personnage2 = perso2;
+	}
 	@Override
 	public void actionDormir(AutomateEtat context) {
 		// TODO Auto-generated method stub
@@ -27,16 +34,16 @@ public class EtatPersonnageConflit implements IEtatPersonnage {
 	}
 
 	@Override
-	public void actionPersoAttaqueCorpsACorps(AutomateEtat context) {
-		// TODO Auto-generated method stub
+	public void actionPersoAttaque(AutomateEtat context) {
+		
+		while(!personnage1.isKo() && !personnage2.isKo()){
+			
+			personnage1.actionAttaquer(personnage2);
+			personnage2.actionAttaquer(personnage1);
+		}
 		
 	}
 
-	@Override
-	public void actionPersoAttaqueADistance(AutomateEtat context) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void actionPersoImmobile(AutomateEtat context) {
@@ -49,6 +56,8 @@ public class EtatPersonnageConflit implements IEtatPersonnage {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
 
 	
 

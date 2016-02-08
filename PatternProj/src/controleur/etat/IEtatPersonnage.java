@@ -11,10 +11,8 @@ public interface IEtatPersonnage {
 	
 	public void actionMort(AutomateEtat context);
 	
-	public void actionPersoAttaqueCorpsACorps(AutomateEtat context);
-	
-	public void actionPersoAttaqueADistance(AutomateEtat context);
-	
+	public void actionPersoAttaque(AutomateEtat context);
+		
 	public void actionPersoImmobile(AutomateEtat context);
 	
 	public void actionPersoEnDeplacement(AutomateEtat context);

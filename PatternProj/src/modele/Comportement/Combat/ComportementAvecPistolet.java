@@ -1,10 +1,15 @@
 package modele.Comportement.Combat;
 
+import modele.Personnage;
+
 public class ComportementAvecPistolet implements IComportementCombat {
 
-	public String Attaquer() {
+	@Override
+	public void Attaquer(Personnage perso) {
+		// TODO Auto-generated method stub
 		
-		return "Je combat avec un Pistolet !";
 	}
+
+	
 
 }

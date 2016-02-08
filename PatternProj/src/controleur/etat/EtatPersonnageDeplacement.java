@@ -31,16 +31,11 @@ public class EtatPersonnageDeplacement implements IEtatPersonnage {
 	}
 
 	@Override
-	public void actionPersoAttaqueCorpsACorps(AutomateEtat context) {
+	public void actionPersoAttaque(AutomateEtat context) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	public void actionPersoAttaqueADistance(AutomateEtat context) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void actionPersoImmobile(AutomateEtat context) {

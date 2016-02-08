@@ -9,7 +9,7 @@ public class Monstre extends Personnage implements IPersonnage {
 
 	public Monstre() {
 		vie = 10;
-		ko = false;
+		//ko = false;
 		force =5;
 	}
 	@Override
@@ -76,11 +76,7 @@ public class Monstre extends Personnage implements IPersonnage {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
-	public void KO() {
-		// TODO Auto-generated method stub
-		
-	}
+
 	@Override
 	public int attaque() {
 		

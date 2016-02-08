@@ -1,11 +1,25 @@
 package modele.Comportement.Combat;
 
-public class ComportementAvecCouteau  implements IComportementCombat {
+import modele.Personnage;
+import modele.armes.Dague;
 
-	@Override
-	public String Attaquer() {
+public class ComportementAvecCouteau  implements IComportementCombat {
+	
+	Personnage currentPersonnage;
+	
+	public ComportementAvecCouteau(Personnage personnageAuCouteau) {
 		
-		return  "Je combat avec un Couteau !";
+		currentPersonnage = personnageAuCouteau;
+	}
+	
+	@Override
+	public void Attaquer(Personnage perso) {
+		Dague d = new Dague();
+		
+		currentPersonnage.setAttaque(currentPersonnage.getForce() + d.getDegatsDeBase());
+		currentPersonnage.actionAttaquer(perso);
+		
+		
 	}
 
 }

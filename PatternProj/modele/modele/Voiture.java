@@ -77,11 +77,6 @@ public class Voiture extends Personnage implements IPersonnage{
 		
 	}
 
-	@Override
-	public void KO() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public int attaque() {

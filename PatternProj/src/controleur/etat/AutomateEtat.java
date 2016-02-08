@@ -36,7 +36,7 @@ public class AutomateEtat implements IActionPersonnage {
 			
 		}
 		if (etatP instanceof EtatPersonnageConflit) {
-			etatP.actionPersoAttaqueCorpsACorps(this);
+			etatP.actionPersoAttaque(this);
 		}
 		
 	}
@@ -73,16 +73,10 @@ public class AutomateEtat implements IActionPersonnage {
 
 	@Override
 	public void actionPersoAttaqueCorpsACorps() {
-		etatP.actionPersoAttaqueCorpsACorps(this);
+		etatP.actionPersoAttaque(this);
 		
 	}
 
-
-	@Override
-	public void actionPersoAttaqueADistance() {
-		etatP.actionPersoAttaqueADistance(this);
-		
-	}
 
 
 	@Override

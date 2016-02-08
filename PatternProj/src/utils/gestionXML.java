@@ -112,7 +112,6 @@ public class gestionXML {
 		Personnage personnage = new Personnage() {
 			public void seReposer(int i) {}
 			public int attaque() {return 0;}
-			public void KO() {}
 		};
 		
 		// On crée une List contenant tous les noeuds "carte" de l'Element racine.

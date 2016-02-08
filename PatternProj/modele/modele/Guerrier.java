@@ -12,7 +12,7 @@ public class Guerrier extends Personnage implements IPersonnage {
 
 	public Guerrier() {
 		vie = 5;
-		ko = false;
+		//ko = false;
 		force =5;
 	}
 
@@ -105,14 +105,16 @@ public class Guerrier extends Personnage implements IPersonnage {
 		}		
 	}
 
+
 	@Override
 	public void KO() {
-		if (ko == true){ //Quand il perd de la vie il doit s'arrêter pendant 1 seconde.
+		//if (ko == true){ //Quand il perd de la vie il doit s'arrêter pendant 1 seconde.
 			seReposer(1);
 			
-			}
+			//}
 		
 	}
+
 
 	@Override
 	public int attaque() {
