@@ -82,27 +82,9 @@ public class Guerrier extends Personnage implements IPersonnage {
 	}
 
 	@Override
-	public void seReposer(int i) {
+	public void seReposer() {
 		
-		if (i == 2){ // il s'arrete 2 secondes. Il récupérera  2 points de vie.
-			vie +=2;
-			if (vie == 10){
-				vie =10;	
-			}
-		}
-		if (i == 1){ // il s'arrete 1 secondes. Il commence par 5 points de vie.
-			vie +=5;
-			if (vie == 10){
-				vie =10;	
-			}
-		}
-		
-		if (i == 5){ // il s'arrete 5 secondes. Il récupérera par 4 points de vie.
-			vie +=4;
-			if (vie == 10){
-				vie =10;	
-			}
-		}		
+		vie +=2;		
 	}
 
 

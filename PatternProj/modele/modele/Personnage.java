@@ -49,7 +49,7 @@ public abstract class Personnage {
 	}
 	
    //Méthode Se reposer
-	public abstract  void seReposer(int i);
+	public abstract  void seReposer();
 
    
 

@@ -110,7 +110,7 @@ public class gestionXML {
 	static Personnage getPersonnage() {
 
 		Personnage personnage = new Personnage() {
-			public void seReposer(int i) {}
+			public void seReposer() {}
 			public int attaque() {return 0;}
 		};
 		

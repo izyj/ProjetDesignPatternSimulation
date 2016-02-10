@@ -72,7 +72,7 @@ public class Voiture extends Personnage implements IPersonnage{
 	}
 
 	@Override
-	public void seReposer(int i) {
+	public void seReposer() {
 		// TODO Auto-generated method stub
 		
 	}

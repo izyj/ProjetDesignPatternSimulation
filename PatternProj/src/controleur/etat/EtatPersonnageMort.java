@@ -33,7 +33,10 @@ public class EtatPersonnageMort implements IEtatPersonnage,IObservable {
 
 		MoteurSimuDeplacement moteur = (MoteurSimuDeplacement) context.getMoteur();
 		try {
-			Thread.sleep(5000);
+			  Thread t = new Thread(moteur);
+		        t.start();
+		        Thread.sleep(1000);
+		        t.interrupt();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

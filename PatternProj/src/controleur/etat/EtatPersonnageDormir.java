@@ -1,5 +1,7 @@
 package controleur.etat;
 
+
+
 import controleur.moteurJeu.MoteurSimuDeplacement;
 import modele.Guerrier;
 import modele.Personnage;
@@ -10,24 +12,25 @@ public class EtatPersonnageDormir implements IEtatPersonnage, IObservable {
 
 	@Override
 	public void actionDormir(AutomateEtat context) {
+	
 		MoteurSimuDeplacement moteur = (MoteurSimuDeplacement) context.getMoteur();
-		for(Personnage perso : moteur.getListePersonnages()){
-			if(perso instanceof Guerrier){
-				Guerrier guerrier = (Guerrier) perso;
-				try {
-					moteur.sleep(100);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+		for (Personnage perso : moteur.getListePersonnages()) {
+			if (perso instanceof Guerrier) {
+				perso.seReposer();
+				
 			}
 		}
-		
+		try {
+			moteur.sleep(4000);
+			context.etatP = new EtatPersonnageDeplacement();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void actionSeReveiller(AutomateEtat context) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

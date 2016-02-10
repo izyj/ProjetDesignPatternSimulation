@@ -25,32 +25,32 @@ public class EtatPersonnageDeplacement implements IEtatPersonnage, IObservable {
 
 	@Override
 	public void actionSeReveiller(AutomateEtat context) {
-		// TODO Auto-generated method stub
+		throw null;
 		
 	}
 
 	@Override
 	public void actionManger(AutomateEtat context) {
-		// TODO Auto-generated method stub
+		throw null;
 		
 	}
 
 	@Override
 	public void actionMort(AutomateEtat context) {
-		// TODO Auto-generated method stub
+		throw null;
 		
 	}
 
 	@Override
 	public void actionPersoAttaque(AutomateEtat context) {
-		// TODO Auto-generated method stub
+		throw null;
 		
 	}
 
 
 	@Override
 	public void actionPersoImmobile(AutomateEtat context) {
-		// TODO Auto-generated method stub
+		throw null;
 		
 	}
 
@@ -161,7 +161,7 @@ public class EtatPersonnageDeplacement implements IEtatPersonnage, IObservable {
 
 	@Override
 	public void supprimerObservateur(IObservateur observateur) {
-		// TODO Auto-generated method stub
+		listObservateur.remove(observateur);
 		
 	}
 

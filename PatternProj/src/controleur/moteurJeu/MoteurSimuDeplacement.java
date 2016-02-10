@@ -55,6 +55,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	    while( System.currentTimeMillis() < ( start + (10000 * 10))) {
 
 	    	traitement();
+	    	
 
 	      try {
 	        // pause
@@ -121,6 +122,9 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 				personnage.getContexteEtat().action();
 				notifierObservateurs();
 			}
+
+	        
+	       
 		}
 	}
 	
@@ -226,7 +230,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 
 	@Override
 	public void actionSeReveiller() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

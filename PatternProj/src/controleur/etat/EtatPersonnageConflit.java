@@ -45,7 +45,7 @@ public class EtatPersonnageConflit implements IEtatPersonnage, IObservable {
 	@Override
 	public void actionPersoAttaque(AutomateEtat context) {
 		
-		listObservateur.add((IObservateur)context.getMoteur());
+		ajouterObservateur((IObservateur)context.getMoteur());
 		while(!personnage1.isKo() && !personnage2.isKo()){
 			if(!personnage1.isKo()){
 			personnage1.combattre(personnage2);
@@ -94,12 +94,12 @@ public class EtatPersonnageConflit implements IEtatPersonnage, IObservable {
 	}
 	@Override
 	public void ajouterObservateur(IObservateur observateur) {
-		// TODO Auto-generated method stub
+		listObservateur.add(observateur);
 		
 	}
 	@Override
 	public void supprimerObservateur(IObservateur observateur) {
-		// TODO Auto-generated method stub
+		listObservateur.remove(observateur);
 		
 	}
 	@Override
