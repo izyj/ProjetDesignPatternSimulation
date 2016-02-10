@@ -5,8 +5,10 @@ package controleur.etat;
 import java.awt.Container;
 
 import controleur.moteurJeu.MoteurSimuDeplacement;
+import modele.Iinterface.IObservable;
+import modele.Iinterface.IObservateur;
 
-public class EtatPersonnageMort implements IEtatPersonnage {
+public class EtatPersonnageMort implements IEtatPersonnage,IObservable {
 
 	@Override
 	public void actionDormir(AutomateEtat context) {
@@ -54,6 +56,24 @@ public class EtatPersonnageMort implements IEtatPersonnage {
 
 	@Override
 	public void actionPersoEnDeplacement(AutomateEtat context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ajouterObservateur(IObservateur observateur) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void supprimerObservateur(IObservateur observateur) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void notifierObservateurs() {
 		// TODO Auto-generated method stub
 		
 	}

@@ -3,8 +3,10 @@ package controleur.etat;
 import controleur.moteurJeu.MoteurSimuDeplacement;
 import modele.Guerrier;
 import modele.Personnage;
+import modele.Iinterface.IObservable;
+import modele.Iinterface.IObservateur;
 
-public class EtatPersonnageDormir implements IEtatPersonnage {
+public class EtatPersonnageDormir implements IEtatPersonnage, IObservable {
 
 	@Override
 	public void actionDormir(AutomateEtat context) {
@@ -56,6 +58,24 @@ public class EtatPersonnageDormir implements IEtatPersonnage {
 
 	@Override
 	public void actionPersoEnDeplacement(AutomateEtat context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ajouterObservateur(IObservateur observateur) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void supprimerObservateur(IObservateur observateur) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void notifierObservateurs() {
 		// TODO Auto-generated method stub
 		
 	}

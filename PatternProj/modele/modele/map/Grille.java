@@ -89,18 +89,20 @@ public class Grille extends JPanel implements Map {
 	 * Methode qui permet  qui place les personnages au chargement de la grille
 	 */
 	public void chargerPersonnage(List<Personnage> personages) {
-
+		Case uneCase = null;
 		for (Personnage personnage : personages) {
-
+			
 			if (personnage instanceof Guerrier ) {
 				System.out.println("Guerrier");
 				grille.get(0).get(0).getPersonages().add(personnage);
-				Case uneCase = (Case) grille.get(0).get(0);
+				uneCase = (Case) grille.get(0).get(0);
 				uneCase.changerImageCase(EnumElementPlateau.personnage);
 				grille.get(0).get(0).setText("Personnage");
 
 			}else if (personnage instanceof Monstre ) {
-				grille.get(0).get(0).getPersonages().add(personnage);
+				grille.get(1).get(1).getPersonages().add(personnage);
+				uneCase = (Case) grille.get(1).get(1);
+				uneCase.changerImageCase(EnumElementPlateau.monstre);
 			}
 
 		}

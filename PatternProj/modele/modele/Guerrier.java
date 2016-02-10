@@ -11,7 +11,7 @@ import modele.map.Zone;
 public class Guerrier extends Personnage implements IPersonnage {
 
 	public Guerrier() {
-		vie = 5;
+		vie = 15;
 		//ko = false;
 		force =5;
 	}

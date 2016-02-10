@@ -24,6 +24,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 
 	private Grille grille;
 	private List<Personnage> listePersonnages;
+	private Personnage hero;
 	private SimuDeplacementFactory factory;
 	private List<IObservateur> listObservateur;
 	private int newPositionY;
@@ -53,7 +54,7 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	    // boucle  durée de vie du thread 
 	    while( System.currentTimeMillis() < ( start + (10000 * 10))) {
 
-	    	deplacementPersonnage();
+	    	traitement();
 
 	      try {
 	        // pause
@@ -101,80 +102,26 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	 */
 	private void deplacementHeros(Personnage hero){
 
+			
 		
-		
-			hero.getContexteEtat().action();
-			//hero.getContexteEtat();
-			//List<List<Zone>> plateau;
-			notifierObservateurs();
 			
 			// on vérifie que des ennemies ne sont pas present
 			//verifierEnemiesPresent(hero,grille.recupererGrille());
 		
 	}
 
-	/**
-	 * Cette methode verifie si des enemies sont present dans les cases suivantes
-	 * 
-	 */
-	private void verifierEnemiesPresent(Personnage hero,List<List<Zone>> plateau){
-		Monstre tempShape = null;
-		//on vérifie d'abord que l'on ne regarde pas une case depassant le tableau
-		if(hero.getPositionX() <= plateau.get(hero.getPositionX()).size()){
-			//on vérifie qu'un monstre se trouve dans la prochaine case
-			Zone temp =  plateau.get(hero.getPositionX()).get(hero.getPositionY()+1);
-			if(!temp.getPersonages().isEmpty()){
-				
-				if(temp.getPersonages().get(0) instanceof  Monstre){
-					
-					tempShape = (Monstre) temp.getPersonages().get(0);
-					
-					hero.actionAttaquer(tempShape);
-					listePersonnages.add(temp.getPersonages().get(0));
-					notifierObservateurs();
-				}
-				
-			}
-			else{
-				// pour les attaques a distance on vérifie qu'un monstre ne se trouve pas 4 cases devant
-				temp =  plateau.get(hero.getPositionX()).get(hero.getPositionY()+4);
-				if(!temp.getPersonages().isEmpty()){
-					int min =0;
-					int max = 10;
-					// On génere un nombre aléatoire le guerrier ne regardera pas tous le temps a distance
-					int nombreAleatoire = min + (int)(Math.random() * ((max - min) + 1));	
-					if(temp.getPersonages().get(0) instanceof  Monstre && nombreAleatoire >=  5){
-						
-						tempShape = (Monstre) temp.getPersonages().get(0);
-						
-						hero.actionAttaquer(tempShape);
-						listePersonnages.add(temp.getPersonages().get(0));
-						notifierObservateurs();
-					}
-				
-				
-					
-			}
-		}
-		}
 
-	}
-
-	/**
-	 * Methode qui permet au personnage de se déplacer (seul le héros se déplace)
-	 */
 	@Override
-	public void deplacementPersonnage() {
+	public void traitement() {
 
 		for (Personnage personnage : listePersonnages) {
 
 			if (personnage instanceof Guerrier) {
-				 deplacementHeros(personnage);
+				hero = personnage;
+				personnage.getContexteEtat().action();
+				notifierObservateurs();
 			}
-
 		}
-
-
 	}
 	
 	private void actionAttaque(Guerrier hero, Monstre monstre){
@@ -189,8 +136,10 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	@Override
 	public void chargerPersonnage() {
 		Personnage perso = factory.getPersonnage(EnumTypePersonnage.Guerrier);
+		Personnage monstre = factory.getPersonnage(EnumTypePersonnage.Monstre);
 		listePersonnages = new ArrayList<>();
 		listePersonnages.add(perso);
+		listePersonnages.add(monstre);
 		grille.chargerPersonnage(listePersonnages);
 
 	}
@@ -262,7 +211,8 @@ public class MoteurSimuDeplacement extends Thread implements IMoteurDeJeu, IObse
 	@Override
 	public void actualiser(IObservable o) {
 		
-		//listePersonnages
+		notifierObservateurs();
+		hero.getContexteEtat().action();
 		
 	}
 

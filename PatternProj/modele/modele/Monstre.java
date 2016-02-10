@@ -9,7 +9,6 @@ public class Monstre extends Personnage implements IPersonnage {
 
 	public Monstre() {
 		vie = 10;
-		//ko = false;
 		force =5;
 	}
 	@Override

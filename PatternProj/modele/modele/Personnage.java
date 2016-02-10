@@ -153,7 +153,7 @@ public abstract class Personnage {
 	  * Retourne un boolean qui indique si le personnage est mort
 	*/
 	public boolean isKo() {
-		if(this.vie ==0)
+		if(this.vie <=0)
 			return true;
 		
 		return false;

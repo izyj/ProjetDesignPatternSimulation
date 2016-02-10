@@ -11,10 +11,10 @@ public interface IMoteurDeJeu {
 	public void chargerPlateau(IPlateau plateau);
 
 	/**
-	 * Methode permettant de déplacer un personnage
+	 * Methode permettant de lancer les actions du personnage
 	 * @param perso
 	 */
-	public void deplacementPersonnage();
+	public void traitement();
 
 
 	/**
