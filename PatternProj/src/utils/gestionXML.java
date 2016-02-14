@@ -44,11 +44,13 @@ public class gestionXML {
 		// On initialise un nouvel élément racine avec l'élément racine du document.
 		racine = document.getRootElement();
 
-		getDimensionCarte();
-		getCarte();
-		getPersonnage();
-		getArme();
+		Hashtable<String, Integer> dim = getDimensionCarte();
+		String carte = getCarte();
+		Personnage perso = getPersonnage();
+		Arme uneArme = getArme();
 		
+		Hashtable<int[][], String> mapTap = getTabMap(carte, dim);
+	
 		// return null;
 	}
 
@@ -101,6 +103,28 @@ public class gestionXML {
 		}
 		
 		return dimCarte;
+	}
+	
+	/**
+	 * Retourne la map dans un tableau avec position X et Y
+	 * @param map, dimension
+	 * @return tabMap
+	 */
+	static Hashtable<int[][], String> getTabMap(String map, Hashtable<String, Integer> dimension){
+		
+		Hashtable<int[][], String> tabMap = new Hashtable<int[][], String>();
+		
+		String[] ligneMap = map.split("\\n");
+		
+		for (int x=0; x < ligneMap.length-1; x++){
+			String[] symbolParLigne = ligneMap[x].split("");
+			for(int y=0; y < symbolParLigne.length; y++){
+				int coordonnees[][] = {{x},{y}};
+				tabMap.put(coordonnees, symbolParLigne[x+1]);
+			}
+		}
+		
+		return tabMap;	
 	}
 	
 	/**
@@ -157,7 +181,7 @@ public class gestionXML {
 		        				return unArc;
 			}
 		}
-		
 		return null;
 	}
+	
 }
