@@ -21,15 +21,16 @@ import org.jdom2.input.SAXBuilder;
  * @author Gaetan
  *
  */
-public class GestionXML implements GestionXMLService{
+//public class GestionXML implements GestionXMLService{
+public class GestionXML{
 
 	static Element racine;
 
-	 public String lectureFichierXML(File url){
-//	public static void main(String[] args) {
+//	 public String lectureFichierXML(File url){
+	public static void main(String[] args) {
 
 		// Url de test à virer quand implémenté dans les differents boutons.
-//		File url = new File("C:\\Users\\Gaetan\\Desktop\\partie1.xml");
+		File url = new File("C:\\Users\\Gaetan\\Desktop\\partie1.xml");
 
 		// On crée une instance de SAXBuilder.
 		SAXBuilder sxb = new SAXBuilder();
@@ -51,7 +52,7 @@ public class GestionXML implements GestionXMLService{
 		
 		Hashtable<int[][], String> mapTap = getTabMap(carte);
 	
-		 return null;
+//		 return null;
 	}
 
 	/**
@@ -59,7 +60,7 @@ public class GestionXML implements GestionXMLService{
 	 * 
 	 * @return carte
 	 */
-	public String getCarte() {
+	public static String getCarte() {
 
 		String carte = "";
 		
@@ -83,7 +84,7 @@ public class GestionXML implements GestionXMLService{
 	 * 
 	 * @return carte
 	 */
-	public Hashtable<String, Integer> getDimensionCarte() {
+	public static Hashtable<String, Integer> getDimensionCarte() {
 		
 		Hashtable<String, Integer> dimCarte = new Hashtable<String, Integer>();
 		
@@ -110,7 +111,7 @@ public class GestionXML implements GestionXMLService{
 	 * @param map, dimension
 	 * @return tabMap
 	 */
-	public Hashtable<int[][], String> getTabMap(String map){
+	public static Hashtable<int[][], String> getTabMap(String map){
 		
 		Hashtable<int[][], String> tabMap = new Hashtable<int[][], String>();
 		
@@ -131,7 +132,7 @@ public class GestionXML implements GestionXMLService{
 	 * Récupère les infos du personnage du fichier XML.
 	 * @return personnage
 	 */
-	public Personnage getPersonnage() {
+	public static Personnage getPersonnage() {
 
 		Personnage personnage = new Personnage() {
 			public void seReposer() {}
@@ -159,7 +160,7 @@ public class GestionXML implements GestionXMLService{
 	 * Retourne l'arme de base du personnage du fichier XML
 	 * @return
 	 */
-	public Arme getArme() {
+	public static Arme getArme() {
 
 		// On crée une List contenant tous les noeuds "carte" de l'Element racine.
 		List<Element> listParties = racine.getChildren("armes");
