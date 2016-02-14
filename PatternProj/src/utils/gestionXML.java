@@ -49,7 +49,7 @@ public class gestionXML {
 		Personnage perso = getPersonnage();
 		Arme uneArme = getArme();
 		
-		Hashtable<int[][], String> mapTap = getTabMap(carte, dim);
+		Hashtable<int[][], String> mapTap = getTabMap(carte);
 	
 		// return null;
 	}
@@ -110,7 +110,7 @@ public class gestionXML {
 	 * @param map, dimension
 	 * @return tabMap
 	 */
-	static Hashtable<int[][], String> getTabMap(String map, Hashtable<String, Integer> dimension){
+	static Hashtable<int[][], String> getTabMap(String map){
 		
 		Hashtable<int[][], String> tabMap = new Hashtable<int[][], String>();
 		
