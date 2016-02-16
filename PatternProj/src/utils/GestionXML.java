@@ -28,14 +28,13 @@ public class GestionXML{
 	static Element racine;
 	
 
-	 public static Hashtable<Coordonnees, String> lectureFichierXML(){
+	 public static Hashtable<Coordonnees, String> lectureFichierXML(String path){
      //public static void main(String[] args) {
 
 		// Url de test à virer quand implémenté dans les differents boutons.
 
 		  final File f = new File("");
-		  String fichier = "ressources\\xml\\partie1.xml";
-		  final String fichierPath = f.getAbsolutePath() + File.separator + fichier;
+		  final String fichierPath = f.getAbsolutePath() + File.separator + path;
 		  File url = new File(fichierPath);
 		
 		// On crée une instance de SAXBuilder.

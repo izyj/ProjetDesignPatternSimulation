@@ -41,7 +41,7 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 
 	@Override
 	public void createPlateau() {
-		grille = new Grille();
+		grille = new Grille("ressources\\xml\\partie1.xml");
 		factory = new SimuDeplacementFactory();
 		contexte = new ContexteSimulation();
 		List<Personnage> personnages = new ArrayList<>();

@@ -21,14 +21,14 @@ public class Grille extends JPanel implements Map {
 
 	private List<List<Zone>> grille;
 
-	public Grille() {
+	public Grille(String path) {
 		GridLayout grid = new GridLayout(10, 10);
 		this.setLayout(grid);
 		this.setBackground(new Color(255, 228, 196));
 
 		grille = new ArrayList<List<Zone>>();
 
-		Hashtable<Coordonnees, String> tabMap = GestionXML.lectureFichierXML();
+		Hashtable<Coordonnees, String> tabMap = GestionXML.lectureFichierXML(path);
 		Hashtable<String, Integer> dim = GestionXML.getDimensionCarte();
 
 		for (int x = 0; x <= dim.get("x"); x++) {
