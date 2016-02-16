@@ -20,12 +20,13 @@ import modele.ObjectItem.ObjectItemAbstract;
 public class Grille extends JPanel implements Map {
 
 	private List<List<Zone>> grille;
+	private List<Personnage> listPersonnage;
 
 	public Grille(String path) {
 		GridLayout grid = new GridLayout(10, 10);
 		this.setLayout(grid);
 		this.setBackground(new Color(255, 228, 196));
-
+		listPersonnage = new ArrayList<>();
 		grille = new ArrayList<List<Zone>>();
 
 		Hashtable<Coordonnees, String> tabMap = GestionXML.lectureFichierXML(path);
@@ -39,6 +40,7 @@ public class Grille extends JPanel implements Map {
 				coor.setX(x);
 				coor.setY(y);
 				AddZone(y, x, tabMap.get(coor));
+				
 			}
 		}
 		lieZone();
@@ -58,7 +60,11 @@ public class Grille extends JPanel implements Map {
 		
 		if(typeCase != null){
 			switch (typeCase) {
-		        case "P":  uneCase.changerImageCase(EnumElementPlateau.personnage);
+		        case "P":  	uneCase.changerImageCase(EnumElementPlateau.personnage);
+		        			Personnage  guerrier = (Guerrier)GestionXML.getPersonnage();
+		        			guerrier.setPositionLigne(ligne);
+		        			guerrier.setPositionColonne(colonne);
+		           		   	listPersonnage.add(guerrier);
 		                   break;
 		        case "*":  uneCase.changerImageCase(EnumElementPlateau.mur);
 		        	       break;
@@ -190,5 +196,27 @@ public class Grille extends JPanel implements Map {
 
 		}
 	}
+
+
+	public List<List<Zone>> getGrille() {
+		return grille;
+	}
+
+
+	public void setGrille(List<List<Zone>> grille) {
+		this.grille = grille;
+	}
+
+
+	public List<Personnage> getListPersonnage() {
+		return listPersonnage;
+	}
+
+
+	public void setListPersonnage(List<Personnage> listPersonnage) {
+		this.listPersonnage = listPersonnage;
+	}
+	
+	
 
 }

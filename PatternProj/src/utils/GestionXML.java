@@ -7,6 +7,7 @@ import java.util.List;
 
 import modele.Arme;
 import modele.Coordonnees;
+import modele.Guerrier;
 import modele.Personnage;
 import modele.armes.Arc;
 import modele.armes.Dague;
@@ -145,10 +146,7 @@ public class GestionXML{
 	 */
 	public static Personnage getPersonnage() {
 
-		Personnage personnage = new Personnage() {
-			public void seReposer() {}
-			public int attaque() {return 0;}
-		};
+		Personnage personnage = new Guerrier();
 		
 		// On crée une List contenant tous les noeuds "carte" de l'Element racine.
 		List<Element> listParties = racine.getChildren("personnage");
