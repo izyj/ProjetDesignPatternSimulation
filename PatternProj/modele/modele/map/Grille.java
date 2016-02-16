@@ -34,7 +34,7 @@ public class Grille extends JPanel implements Map {
 		for (int x = 0; x <= dim.get("x"); x++) {
 			List<Zone> ligneTab = new ArrayList<Zone>();
 			grille.add(ligneTab);
-			for (int y = 1; y <= dim.get("y"); y++) {
+			for (int y = 0; y <= dim.get("y"); y++) {
 				Coordonnees coor = new Coordonnees();
 				coor.setX(x);
 				coor.setY(y);
@@ -51,7 +51,7 @@ public class Grille extends JPanel implements Map {
 	public void AddZone(int ligne, int colonne, String typeCase) {
 
 		Dimension dim = new Dimension();
-		dim.setSize(20, 20);
+		dim.setSize(40, 40);
 
 		Case uneCase = new Case(ligne, colonne);
 		uneCase.setMinimumSize(dim);
@@ -72,7 +72,7 @@ public class Grille extends JPanel implements Map {
 				           break;
 		        case "M":  uneCase.changerImageCase(EnumElementPlateau.monstre);
 		                   break;
-		        default:   uneCase.isVisible();
+		        default:   uneCase.changerImageCase(EnumElementPlateau.sol);
 		                   break;
 		    }	
 		}

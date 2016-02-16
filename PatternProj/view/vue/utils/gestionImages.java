@@ -97,4 +97,17 @@ public class gestionImages {
 		return image;
 	}
 	
+	/**
+	 * Retourne l'image du sol
+	 * @return image
+	 */
+	public static Image getSol() {
+		final File f = new File("");
+		String fichier = "src\\images\\sol.png";
+		final String fichierPath = f.getAbsolutePath() + File.separator + fichier;
+		java.awt.Toolkit toolkit = java.awt.Toolkit.getDefaultToolkit();
+		Image image = toolkit.getImage(fichierPath);
+		return image;
+	}
+	
 }

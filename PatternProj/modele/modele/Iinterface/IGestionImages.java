@@ -9,6 +9,7 @@ public interface IGestionImages {
 	public String monstre = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\monstre.png";
 	public String arme = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\arme.png";
 	public String guardTower = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\guardTower.png";
+	public String sol = "ProjetDesignPatternSimulation\\PatternProj\\ressources\\images\\sol.png";
 	
 }
 

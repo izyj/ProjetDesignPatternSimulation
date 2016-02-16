@@ -69,7 +69,7 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 			if (personnage instanceof Guerrier) {
 				Guerrier hero = (Guerrier)personnage;
 				Case Unecase = (Case) plateau.get(hero.getPositionX()).get(hero.getPositionY());
-				Unecase.changerImageCase(EnumElementPlateau.mur);
+				Unecase.changerImageCase(EnumElementPlateau.sol);
 				Unecase = (Case) plateau.get(moteur.getNewPositionX()).get(moteur.getNewPositionY());
 				hero.setPositionColonne(moteur.getNewPositionX());
 				hero.setPositionLigne(moteur.getNewPositionY());

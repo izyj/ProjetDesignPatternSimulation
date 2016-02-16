@@ -70,6 +70,8 @@ public class Case extends Zone{
 			               		break;
 	        case "monstre":  	this.setIcon(new ImageIcon(gestionImages.getMonstre().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
 	                   			break;
+	        case "sol":  	    this.setIcon(new ImageIcon(gestionImages.getSol().getScaledInstance(30, 30, Image.SCALE_DEFAULT)));
+   								break;
 	        default:   			this.Afficher();
 	        		   			break;
 		}

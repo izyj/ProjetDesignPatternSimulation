@@ -8,6 +8,7 @@ public enum EnumElementPlateau {
 	tour,
 	fin,
 	nourriture,
+	sol,
 	arme;
 
 }
