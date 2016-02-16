@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import modele.Arme;
+import modele.Coordonnees;
 import modele.Personnage;
 import modele.armes.Arc;
 import modele.armes.Dague;
@@ -25,9 +26,10 @@ import org.jdom2.input.SAXBuilder;
 public class GestionXML{
 
 	static Element racine;
+	
 
-//	 public String lectureFichierXML(File url){
-	public static void main(String[] args) {
+	 public static Hashtable<Coordonnees, String> lectureFichierXML(){
+     //public static void main(String[] args) {
 
 		// Url de test à virer quand implémenté dans les differents boutons.
 		File url = new File("C:\\Users\\Gaetan\\Desktop\\partie1.xml");
@@ -46,21 +48,22 @@ public class GestionXML{
 		racine = document.getRootElement();
 
 		Hashtable<String, Integer> dim = getDimensionCarte();
-		String carte = getCarte();
+		String carte = getCarte(dim);
 		Personnage perso = getPersonnage();
 		Arme uneArme = getArme();
 		
-		Hashtable<int[][], String> mapTap = getTabMap(carte);
+		Hashtable<Coordonnees, String> mapTap = getTabMap(carte, dim);
 	
-//		 return null;
+		return mapTap;
 	}
 
 	/**
 	 * Récupère la carte dans le fichier XML.
+	 * @param dim 
 	 * 
 	 * @return carte
 	 */
-	public static String getCarte() {
+	public static String getCarte(Hashtable<String, Integer> dim) {
 
 		String carte = "";
 		
@@ -72,8 +75,10 @@ public class GestionXML{
 
 		while (i.hasNext()) {
 			Element courant = (Element) i.next();
+			for(int z=0; z< dim.get("y"); z++){
+				carte += courant.getChild("carte").getChildText("ligne"+z) +"&";
+			}
 			
-			carte = courant.getChildText("carte");
 			System.out.println(carte);
 		}
 		return carte;
@@ -90,7 +95,7 @@ public class GestionXML{
 		
 		// On crée une List contenant tous les noeuds "carte" de l'Element racine.
 		List<Element> listParties = racine.getChildren("map");
-
+		
 		// On crée un Iterator sur notre liste
 		Iterator<Element> i = listParties.iterator();
 
@@ -108,27 +113,30 @@ public class GestionXML{
 	
 	/**
 	 * Retourne la map dans un tableau avec position X et Y
+	 * @param dim 
 	 * @param map, dimension
 	 * @return tabMap
 	 */
-	public static Hashtable<int[][], String> getTabMap(String map){
+	public static Hashtable<Coordonnees, String> getTabMap(String map, Hashtable<String, Integer> dim){
 		
-		Hashtable<int[][], String> tabMap = new Hashtable<int[][], String>();
+		Hashtable<Coordonnees, String> tabMap = new Hashtable<Coordonnees, String>();
 		
-		String[] ligneMap = map.split("\\n");
+		String[] ligneMap = map.split("&");
 		
-		for (int x=0; x < ligneMap.length-1; x++){
+		for (int x=0; x < ligneMap.length; x++){
 			String[] symbolParLigne = ligneMap[x].split("");
-			for(int y=0; y < symbolParLigne.length; y++){
-				int coordonnees[][] = {{x},{y}};
-				tabMap.put(coordonnees, symbolParLigne[x+1]);
+			for(int y=1; y < symbolParLigne.length; y++){
+				Coordonnees coordonnees = new Coordonnees();
+				coordonnees.setX(x);
+				coordonnees.setY(y);
+				tabMap.put(coordonnees, symbolParLigne[y]);	
 			}
 		}
 		
 		return tabMap;	
 	}
 	
-	/**
+	/** 
 	 * Récupère les infos du personnage du fichier XML.
 	 * @return personnage
 	 */

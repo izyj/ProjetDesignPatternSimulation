@@ -6,23 +6,24 @@
 			<x>10</x>
 			<y>10</y>
 		</taille>
-		<carte>**********
-*P       *
-****     *
-*      A *
-* M   ****
-*        *
-****   M *
-*        *
-* M   F  *
-**********	
+		<carte>
+			<ligne0>**********</ligne0>
+			<ligne1>*P       *</ligne1>
+			<ligne2>****     *</ligne2>
+			<ligne3>* A      *</ligne3>
+			<ligne4>* M   ****</ligne4>
+			<ligne5>*        *</ligne5>
+			<ligne6>**** M   *</ligne6>
+			<ligne7>*        *</ligne7>
+			<ligne8>* M F    *</ligne8>
+			<ligne9>**********</ligne9>
 		</carte>
-	</map>	
+	</map>
 	<personnage id="Perso1">
 		<nom>Wololo</nom>
 		<vie>20</vie>
 		<force>10</force>
-		<attaque>10</attaque>	
+		<attaque>10</attaque>
 	</personnage>
 	<armes id="Epee">
 		<nom>Epee</nom>
