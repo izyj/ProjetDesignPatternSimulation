@@ -46,8 +46,8 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 		contexte = new ContexteSimulation();
 		List<Personnage> personnages = new ArrayList<>();
 		contexte.setGrille(grille);
-		personnages.add(new Guerrier());
-		personnages.add(new Monstre());
+		//personnages.add(new Guerrier());
+		//personnages.add(new Monstre());
 		grille.chargerPersonnage(personnages);
 		contexte.setListPersonnage(personnages);
 		MoteurSimuDeplacement moteurJeu = new MoteurSimuDeplacement(contexte);
