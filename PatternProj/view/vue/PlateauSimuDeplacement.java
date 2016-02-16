@@ -56,7 +56,7 @@ public class PlateauSimuDeplacement extends IPlateau implements IObservateur {
 		this.getContentPane().add(grille);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setBackground(new Color(173,161,118));
-		this.setSize(700, 700);
+		this.setSize(350, 350);
 		setVisible(true);
 	}
 
