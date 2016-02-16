@@ -32,7 +32,10 @@ public class GestionXML{
      //public static void main(String[] args) {
 
 		// Url de test à virer quand implémenté dans les differents boutons.
-		File url = new File("C:\\Users\\Gaetan\\Desktop\\partie1.xml");
+		final File f = new File("");
+		String fichier = "ressources\\xml\\partie1.xml";
+		final String fichierPath = f.getAbsolutePath() + File.separator + fichier;
+		File url = new File(fichierPath);
 
 		// On crée une instance de SAXBuilder.
 		SAXBuilder sxb = new SAXBuilder();
