@@ -12,7 +12,7 @@ public class gestionImages {
 	 */
 	public static Image getPersonnage() {
 		final File f = new File("");
-		String fichier = "src\\images\\personnage.png";
+		String fichier = "ressources\\images\\personnage.png";
 		final String fichierPath = f.getAbsolutePath() + File.separator + fichier;
 		java.awt.Toolkit toolkit = java.awt.Toolkit.getDefaultToolkit();
 		Image image = toolkit.getImage(fichierPath);
@@ -25,7 +25,7 @@ public class gestionImages {
 	 */
 	public static Image getMur() {
 		final File f = new File("");
-		String fichier = "src\\images\\mur.png";
+		String fichier = "ressources\\images\\mur.png";
 		final String fichierPath = f.getAbsolutePath() + File.separator + fichier;
 		java.awt.Toolkit toolkit = java.awt.Toolkit.getDefaultToolkit();
 		Image image = toolkit.getImage(fichierPath);
@@ -38,7 +38,7 @@ public class gestionImages {
 	 */
 	public static Image getFin() {
 		final File f = new File("");
-		String fichier = "src\\images\\fin.png";
+		String fichier = "ressources\\images\\fin.png";
 		final String fichierPath = f.getAbsolutePath() + File.separator + fichier;
 		java.awt.Toolkit toolkit = java.awt.Toolkit.getDefaultToolkit();
 		Image image = toolkit.getImage(fichierPath);
@@ -51,7 +51,7 @@ public class gestionImages {
 	 */
 	public static Image getNourriture() {
 		final File f = new File("");
-		String fichier = "src\\images\\food.png";
+		String fichier = "ressources\\images\\food.png";
 		final String fichierPath = f.getAbsolutePath() + File.separator + fichier;
 		java.awt.Toolkit toolkit = java.awt.Toolkit.getDefaultToolkit();
 		Image image = toolkit.getImage(fichierPath);
@@ -64,7 +64,7 @@ public class gestionImages {
 	 */
 	public static Image getMonstre() {
 		final File f = new File("");
-		String fichier = "src\\images\\monstre.png";
+		String fichier = "ressources\\images\\monstre.png";
 		final String fichierPath = f.getAbsolutePath() + File.separator + fichier;
 		java.awt.Toolkit toolkit = java.awt.Toolkit.getDefaultToolkit();
 		Image image = toolkit.getImage(fichierPath);
@@ -77,7 +77,7 @@ public class gestionImages {
 	 */
 	public static Image getArme() {
 		final File f = new File("");
-		String fichier = "src\\images\\arme.png";
+		String fichier = "ressources\\images\\arme.png";
 		final String fichierPath = f.getAbsolutePath() + File.separator + fichier;
 		java.awt.Toolkit toolkit = java.awt.Toolkit.getDefaultToolkit();
 		Image image = toolkit.getImage(fichierPath);
@@ -90,7 +90,7 @@ public class gestionImages {
 	 */
 	public static Image getTour() {
 		final File f = new File("");
-		String fichier = "src\\images\\guardTower.png";
+		String fichier = "ressources\\images\\guardTower.png";
 		final String fichierPath = f.getAbsolutePath() + File.separator + fichier;
 		java.awt.Toolkit toolkit = java.awt.Toolkit.getDefaultToolkit();
 		Image image = toolkit.getImage(fichierPath);
@@ -103,7 +103,7 @@ public class gestionImages {
 	 */
 	public static Image getSol() {
 		final File f = new File("");
-		String fichier = "src\\images\\sol.png";
+		String fichier = "ressources\\images\\sol.png";
 		final String fichierPath = f.getAbsolutePath() + File.separator + fichier;
 		java.awt.Toolkit toolkit = java.awt.Toolkit.getDefaultToolkit();
 		Image image = toolkit.getImage(fichierPath);
