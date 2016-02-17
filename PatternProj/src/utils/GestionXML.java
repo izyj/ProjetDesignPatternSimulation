@@ -129,7 +129,7 @@ public class GestionXML{
 		
 		for (int x=0; x < ligneMap.length; x++){
 			String[] symbolParLigne = ligneMap[x].split("");
-			for(int y=1; y < symbolParLigne.length; y++){
+			for(int y=0; y < symbolParLigne.length; y++){
 				Coordonnees coordonnees = new Coordonnees();
 				coordonnees.setX(x);
 				coordonnees.setY(y);
